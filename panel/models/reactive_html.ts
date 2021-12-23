@@ -192,7 +192,8 @@ export class ReactiveHTMLView extends PanelHTMLBoxView {
       this._state,
       this,
       (s: any) => this.run_script(s),
-      this_obj
+      this_obj,
+      set_size
     )
   }
 
@@ -451,7 +452,7 @@ export class ReactiveHTMLView extends PanelHTMLBoxView {
     `
     scripts.push(event)
     scripts.push(literal)
-    return new Function("model, data, state, view, script, self", scripts.join('\n'))
+    return new Function("model, data, state, view, script, self, set_size", scripts.join('\n'))
   }
 
   private _remove_mutation_observers(): void {
