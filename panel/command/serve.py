@@ -194,7 +194,11 @@ class Serve(_BkServe):
             type    = str,
             help    = "Path to a setup script to run before server starts.",
             default = None
-        ))
+        )),
+        ('--reuse-sessions', dict(
+            action  = 'store_true',
+            help    = "Whether to reuse sessions when serving the initial request."
+        )),
     )
 
     # Supported file extensions
@@ -261,6 +265,7 @@ class Serve(_BkServe):
             raise ValueError("rest-provider %r not recognized." % args.rest_provider)
 
         config.autoreload = args.autoreload
+        config.reuse_sessions = args.reuse_sessions
 
         if config.autoreload:
             for f in files:
