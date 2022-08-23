@@ -2,6 +2,7 @@
 A module containing testing utilities and fixtures.
 """
 import atexit
+import multiprocessing
 import os
 import pathlib
 import re
@@ -270,10 +271,8 @@ def multiple_apps_server_sessions():
 def with_curdoc():
     old_curdoc = state.curdoc
     state.curdoc = Document()
-    try:
-        yield
-    finally:
-        state.curdoc = old_curdoc
+    yield
+    state.curdoc = old_curdoc
 
 
 @contextmanager
@@ -304,19 +303,17 @@ def server_cleanup():
     """
     Clean up server state after each test.
     """
-    try:
-        yield
-    finally:
-        state.kill_all_servers()
-        state._indicators.clear()
-        state._locations.clear()
-        state._curdoc = None
-        state.cache.clear()
-        state._scheduled.clear()
-        state._sessions.clear()
-        if state._thread_pool is not None:
-            state._thread_pool.shutdown(wait=False)
-            state._thread_pool = None
+    yield
+    state.kill_all_servers()
+    state._indicators.clear()
+    state._locations.clear()
+    state._curdoc = None
+    state.cache.clear()
+    state._scheduled.clear()
+    state._sessions.clear()
+    if state._thread_pool is not None:
+        state._thread_pool.shutdown(wait=False)
+        state._thread_pool = None
 
 @pytest.fixture(autouse=True)
 def cache_cleanup():
@@ -325,19 +322,15 @@ def cache_cleanup():
 @pytest.fixture
 def py_file():
     tf = tempfile.NamedTemporaryFile(mode='w', suffix='.py')
-    try:
-        yield tf
-    finally:
-        tf.close()
+    yield tf
+    tf.close()
 
 
 @pytest.fixture
 def threads():
-    config.nthreads = 4
-    try:
-        yield 4
-    finally:
-        config.nthreads = None
+    config.nthreads = min(multiprocessing.cpu_count(), 4)
+    yield config.nthreads
+    config.nthreads = None
 
 @pytest.fixture
 def change_test_dir(request):
