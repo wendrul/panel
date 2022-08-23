@@ -197,7 +197,7 @@ class Serve(_BkServe):
         )),
         ('--reuse-sessions', dict(
             action  = 'store_true',
-            help    = "Whether to reuse sessions when serving the initial request."
+            help    = "Whether to reuse sessions when serving the initial request.",
         )),
     )
 

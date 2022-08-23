@@ -181,12 +181,15 @@ state.on_session_created(_initialize_session_info)
 #---------------------------------------------------------------------
 
 def server_html_page_for_session(
-    session: 'ServerSession', resources: 'Resources', title: str, token: str,
+    session: 'ServerSession',
+    resources: 'Resources',
+    title: str,
+    token: str | None = None,
     template: str | Template = BASE_TEMPLATE,
     template_variables: Optional[Dict[str, Any]] = None,
 ) -> str:
     render_item = RenderItem(
-        token = token,
+        token = token or session.token,
         roots = session.document.roots,
         use_for_title = False,
     )
@@ -206,7 +209,6 @@ def autoload_js_script(doc, resources, token, element_id, app_path, absolute_url
     bundle.add(Script(script_for_render_items({}, render_items, app_path=app_path, absolute_url=absolute_url)))
 
     return AUTOLOAD_JS.render(bundle=bundle, elementid=element_id)
-
 
 def destroy_document(self, session):
     """
@@ -257,7 +259,6 @@ class Application(BkApplication):
             template.server_doc(title=template.title, location=True, doc=doc)
 
 bokeh.command.util.Application = Application # type: ignore
-
 
 class SessionPrefixHandler:
 
