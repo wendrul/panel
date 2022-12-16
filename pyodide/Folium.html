@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Folium</title>
+<link rel="icon" href="https://panel.holoviz.org/_static/icons/favicon.ico" type=""><link rel="manifest" href="site.webmanifest"><meta name="name" content="Folium">    <link rel="stylesheet" href="https://cdn.holoviz.org/panel/0.14.2/dist/css/card.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.holoviz.org/panel/0.14.2/dist/css/alerts.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.holoviz.org/panel/0.14.2/dist/css/markdown.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.holoviz.org/panel/0.14.2/dist/css/dataframe.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.holoviz.org/panel/0.14.2/dist/css/debugger.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.holoviz.org/panel/0.14.2/dist/css/loading.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.holoviz.org/panel/0.14.2/dist/css/json.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.holoviz.org/panel/0.14.2/dist/css/widgets.css" type="text/css" />
+    <style>
+        
+    .bk.pn-loading.arc:before {
+      background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHN0eWxlPSJtYXJnaW46IGF1dG87IGJhY2tncm91bmQ6IG5vbmU7IGRpc3BsYXk6IGJsb2NrOyBzaGFwZS1yZW5kZXJpbmc6IGF1dG87IiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiPiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYzNjM2MzIiBzdHJva2Utd2lkdGg9IjEwIiByPSIzNSIgc3Ryb2tlLWRhc2hhcnJheT0iMTY0LjkzMzYxNDMxMzQ2NDE1IDU2Ljk3Nzg3MTQzNzgyMTM4Ij4gICAgPGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiBkdXI9IjFzIiB2YWx1ZXM9IjAgNTAgNTA7MzYwIDUwIDUwIiBrZXlUaW1lcz0iMDsxIj48L2FuaW1hdGVUcmFuc2Zvcm0+ICA8L2NpcmNsZT48L3N2Zz4=");
+      background-size: auto calc(min(50%, 400px));
+    }
+    
+    </style>
+
+<script type="text/javascript">
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./serviceWorker.js').then(reg => {
+    reg.onupdatefound = () => {
+      const installingWorker = reg.installing;
+      installingWorker.onstatechange = () => {
+        if (installingWorker.state === 'installed' &&
+            navigator.serviceWorker.controller) {
+          // Reload page if service worker is replaced
+          location.reload();
+        }
+      }
+    }
+  })
+}
+</script>
+
+<script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.3.min.js"></script><script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.4.3.min.js"></script><script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.3.min.js"></script><script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.4.3.min.js"></script><script type="text/javascript" src="https://cdn.holoviz.org/panel/0.14.2/dist/panel.min.js"></script><script type="text/javascript">
+    Bokeh.set_log_level("info");
+</script><!-- Template CSS -->
+<link rel="stylesheet" href="https://cdn.holoviz.org/panel/0.14.2/dist/bundled/fastbasetemplate/fast_root.css">
+<link rel="stylesheet" href="https://cdn.holoviz.org/panel/0.14.2/dist/bundled/fastbasetemplate/fast_bokeh.css">
+<link rel="stylesheet" href="https://cdn.holoviz.org/panel/0.14.2/dist/bundled/fastbasetemplate/fast_bokeh_slickgrid.css">
+<link rel="stylesheet" href="https://cdn.holoviz.org/panel/0.14.2/dist/bundled/fastbasetemplate/fast_panel.css">
+<link rel="stylesheet" href="https://cdn.holoviz.org/panel/0.14.2/dist/bundled/fastbasetemplate/fast_panel_dataframe.css">
+<link rel="stylesheet" href="https://cdn.holoviz.org/panel/0.14.2/dist/bundled/fastbasetemplate/fast_panel_widgets.css">
+<link rel="stylesheet" href="https://cdn.holoviz.org/panel/0.14.2/dist/bundled/fastbasetemplate/fast_panel_markdown.css">
+<link rel="stylesheet" href="https://cdn.holoviz.org/panel/0.14.2/dist/bundled/fastbasetemplate/fast_awesome.css">
+<link rel="stylesheet" href="https://cdn.holoviz.org/panel/0.14.2/dist/bundled/fastlisttemplate/fast_list_template.css">
+<link rel="stylesheet" href="https://cdn.holoviz.org/panel/0.14.2/dist/bundled/fastdefaulttheme/fast_root_default.css">
+<link rel="stylesheet" href="https://cdn.holoviz.org/panel/0.14.2/dist/bundled/fastlisttemplate/default.css">
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+
+<style>
+  :root {
+    --body-font: Open Sans, sans-serif;
+  }
+  body {
+    color: #00aa41;
+    background-color: #ffffff;
+    font-family: var(--body-font);
+  }
+  #header a {
+    color: currentColor;
+  }
+  #header-design-provider {
+    --neutral-foreground-rest: #ffffff;
+  }
+  #sidebar {
+    width: 330px;
+  }
+  #header {
+      box-shadow: 2px 2px 10px silver;
+  }
+  #sidebar {
+      box-shadow: 2px 2px 10px silver;
+  }
+</style>
+
+<!-- Template JS -->
+<script src="https://cdn.holoviz.org/panel/0.14.2/dist/bundled/fastbasetemplate/fast_template.js"></script>
+<script src="https://cdn.holoviz.org/panel/0.14.2/dist/bundled/js/@microsoft/fast-colors@5.3.1/dist/index.js" type="module"></script>
+<script src="https://cdn.holoviz.org/panel/0.14.2/dist/bundled/js/@microsoft/fast-components@1.21.8/dist/fast-components.js" type="module"></script>
+
+<!-- Fast Script -->
+<script type="module">
+  import { parseColorHexRGB } from "https://cdn.holoviz.org/panel/0.14.2/dist/bundled/js/@microsoft/fast-colors@5.3.1/dist/index.js";
+  import {
+    createColorPalette,
+    accentFillActiveBehavior,
+    accentFillHoverBehavior,
+    accentFillRestBehavior,
+    accentForegroundActiveBehavior,
+    accentForegroundCutRestBehavior,
+    accentForegroundFocusBehavior,
+    accentForegroundHoverBehavior,
+    accentForegroundRestBehavior,
+    neutralDividerRestBehavior,
+    neutralFillHoverBehavior,
+    neutralFillInputActiveBehavior,
+    neutralFillInputHoverBehavior,
+    neutralFillInputRestBehavior,
+    neutralFillRestBehavior,
+    neutralFillStealthActiveBehavior,
+    neutralFillStealthHoverBehavior,
+    neutralFillStealthRestBehavior,
+    neutralFocusBehavior,
+    neutralFocusInnerAccentBehavior,
+    neutralForegroundActiveBehavior,
+    neutralForegroundHoverBehavior,
+    neutralLayerFloatingBehavior,
+    neutralOutlineActiveBehavior,
+    neutralOutlineHoverBehavior,
+    neutralOutlineRestBehavior
+  } from "https://cdn.holoviz.org/panel/0.14.2/dist/bundled/js/@microsoft/fast-components@1.21.8/dist/fast-components.js";
+
+  function standardize_color(str){
+    var ctx = document.createElement('canvas').getContext('2d');
+    ctx.fillStyle = str;
+    return ctx.fillStyle;
+  }
+
+  function setAccentColor(color, selector){
+      color = standardize_color(color);
+      const accent = color;
+      const palette = createColorPalette(parseColorHexRGB(accent));
+      const provider = document.querySelector(selector);
+      provider.accentBaseColor = accent;
+      provider.accentPalette = palette;
+  }
+  setAccentColor("#0072B5", "#body-design-provider");
+  setAccentColor("#ffffff", "#header-design-provider");
+
+  function setNeutralColor(color, selector){
+      color = standardize_color(color);
+      const palette = createColorPalette(parseColorHexRGB(color));
+      const provider = document.querySelector(selector);
+
+      provider.neutralPalette = palette;
+  }
+  setNeutralColor("#ffffff", "#header-design-provider");
+  setNeutralColor("#000000", "#body-design-provider");
+
+  function setBackgroundColor(color, selector){
+    color = standardize_color(color);
+    const provider = document.querySelector(selector);
+    provider.backgroundColor=color;
+  }
+  setBackgroundColor("#0072B5", "#header-design-provider");
+  setBackgroundColor("#ffffff", "#body-design-provider");
+
+  document.querySelector("#body-design-provider").cornerRadius=3;
+
+  function registerCSSCustomProperties(selector)  {
+    const provider = document.querySelector(selector);
+    provider.registerCSSCustomProperty(accentFillActiveBehavior)
+    provider.registerCSSCustomProperty(neutralFillRestBehavior)
+    provider.registerCSSCustomProperty(accentFillHoverBehavior)
+    provider.registerCSSCustomProperty(accentFillRestBehavior)
+    provider.registerCSSCustomProperty(accentForegroundActiveBehavior)
+    provider.registerCSSCustomProperty(accentForegroundCutRestBehavior)
+    provider.registerCSSCustomProperty(accentForegroundFocusBehavior)
+    provider.registerCSSCustomProperty(accentForegroundHoverBehavior)
+    provider.registerCSSCustomProperty(accentForegroundRestBehavior)
+    provider.registerCSSCustomProperty(neutralDividerRestBehavior)
+    provider.registerCSSCustomProperty(neutralFillHoverBehavior)
+    provider.registerCSSCustomProperty(neutralFillInputActiveBehavior)
+    provider.registerCSSCustomProperty(neutralFillInputHoverBehavior)
+    provider.registerCSSCustomProperty(neutralFillInputRestBehavior)
+    provider.registerCSSCustomProperty(neutralFillRestBehavior)
+    provider.registerCSSCustomProperty(neutralFillStealthActiveBehavior)
+    provider.registerCSSCustomProperty(neutralFillStealthHoverBehavior)
+    provider.registerCSSCustomProperty(neutralFillStealthRestBehavior)
+    provider.registerCSSCustomProperty(neutralFocusBehavior)
+    provider.registerCSSCustomProperty(neutralFocusInnerAccentBehavior)
+    provider.registerCSSCustomProperty(neutralForegroundActiveBehavior)
+    provider.registerCSSCustomProperty(neutralForegroundHoverBehavior)
+    provider.registerCSSCustomProperty(neutralLayerFloatingBehavior)
+    provider.registerCSSCustomProperty(neutralOutlineActiveBehavior)
+    provider.registerCSSCustomProperty(neutralOutlineHoverBehavior)
+    provider.registerCSSCustomProperty(neutralOutlineRestBehavior)
+  }
+  registerCSSCustomProperties("#header-design-provider")
+  registerCSSCustomProperties("#body-design-provider")
+
+  class FastDesignProvider {
+    setAccentColor(value, element){
+      setAccentColor(value, element);
+    }
+    setNeutralColor(value, element){
+      setNeutralColor(value, element);
+    }
+    setBackgroundColor(value, element){
+      setBackgroundColor(value, element)
+    }
+  }
+  window.fastDesignProvider = new FastDesignProvider()
+</script>
+  </head>
+  <body class="bk pn-loading arc">
+<fast-design-system-provider id="body-design-provider" use-defaults accent-foreground-cut-rest="#FFFFFF"
+background-color="#ffffff"accent-base-color="#0072B5"  >
+  <div id="container">
+  <fast-design-system-provider id="header-design-provider"
+background-color="#0072B5"  >
+  <nav id="header">
+    <div class="app-header">
+<a class="title" href="/" >&nbsp;Panel</a><span class="title">-</span><a class="title" href="" >Folium</a>    </div>
+    <div id="header-items">
+  </div>
+  <div class="pn-toggle-theme">
+    <fast-switch id="theme-switch" style="float: right;" onChange="toggleLightDarkTheme('default')" checked>
+      <span slot="checked-message">
+        <svg class="theme-toggle-icon" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><path d="M0 0h24v24H0z" fill="none"/><path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.79 1.42-1.41zM4 10.5H1v2h3v-2zm9-9.95h-2V3.5h2V.55zm7.45 3.91l-1.41-1.41-1.79 1.79 1.41 1.41 1.79-1.79zm-3.21 13.7l1.79 1.8 1.41-1.41-1.8-1.79-1.4 1.4zM20 10.5v2h3v-2h-3zm-8-5c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm-1 16.95h2V19.5h-2v2.95zm-7.45-3.91l1.41 1.41 1.79-1.8-1.41-1.41-1.79 1.8z"/></svg>
+      </span>
+      <span slot="unchecked-message">
+        <svg class="theme-toggle-icon" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><path d="M0 0h24v24H0z" fill="none"/><path d="M10 2c-1.82 0-3.53.5-5 1.35C7.99 5.08 10 8.3 10 12s-2.01 6.92-5 8.65C6.47 21.5 8.18 22 10 22c5.52 0 10-4.48 10-10S15.52 2 10 2z"/></svg>
+      </span>
+    </fast-switch>
+    <fast-tooltip anchor="theme-switch" position="bottom">
+      Toggle the Theme
+    </fast-tooltip>
+  </div>
+	<div class="pn-busy-container" id="busy-container">
+	  <div class="bk-root" id="1b5bd060-b874-47e5-a7c6-65aafb754869" data-root-id="1007"></div>
+	</div>
+  <fast-tooltip anchor="busy-container" position="left">
+    Busy Indicator
+  </fast-tooltip>
+
+  </nav>
+  </fast-design-system-provider>
+
+  <div class="row" id="content">
+
+    <div class="main" id="main"
+    style="margin-left: 0px;"
+    >
+      <div class="card-margin">
+<fast-card class="pn-wrapper">        <span class="fullscreen-button" onclick="toggleFullScreen(this)">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18"><path d="M4.5 11H3v4h4v-1.5H4.5V11zM3 7h1.5V4.5H7V3H3v4zm10.5 6.5H11V15h4v-4h-1.5v2.5zM11 3v1.5h2.5V7H15V3h-4z"/></svg>
+        </span>
+        <div class="bk-root" id="72d49f0e-4bac-4515-8301-bb60e3bd5fc3" data-root-id="1008"></div>
+</fast-card>      </div>
+      <div class="card-margin">
+<fast-card class="pn-wrapper">        <span class="fullscreen-button" onclick="toggleFullScreen(this)">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18"><path d="M4.5 11H3v4h4v-1.5H4.5V11zM3 7h1.5V4.5H7V3H3v4zm10.5 6.5H11V15h4v-4h-1.5v2.5zM11 3v1.5h2.5V7H15V3h-4z"/></svg>
+        </span>
+        <div class="bk-root" id="1095e72a-5884-4d64-880d-74e872b3e549" data-root-id="1009"></div>
+</fast-card>      </div>
+
+      <fast-dialog id="pn-Modal" hidden style="--dialog-width: 80%; --dialog-height: auto; --background-color: var(--neutral-layer-floating);">
+        <fast-button class="pn-modal-close" id="pn-closeModal">&times;</fast-button>
+	<div>
+	</div>
+      </fast-dialog>
+  </div>
+  </div>
+</div>
+</fast-design-system-provider>
+<script>
+  
+</script>
+<script>
+  function openNav() {
+    document.getElementById("sidebar").style.left = 0;
+    document.getElementById("main").style.marginLeft = "360px";
+    document.getElementById("sidebar-button").onclick = closeNav;
+    var interval = setInterval(function () { window.dispatchEvent(new Event('resize')); }, 10);
+    setTimeout(function () { clearInterval(interval) }, 210)
+  }
+
+  function closeNav() {
+    document.getElementById("sidebar").style.left = "-360px";
+    document.getElementById("main").style.marginLeft = 0;
+    document.getElementById("sidebar-button").onclick = openNav;
+    var interval = setInterval(function () { window.dispatchEvent(new Event('resize')); }, 10);
+    setTimeout(function () { clearInterval(interval) }, 210)
+  }
+
+  var modal = document.getElementById("pn-Modal");
+  var span = document.getElementById("pn-closeModal");
+
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
+<div class="bk-root" id="49c80c28-1ba7-4467-a9bd-d85a2a04fcaa" data-root-id="1004"></div>
+<div class="bk-root" id="64536c44-37eb-43f2-b760-0a7ebab82902" data-root-id="1006"></div>
+<div class="bk-root" id="b7aa3c7f-9333-47aa-a1fe-d9824f290e38" data-root-id="1002"></div>
+
+  
+    <script type="text/javascript">
+      const pyodideWorker = new Worker("./Folium.js");
+      pyodideWorker.busy = false
+      pyodideWorker.queue = []
+      
+      function send_change(jsdoc, event) {
+        if (event.setter_id != null && event.setter_id == 'py') {
+          return
+        } else if (pyodideWorker.busy && event.model && event.attr) {
+          let events = []
+          for (const old_event of pyodideWorker.queue) {
+            if (!(old_event.model === event.model && old_event.attr === event.attr)) {
+              events.push(old_event)
+            }
+          }
+          events.push(event)
+          pyodideWorker.queue = events
+          return
+        }
+        const patch = jsdoc.create_json_patch_string([event])
+        pyodideWorker.busy = true
+        pyodideWorker.postMessage({type: 'patch', patch: patch})
+      }
+      
+      pyodideWorker.onmessage = async (event) => {
+        const msg = event.data
+      
+        const body = document.getElementsByTagName('body')[0]
+        const loading_msgs = document.getElementsByClassName('pn-loading-msg')
+        if (msg.type === 'idle') {
+          if (pyodideWorker.queue.length) {
+            const patch = pyodideWorker.jsdoc.create_json_patch_string(pyodideWorker.queue)
+            pyodideWorker.busy = true
+            pyodideWorker.queue = []
+            pyodideWorker.postMessage({type: 'patch', patch: patch})
+          } else {
+            pyodideWorker.busy = false
+          }
+        } else if (msg.type === 'status') {
+          let loading_msg
+          if (loading_msgs.length) {
+            loading_msg = loading_msgs[0]
+          } else if (body.classList.contains('pn-loading')) {
+            loading_msg = document.createElement('div')
+            loading_msg.classList.add('pn-loading-msg')
+            body.appendChild(loading_msg)
+          }
+          if (loading_msg != null) {
+            loading_msg.innerHTML = msg.msg
+          }
+        } else if (msg.type === 'render') {
+          const docs_json = JSON.parse(msg.docs_json)
+          const render_items = JSON.parse(msg.render_items)
+          const root_ids = JSON.parse(msg.root_ids)
+      
+          // Remap roots in message to element IDs
+          const root_els = document.getElementsByClassName('bk-root')
+          const data_roots = []
+          for (const el of root_els) {
+             el.innerHTML = ''
+             data_roots.push([parseInt(el.getAttribute('data-root-id')), el.id])
+          }
+          data_roots.sort((a, b) => a[0]<b[0] ? -1: 1)
+          const roots = {}
+          for (let i=0; i<data_roots.length; i++) {
+            roots[root_ids[i]] = data_roots[i][1]
+          }
+          render_items[0]['roots'] = roots
+          render_items[0]['root_ids'] = root_ids
+      
+          // Embed content
+          const [views] = await Bokeh.embed.embed_items(docs_json, render_items)
+      
+          // Remove loading spinner and message
+          body.classList.remove("bk", "pn-loading", "arc")
+          for (const loading_msg of loading_msgs) {
+            loading_msg.remove()
+          }
+      
+          // Setup bi-directional syncing
+          pyodideWorker.jsdoc = jsdoc = views[0].model.document
+          jsdoc.on_change(send_change.bind(null, jsdoc), false)
+          pyodideWorker.postMessage({'type': 'rendered'})
+          pyodideWorker.postMessage({'type': 'location', location: JSON.stringify(window.location)})
+        } else if (msg.type === 'patch') {
+          pyodideWorker.jsdoc.apply_json_patch(JSON.parse(msg.patch), msg.buffers, setter_id='py')
+        }
+      };
+    </script>
+    <script type="application/json" id="1012">
+      {"d055e8fa-d4d9-4bdb-8420-f2c03f87f4ac":{"defs":[{"extends":null,"module":null,"name":"ReactiveHTML1","overrides":[],"properties":[]},{"extends":null,"module":null,"name":"FlexBox1","overrides":[],"properties":[{"default":"flex-start","kind":null,"name":"align_content"},{"default":"flex-start","kind":null,"name":"align_items"},{"default":"row","kind":null,"name":"flex_direction"},{"default":"wrap","kind":null,"name":"flex_wrap"},{"default":"flex-start","kind":null,"name":"justify_content"}]},{"extends":null,"module":null,"name":"GridStack1","overrides":[],"properties":[{"default":"warn","kind":null,"name":"mode"},{"default":null,"kind":null,"name":"ncols"},{"default":null,"kind":null,"name":"nrows"},{"default":true,"kind":null,"name":"allow_resize"},{"default":true,"kind":null,"name":"allow_drag"},{"default":[],"kind":null,"name":"state"}]},{"extends":null,"module":null,"name":"click1","overrides":[],"properties":[{"default":"","kind":null,"name":"terminal_output"},{"default":"","kind":null,"name":"debug_name"},{"default":0,"kind":null,"name":"clears"}]},{"extends":null,"module":null,"name":"NotificationAreaBase1","overrides":[],"properties":[{"default":"bottom-right","kind":null,"name":"position"},{"default":0,"kind":null,"name":"_clear"}]},{"extends":null,"module":null,"name":"NotificationArea1","overrides":[],"properties":[{"default":[],"kind":null,"name":"notifications"},{"default":"bottom-right","kind":null,"name":"position"},{"default":0,"kind":null,"name":"_clear"},{"default":[{"background":"#ffc107","icon":{"className":"fas fa-exclamation-triangle","color":"white","tagName":"i"},"type":"warning"},{"background":"#007bff","icon":{"className":"fas fa-info-circle","color":"white","tagName":"i"},"type":"info"}],"kind":null,"name":"types"}]},{"extends":null,"module":null,"name":"Notification","overrides":[],"properties":[{"default":null,"kind":null,"name":"background"},{"default":3000,"kind":null,"name":"duration"},{"default":null,"kind":null,"name":"icon"},{"default":"","kind":null,"name":"message"},{"default":null,"kind":null,"name":"notification_type"},{"default":false,"kind":null,"name":"_destroyed"}]},{"extends":null,"module":null,"name":"TemplateActions1","overrides":[],"properties":[{"default":0,"kind":null,"name":"open_modal"},{"default":0,"kind":null,"name":"close_modal"}]},{"extends":null,"module":null,"name":"MaterialTemplateActions1","overrides":[],"properties":[{"default":0,"kind":null,"name":"open_modal"},{"default":0,"kind":null,"name":"close_modal"}]}],"roots":{"references":[{"attributes":{"height":0,"margin":[0,0,0,0],"name":"js_area","sizing_mode":"fixed","width":0},"id":"1004","type":"panel.models.markup.HTML"},{"attributes":{"name":"location","reload":false},"id":"1002","type":"panel.models.location.Location"},{"attributes":{"children":[{"id":"1010"},{"id":"1011"}],"height":500,"margin":[0,0,0,0],"name":"139680940489552","sizing_mode":"stretch_both","tags":["main"]},"id":"1009","type":"Column"},{"attributes":{"css_classes":["markdown"],"margin":[5,5,5,5],"name":"139680940369232","sizing_mode":"stretch_width","tags":["main"],"text":"&amp;lt;p&amp;gt;This app demonstrates &amp;lt;strong&amp;gt;how to use Folium with Panel&amp;lt;/strong&amp;gt;.&amp;lt;/p&amp;gt;"},"id":"1008","type":"panel.models.markup.HTML"},{"attributes":{"name":"TemplateActions00131"},"id":"1005","type":"TemplateActions1"},{"attributes":{"margin":[0,0,0,0],"min_height":500,"name":"Folium00114","sizing_mode":"stretch_both","text":"&amp;lt;div style=&amp;quot;width:100%;height:100%&amp;quot;&amp;gt;&amp;lt;div style=&amp;quot;position:relative;width:100%;height:100%;padding-bottom:0%;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;color:#565656&amp;quot;&amp;gt;Make this Notebook Trusted to load map: File -&amp;gt; Trust Notebook&amp;lt;/span&amp;gt;&amp;lt;iframe srcdoc=&amp;quot;&amp;amp;lt;!DOCTYPE html&amp;amp;gt;\n&amp;amp;lt;html&amp;amp;gt;\n&amp;amp;lt;head&amp;amp;gt;\n    \n    &amp;amp;lt;meta http-equiv=&amp;amp;quot;content-type&amp;amp;quot; content=&amp;amp;quot;text/html; charset=UTF-8&amp;amp;quot; /&amp;amp;gt;\n    \n        &amp;amp;lt;script&amp;amp;gt;\n            L_NO_TOUCH = false;\n            L_DISABLE_3D = false;\n        &amp;amp;lt;/script&amp;amp;gt;\n    \n    &amp;amp;lt;style&amp;amp;gt;html, body {width: 100%;height: 100%;margin: 0;padding: 0;}&amp;amp;lt;/style&amp;amp;gt;\n    &amp;amp;lt;style&amp;amp;gt;#map {position:absolute;top:0;bottom:0;right:0;left:0;}&amp;amp;lt;/style&amp;amp;gt;\n    &amp;amp;lt;script src=&amp;amp;quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&amp;amp;quot;&amp;amp;gt;&amp;amp;lt;/script&amp;amp;gt;\n    &amp;amp;lt;script src=&amp;amp;quot;https://code.jquery.com/jquery-1.12.4.min.js&amp;amp;quot;&amp;amp;gt;&amp;amp;lt;/script&amp;amp;gt;\n    &amp;amp;lt;script src=&amp;amp;quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&amp;amp;quot;&amp;amp;gt;&amp;amp;lt;/script&amp;amp;gt;\n    &amp;amp;lt;script src=&amp;amp;quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&amp;amp;quot;&amp;amp;gt;&amp;amp;lt;/script&amp;amp;gt;\n    &amp;amp;lt;link rel=&amp;amp;quot;stylesheet&amp;amp;quot; href=&amp;amp;quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&amp;amp;quot;/&amp;amp;gt;\n    &amp;amp;lt;link rel=&amp;amp;quot;stylesheet&amp;amp;quot; href=&amp;amp;quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&amp;amp;quot;/&amp;amp;gt;\n    &amp;amp;lt;link rel=&amp;amp;quot;stylesheet&amp;amp;quot; href=&amp;amp;quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css&amp;amp;quot;/&amp;amp;gt;\n    &amp;amp;lt;link rel=&amp;amp;quot;stylesheet&amp;amp;quot; href=&amp;amp;quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&amp;amp;quot;/&amp;amp;gt;\n    &amp;amp;lt;link rel=&amp;amp;quot;stylesheet&amp;amp;quot; href=&amp;amp;quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&amp;amp;quot;/&amp;amp;gt;\n    &amp;amp;lt;link rel=&amp;amp;quot;stylesheet&amp;amp;quot; href=&amp;amp;quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&amp;amp;quot;/&amp;amp;gt;\n    \n            &amp;amp;lt;meta name=&amp;amp;quot;viewport&amp;amp;quot; content=&amp;amp;quot;width=device-width,\n                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&amp;amp;quot; /&amp;amp;gt;\n            &amp;amp;lt;style&amp;amp;gt;\n                #map_6b15212971109be901aeded697cfdde2 {\n                    position: relative;\n                    width: 100.0%;\n                    height: 100.0%;\n                    left: 0.0%;\n                    top: 0.0%;\n                }\n                .leaflet-container { font-size: 1rem; }\n            &amp;amp;lt;/style&amp;amp;gt;\n        \n&amp;amp;lt;/head&amp;amp;gt;\n&amp;amp;lt;body&amp;amp;gt;\n    \n    \n            &amp;amp;lt;div class=&amp;amp;quot;folium-map&amp;amp;quot; id=&amp;amp;quot;map_6b15212971109be901aeded697cfdde2&amp;amp;quot; &amp;amp;gt;&amp;amp;lt;/div&amp;amp;gt;\n        \n&amp;amp;lt;/body&amp;amp;gt;\n&amp;amp;lt;script&amp;amp;gt;\n    \n    \n            var map_6b15212971109be901aeded697cfdde2 = L.map(\n                &amp;amp;quot;map_6b15212971109be901aeded697cfdde2&amp;amp;quot;,\n                {\n                    center: [20.5936832, 78.962883],\n                    crs: L.CRS.EPSG3857,\n                    zoom: 5,\n                    zoomControl: true,\n                    preferCanvas: false,\n                }\n            );\n\n            \n\n        \n    \n            var tile_layer_ee472ef6cd22b6fade3f94292ced4d33 = L.tileLayer(\n                &amp;amp;quot;https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&amp;amp;quot;,\n                {&amp;amp;quot;attribution&amp;amp;quot;: &amp;amp;quot;Data by \\u0026copy; \\u003ca target=\\&amp;amp;quot;_blank\\&amp;amp;quot; href=\\&amp;amp;quot;http://openstreetmap.org\\&amp;amp;quot;\\u003eOpenStreetMap\\u003c/a\\u003e, under \\u003ca target=\\&amp;amp;quot;_blank\\&amp;amp;quot; href=\\&amp;amp;quot;http://www.openstreetmap.org/copyright\\&amp;amp;quot;\\u003eODbL\\u003c/a\\u003e.&amp;amp;quot;, &amp;amp;quot;detectRetina&amp;amp;quot;: false, &amp;amp;quot;maxNativeZoom&amp;amp;quot;: 18, &amp;amp;quot;maxZoom&amp;amp;quot;: 18, &amp;amp;quot;minZoom&amp;amp;quot;: 0, &amp;amp;quot;noWrap&amp;amp;quot;: false, &amp;amp;quot;opacity&amp;amp;quot;: 1, &amp;amp;quot;subdomains&amp;amp;quot;: &amp;amp;quot;abc&amp;amp;quot;, &amp;amp;quot;tms&amp;amp;quot;: false}\n            ).addTo(map_6b15212971109be901aeded697cfdde2);\n        \n    \n            var feature_group_a9fe2d0715c65dec9b2800d9bbd4be55 = L.featureGroup(\n                {}\n            ).addTo(map_6b15212971109be901aeded697cfdde2);\n        \n    \n            var circle_marker_80689a1c5ee7316ed72d014d936cb2ca = L.circleMarker(\n                [22.97553259158498, 79.23482028614033],\n                {&amp;amp;quot;bubblingMouseEvents&amp;amp;quot;: true, &amp;amp;quot;color&amp;amp;quot;: &amp;amp;quot;#3388ff&amp;amp;quot;, &amp;amp;quot;dashArray&amp;amp;quot;: null, &amp;amp;quot;dashOffset&amp;amp;quot;: null, &amp;amp;quot;fill&amp;amp;quot;: true, &amp;amp;quot;fillColor&amp;amp;quot;: &amp;amp;quot;green&amp;amp;quot;, &amp;amp;quot;fillOpacity&amp;amp;quot;: 0.7, &amp;amp;quot;fillRule&amp;amp;quot;: &amp;amp;quot;evenodd&amp;amp;quot;, &amp;amp;quot;lineCap&amp;amp;quot;: &amp;amp;quot;round&amp;amp;quot;, &amp;amp;quot;lineJoin&amp;amp;quot;: &amp;amp;quot;round&amp;amp;quot;, &amp;amp;quot;opacity&amp;amp;quot;: 1.0, &amp;amp;quot;radius&amp;amp;quot;: 10, &amp;amp;quot;stroke&amp;amp;quot;: true, &amp;amp;quot;weight&amp;amp;quot;: 3}\n            ).addTo(feature_group_a9fe2d0715c65dec9b2800d9bbd4be55);\n        \n    \n            var circle_marker_8e888b7bdee294ceade9eec8fcc19e66 = L.circleMarker(\n                [28.542431085358984, 83.48233780620401],\n                {&amp;amp;quot;bubblingMouseEvents&amp;amp;quot;: true, &amp;amp;quot;color&amp;amp;quot;: &amp;amp;quot;#3388ff&amp;amp;quot;, &amp;amp;quot;dashArray&amp;amp;quot;: null, &amp;amp;quot;dashOffset&amp;amp;quot;: null, &amp;amp;quot;fill&amp;amp;quot;: true, &amp;amp;quot;fillColor&amp;amp;quot;: &amp;amp;quot;green&amp;amp;quot;, &amp;amp;quot;fillOpacity&amp;amp;quot;: 0.7, &amp;amp;quot;fillRule&amp;amp;quot;: &amp;amp;quot;evenodd&amp;amp;quot;, &amp;amp;quot;lineCap&amp;amp;quot;: &amp;amp;quot;round&amp;amp;quot;, &amp;amp;quot;lineJoin&amp;amp;quot;: &amp;amp;quot;round&amp;amp;quot;, &amp;amp;quot;opacity&amp;amp;quot;: 1.0, &amp;amp;quot;radius&amp;amp;quot;: 10, &amp;amp;quot;stroke&amp;amp;quot;: true, &amp;amp;quot;weight&amp;amp;quot;: 3}\n            ).addTo(feature_group_a9fe2d0715c65dec9b2800d9bbd4be55);\n        \n    \n            var circle_marker_0a66e6ff4a659ba40b563c59e6bd49e7 = L.circleMarker(\n                [16.50818344089242, 79.02617467339637],\n                {&amp;amp;quot;bubblingMouseEvents&amp;amp;quot;: true, &amp;amp;quot;color&amp;amp;quot;: &amp;amp;quot;#3388ff&amp;amp;quot;, &amp;amp;quot;dashArray&amp;amp;quot;: null, &amp;amp;quot;dashOffset&amp;amp;quot;: null, &amp;amp;quot;fill&amp;amp;quot;: true, &amp;amp;quot;fillColor&amp;amp;quot;: &amp;amp;quot;green&amp;amp;quot;, &amp;amp;quot;fillOpacity&amp;amp;quot;: 0.7, &amp;amp;quot;fillRule&amp;amp;quot;: &amp;amp;quot;evenodd&amp;amp;quot;, &amp;amp;quot;lineCap&amp;amp;quot;: &amp;amp;quot;round&amp;amp;quot;, &amp;amp;quot;lineJoin&amp;amp;quot;: &amp;amp;quot;round&amp;amp;quot;, &amp;amp;quot;opacity&amp;amp;quot;: 1.0, &amp;amp;quot;radius&amp;amp;quot;: 10, &amp;amp;quot;stroke&amp;amp;quot;: true, &amp;amp;quot;weight&amp;amp;quot;: 3}\n            ).addTo(feature_group_a9fe2d0715c65dec9b2800d9bbd4be55);\n        \n    \n            var feature_group_d183c5ca559d704a71164b19d1e41365 = L.featureGroup(\n                {}\n            ).addTo(map_6b15212971109be901aeded697cfdde2);\n        \n    \n            var circle_marker_be6ee11ce869d8890cee0683a70db44a = L.circleMarker(\n                [17.701377081155975, 80.68558314515411],\n                {&amp;amp;quot;bubblingMouseEvents&amp;amp;quot;: true, &amp;amp;quot;color&amp;amp;quot;: &amp;amp;quot;#3388ff&amp;amp;quot;, &amp;amp;quot;dashArray&amp;amp;quot;: null, &amp;amp;quot;dashOffset&amp;amp;quot;: null, &amp;amp;quot;fill&amp;amp;quot;: true, &amp;amp;quot;fillColor&amp;amp;quot;: &amp;amp;quot;yellow&amp;amp;quot;, &amp;amp;quot;fillOpacity&amp;amp;quot;: 0.7, &amp;amp;quot;fillRule&amp;amp;quot;: &amp;amp;quot;evenodd&amp;amp;quot;, &amp;amp;quot;lineCap&amp;amp;quot;: &amp;amp;quot;round&amp;amp;quot;, &amp;amp;quot;lineJoin&amp;amp;quot;: &amp;amp;quot;round&amp;amp;quot;, &amp;amp;quot;opacity&amp;amp;quot;: 1.0, &amp;amp;quot;radius&amp;amp;quot;: 10, &amp;amp;quot;stroke&amp;amp;quot;: true, &amp;amp;quot;weight&amp;amp;quot;: 3}\n            ).addTo(feature_group_d183c5ca559d704a71164b19d1e41365);\n        \n    \n            var feature_group_8c1b62e523b4ffc5f1411e171bac4e49 = L.featureGroup(\n                {}\n            ).addTo(map_6b15212971109be901aeded697cfdde2);\n        \n    \n            var circle_marker_f0e1b6b826909876a29f092c3dfa0c0d = L.circleMarker(\n                [15.250847836039458, 74.74725174493133],\n                {&amp;amp;quot;bubblingMouseEvents&amp;amp;quot;: true, &amp;amp;quot;color&amp;amp;quot;: &amp;amp;quot;#3388ff&amp;amp;quot;, &amp;amp;quot;dashArray&amp;amp;quot;: null, &amp;amp;quot;dashOffset&amp;amp;quot;: null, &amp;amp;quot;fill&amp;amp;quot;: true, &amp;amp;quot;fillColor&amp;amp;quot;: &amp;amp;quot;orange&amp;amp;quot;, &amp;amp;quot;fillOpacity&amp;amp;quot;: 0.7, &amp;amp;quot;fillRule&amp;amp;quot;: &amp;amp;quot;evenodd&amp;amp;quot;, &amp;amp;quot;lineCap&amp;amp;quot;: &amp;amp;quot;round&amp;amp;quot;, &amp;amp;quot;lineJoin&amp;amp;quot;: &amp;amp;quot;round&amp;amp;quot;, &amp;amp;quot;opacity&amp;amp;quot;: 1.0, &amp;amp;quot;radius&amp;amp;quot;: 10, &amp;amp;quot;stroke&amp;amp;quot;: true, &amp;amp;quot;weight&amp;amp;quot;: 3}\n            ).addTo(feature_group_8c1b62e523b4ffc5f1411e171bac4e49);\n        \n    \n            var feature_group_664965b2c7c436c61e5ef42e6f1cbbcc = L.featureGroup(\n                {}\n            ).addTo(map_6b15212971109be901aeded697cfdde2);\n        \n    \n            var circle_marker_1d371c14c1402498e50ee164a75b0eb7 = L.circleMarker(\n                [10.644994114965293, 86.58930618778689],\n                {&amp;amp;quot;bubblingMouseEvents&amp;amp;quot;: true, &amp;amp;quot;color&amp;amp;quot;: &amp;amp;quot;#3388ff&amp;amp;quot;, &amp;amp;quot;dashArray&amp;amp;quot;: null, &amp;amp;quot;dashOffset&amp;amp;quot;: null, &amp;amp;quot;fill&amp;amp;quot;: true, &amp;amp;quot;fillColor&amp;amp;quot;: &amp;amp;quot;red&amp;amp;quot;, &amp;amp;quot;fillOpacity&amp;amp;quot;: 0.7, &amp;amp;quot;fillRule&amp;amp;quot;: &amp;amp;quot;evenodd&amp;amp;quot;, &amp;amp;quot;lineCap&amp;amp;quot;: &amp;amp;quot;round&amp;amp;quot;, &amp;amp;quot;lineJoin&amp;amp;quot;: &amp;amp;quot;round&amp;amp;quot;, &amp;amp;quot;opacity&amp;amp;quot;: 1.0, &amp;amp;quot;radius&amp;amp;quot;: 10, &amp;amp;quot;stroke&amp;amp;quot;: true, &amp;amp;quot;weight&amp;amp;quot;: 3}\n            ).addTo(feature_group_664965b2c7c436c61e5ef42e6f1cbbcc);\n        \n    \n            var circle_marker_c0f25a17f9373793359af93218bda1b5 = L.circleMarker(\n                [20.210404693774088, 78.96148302638632],\n                {&amp;amp;quot;bubblingMouseEvents&amp;amp;quot;: true, &amp;amp;quot;color&amp;amp;quot;: &amp;amp;quot;#3388ff&amp;amp;quot;, &amp;amp;quot;dashArray&amp;amp;quot;: null, &amp;amp;quot;dashOffset&amp;amp;quot;: null, &amp;amp;quot;fill&amp;amp;quot;: true, &amp;amp;quot;fillColor&amp;amp;quot;: &amp;amp;quot;red&amp;amp;quot;, &amp;amp;quot;fillOpacity&amp;amp;quot;: 0.7, &amp;amp;quot;fillRule&amp;amp;quot;: &amp;amp;quot;evenodd&amp;amp;quot;, &amp;amp;quot;lineCap&amp;amp;quot;: &amp;amp;quot;round&amp;amp;quot;, &amp;amp;quot;lineJoin&amp;amp;quot;: &amp;amp;quot;round&amp;amp;quot;, &amp;amp;quot;opacity&amp;amp;quot;: 1.0, &amp;amp;quot;radius&amp;amp;quot;: 10, &amp;amp;quot;stroke&amp;amp;quot;: true, &amp;amp;quot;weight&amp;amp;quot;: 3}\n            ).addTo(feature_group_664965b2c7c436c61e5ef42e6f1cbbcc);\n        \n    \n            var circle_marker_55a5f1f71e5d79ab618291930d3e595d = L.circleMarker(\n                [11.88347096711955, 84.5117570564809],\n                {&amp;amp;quot;bubblingMouseEvents&amp;amp;quot;: true, &amp;amp;quot;color&amp;amp;quot;: &amp;amp;quot;#3388ff&amp;amp;quot;, &amp;amp;quot;dashArray&amp;amp;quot;: null, &amp;amp;quot;dashOffset&amp;amp;quot;: null, &amp;amp;quot;fill&amp;amp;quot;: true, &amp;amp;quot;fillColor&amp;amp;quot;: &amp;amp;quot;red&amp;amp;quot;, &amp;amp;quot;fillOpacity&amp;amp;quot;: 0.7, &amp;amp;quot;fillRule&amp;amp;quot;: &amp;amp;quot;evenodd&amp;amp;quot;, &amp;amp;quot;lineCap&amp;amp;quot;: &amp;amp;quot;round&amp;amp;quot;, &amp;amp;quot;lineJoin&amp;amp;quot;: &amp;amp;quot;round&amp;amp;quot;, &amp;amp;quot;opacity&amp;amp;quot;: 1.0, &amp;amp;quot;radius&amp;amp;quot;: 10, &amp;amp;quot;stroke&amp;amp;quot;: true, &amp;amp;quot;weight&amp;amp;quot;: 3}\n            ).addTo(feature_group_664965b2c7c436c61e5ef42e6f1cbbcc);\n        \n    \n            var feature_group_2ae72abde12a1e12d27c4a42e2e2ffc6 = L.featureGroup(\n                {}\n            ).addTo(map_6b15212971109be901aeded697cfdde2);\n        \n    \n            var circle_marker_3b038e8410b02185d35ef813b22380ec = L.circleMarker(\n                [19.99635679710324, 70.86504108976446],\n                {&amp;amp;quot;bubblingMouseEvents&amp;amp;quot;: true, &amp;amp;quot;color&amp;amp;quot;: &amp;amp;quot;#3388ff&amp;amp;quot;, &amp;amp;quot;dashArray&amp;amp;quot;: null, &amp;amp;quot;dashOffset&amp;amp;quot;: null, &amp;amp;quot;fill&amp;amp;quot;: true, &amp;amp;quot;fillColor&amp;amp;quot;: &amp;amp;quot;purple&amp;amp;quot;, &amp;amp;quot;fillOpacity&amp;amp;quot;: 0.7, &amp;amp;quot;fillRule&amp;amp;quot;: &amp;amp;quot;evenodd&amp;amp;quot;, &amp;amp;quot;lineCap&amp;amp;quot;: &amp;amp;quot;round&amp;amp;quot;, &amp;amp;quot;lineJoin&amp;amp;quot;: &amp;amp;quot;round&amp;amp;quot;, &amp;amp;quot;opacity&amp;amp;quot;: 1.0, &amp;amp;quot;radius&amp;amp;quot;: 10, &amp;amp;quot;stroke&amp;amp;quot;: true, &amp;amp;quot;weight&amp;amp;quot;: 3}\n            ).addTo(feature_group_2ae72abde12a1e12d27c4a42e2e2ffc6);\n        \n    \n            var circle_marker_fecf1f0b8da823ec5879a404afbcd377 = L.circleMarker(\n                [16.75885620169691, 75.03425089938192],\n                {&amp;amp;quot;bubblingMouseEvents&amp;amp;quot;: true, &amp;amp;quot;color&amp;amp;quot;: &amp;amp;quot;#3388ff&amp;amp;quot;, &amp;amp;quot;dashArray&amp;amp;quot;: null, &amp;amp;quot;dashOffset&amp;amp;quot;: null, &amp;amp;quot;fill&amp;amp;quot;: true, &amp;amp;quot;fillColor&amp;amp;quot;: &amp;amp;quot;purple&amp;amp;quot;, &amp;amp;quot;fillOpacity&amp;amp;quot;: 0.7, &amp;amp;quot;fillRule&amp;amp;quot;: &amp;amp;quot;evenodd&amp;amp;quot;, &amp;amp;quot;lineCap&amp;amp;quot;: &amp;amp;quot;round&amp;amp;quot;, &amp;amp;quot;lineJoin&amp;amp;quot;: &amp;amp;quot;round&amp;amp;quot;, &amp;amp;quot;opacity&amp;amp;quot;: 1.0, &amp;amp;quot;radius&amp;amp;quot;: 10, &amp;amp;quot;stroke&amp;amp;quot;: true, &amp;amp;quot;weight&amp;amp;quot;: 3}\n            ).addTo(feature_group_2ae72abde12a1e12d27c4a42e2e2ffc6);\n        \n&amp;amp;lt;/script&amp;amp;gt;\n&amp;amp;lt;/html&amp;amp;gt;&amp;quot; style=&amp;quot;position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;&amp;quot; allowfullscreen webkitallowfullscreen mozallowfullscreen&amp;gt;&amp;lt;/iframe&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;"},"id":"1011","type":"panel.models.markup.HTML"},{"attributes":{"end":100,"margin":[5,10,5,10],"sizing_mode":"stretch_width","start":10,"title":"Points count","value":20},"id":"1010","type":"Slider"},{"attributes":{"css_classes":["loader","light"],"height":20,"margin":[5,10,5,10],"name":"busy_indicator","sizing_mode":"fixed","width":20},"id":"1007","type":"panel.models.markup.HTML"},{"attributes":{"data":{"id":"1005"},"margin":[0,0,0,0],"name":"actions","scripts":{"close_modal":["document.getElementById(&amp;#x27;pn-Modal&amp;#x27;).style.display = &amp;#x27;none&amp;#x27;"],"open_modal":["document.getElementById(&amp;#x27;pn-Modal&amp;#x27;).style.display = &amp;#x27;block&amp;#x27;"]},"subscribed_events":["dom_event"]},"id":"1006","type":"panel.models.reactive_html.ReactiveHTML"}],"root_ids":["1002","1004","1006","1007","1008","1009"]},"title":"Folium","version":"2.4.3"}}
+    </script>
+    <script type="text/javascript">
+      (function() {
+        const fn = function() {
+          Bokeh.safely(function() {
+            (function(root) {
+              function embed_document(root) {
+              const docs_json = document.getElementById('1012').textContent;
+              const render_items = [{"docid":"d055e8fa-d4d9-4bdb-8420-f2c03f87f4ac","root_ids":["1002","1004","1006","1007","1008","1009"],"roots":{"1002":"b7aa3c7f-9333-47aa-a1fe-d9824f290e38","1004":"49c80c28-1ba7-4467-a9bd-d85a2a04fcaa","1006":"64536c44-37eb-43f2-b760-0a7ebab82902","1007":"1b5bd060-b874-47e5-a7c6-65aafb754869","1008":"72d49f0e-4bac-4515-8301-bb60e3bd5fc3","1009":"1095e72a-5884-4d64-880d-74e872b3e549"}}];
+              root.Bokeh.embed.embed_items(docs_json, render_items);
+              }
+              if (root.Bokeh !== undefined) {
+                embed_document(root);
+              } else {
+                let attempts = 0;
+                const timer = setInterval(function(root) {
+                  if (root.Bokeh !== undefined) {
+                    clearInterval(timer);
+                    embed_document(root);
+                  } else {
+                    attempts++;
+                    if (attempts > 100) {
+                      clearInterval(timer);
+                      console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                    }
+                  }
+                }, 10, root)
+              }
+            })(window);
+          });
+        };
+        if (document.readyState != "loading") fn();
+        else document.addEventListener("DOMContentLoaded", fn);
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1955 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="Docutils 0.19: https://docutils.sourceforge.io/" name="generator"/>
+<link href="../../site.webmanifest" rel="manifest"/>
+<title>Dynamic Plot Layout — Panel v0.14.2</title>
+<script>
+  document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+  document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
+</script>
+<!-- Loaded before other Sphinx assets -->
+<link href="../../_static/styles/theme.css?digest=92025949c220c2e29695" rel="stylesheet"/>
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=92025949c220c2e29695" rel="stylesheet"/>
+<link href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css" rel="stylesheet"/>
+<link as="font" crossorigin="" href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+<link href="../../_static/pygments.css" rel="stylesheet" type="text/css">
+<link href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" rel="stylesheet" type="text/css">
+<link href="../../_static/graphviz.css" rel="stylesheet" type="text/css">
+<link href="../../_static/copybutton.css" rel="stylesheet" type="text/css">
+<link href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" rel="stylesheet" type="text/css">
+<link href="../../_static/nbsite.css" rel="stylesheet" type="text/css"/>
+<link href="../../_static/css/custom.css" rel="stylesheet" type="text/css"/>
+<link href="../../_static/css/dataframe.css" rel="stylesheet" type="text/css"/>
+<!-- Pre-loaded scripts that we'll load fully later -->
+<link as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695" rel="preload"/>
+<script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+<script src="../../_static/jquery.js"></script>
+<script src="../../_static/underscore.js"></script>
+<script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+<script src="../../_static/doctools.js"></script>
+<script src="../../_static/sphinx_highlight.js"></script>
+<script src="../../_static/clipboard.min.js"></script>
+<script src="../../_static/copybutton.js"></script>
+<script src="../../_static/design-tabs.js"></script>
+<script src="../../_static/ServiceHandler.js"></script>
+<script async="async" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                window.ga = window.ga || function () {
+                    (ga.q = ga.q || []).push(arguments) };
+                ga.l = +new Date;
+                ga('create', 'UA-154795830-2', 'auto');
+                ga('set', 'anonymizeIp', true);
+                ga('send', 'pageview');
+            </script>
+<link href="../../_static/favicon.ico" rel="shortcut icon">
+<link href="../../genindex.html" rel="index" title="Index"/>
+<link href="../../search.html" rel="search" title="Search"/>
+<link href="dynamic_timeseries_image_analysis.html" rel="next" title="Dynamic Timeseries Image Analysis"/>
+<link href="../layout/plot_with_columns.html" rel="prev" title="Plot With Columns"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="en" name="docsearch:language"/>
+</link></link></link></link></link></link></head>
+<body data-default-mode="light" data-offset="180" data-spy="scroll" data-target="#bd-toc-nav">
+<div class="bd-header-announcement container-fluid" id="banner">
+</div>
+<nav class="navbar navbar-dark navbar-expand-lg bg-dark fixed-top bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
+<div id="navbar-start">
+<a class="navbar-brand logo" href="../../index.html">
+<img alt="Logo image" class="logo__image only-light" src="../../_static/logo_horizontal.png"/>
+<img alt="Logo image" class="logo__image only-dark" src="../../_static/logo_horizontal.png"/>
+</a>
+</div>
+<button aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar-collapsible" data-toggle="collapse" type="button">
+<span class="fas fa-bars"></span>
+</button>
+<div class="col-lg-9 collapse navbar-collapse" id="navbar-collapsible">
+<div class="mr-auto" id="navbar-center">
+<div class="navbar-center-item">
+<ul class="navbar-nav" id="navbar-main-elements">
+<li class="toctree-l1 nav-item">
+<a class="reference internal nav-link" href="../../index.html">
+  Overview
+ </a>
+</li>
+<li class="toctree-l1 nav-item">
+<a class="reference internal nav-link" href="../../getting_started/index.html">
+  Getting Started
+ </a>
+</li>
+<li class="toctree-l1 nav-item">
+<a class="reference internal nav-link" href="../../user_guide/index.html">
+  User Guide
+ </a>
+</li>
+<li class="toctree-l1 current active nav-item">
+<a class="reference internal nav-link" href="../index.html">
+  Gallery
+ </a>
+</li>
+<li class="toctree-l1 nav-item">
+<a class="reference internal nav-link" href="../../reference/index.html">
+  Reference Gallery
+ </a>
+</li>
+<li class="toctree-l1 nav-item">
+<a class="reference internal nav-link" href="../../developer_guide/index.html">
+  Developer Guide
+ </a>
+</li>
+<li class="toctree-l1 nav-item">
+<a class="reference internal nav-link" href="../../api/index.html">
+  API Reference
+ </a>
+</li>
+<li class="toctree-l1 nav-item">
+<a class="reference internal nav-link" href="../../releases.html">
+  Releases
+ </a>
+</li>
+<li class="toctree-l1 nav-item">
+<a class="reference internal nav-link" href="../../FAQ.html">
+  FAQ
+ </a>
+</li>
+<li class="toctree-l1 nav-item">
+<a class="reference internal nav-link" href="../../about/index.html">
+  About
+ </a>
+</li>
+</ul>
+</div>
+</div>
+<div id="navbar-end">
+<div class="navbar-end-item">
+<ul aria-label="Icon Links" class="navbar-nav" id="navbar-icon-links">
+<li class="nav-item">
+<a class="nav-link" href="https://github.com/holoviz/panel" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github-square"></i></span>
+<label class="sr-only">GitHub</label></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://twitter.com/Panel_Org" rel="noopener" target="_blank" title="Twitter"><span><i class="fab fa-twitter-square"></i></span>
+<label class="sr-only">Twitter</label></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://discourse.holoviz.org/c/panel/5" rel="noopener" target="_blank" title="Discourse"><span><i class="fab fa-discourse"></i></span>
+<label class="sr-only">Discourse</label></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<div class="bd-container container-xl">
+<div class="bd-container__inner row">
+<!-- Only show if we have sidebars configured, else just a small margin  -->
+<div class="bd-sidebar-primary col-12 col-md-2 bd-sidebar">
+<div class="sidebar-start-items"><form action="../../search.html" class="bd-search d-flex align-items-center" method="get">
+<i class="icon fas fa-search"></i>
+<input aria-label="Search the docs ..." autocomplete="off" class="form-control" id="search-input" name="q" placeholder="Search the docs ..." type="search"/>
+</form><nav aria-label="Main navigation" class="bd-links" id="bd-docs-nav">
+<div class="bd-toc-item active">
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../index.html">
+   Overview
+  </a>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../getting_started/index.html">
+   Getting Started
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox">
+<label for="toctree-checkbox-1">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../getting_started/installation.html">
+     Installation
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../getting_started/build_app.html">
+     Build an app
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../getting_started/core_concepts.html">
+     Core Concepts
+    </a>
+</li>
+</ul>
+</input></li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../user_guide/index.html">
+   User Guide
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+<label for="toctree-checkbox-2">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Overview.html">
+     Overview
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Components.html">
+     Components
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/APIs.html">
+     APIs
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Customization.html">
+     Customization
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Interact.html">
+     Interact
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Widgets.html">
+     Widgets
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Param.html">
+     Parameters
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Links.html">
+     Linking
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Pipelines.html">
+     Pipelines
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Templates.html">
+     Templates
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Performance_and_Debugging.html">
+     Performance and Debugging
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Session_State_and_Callbacks.html">
+     Session state &amp; Callbacks
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Async_and_Concurrency.html">
+     Asynchronous and Concurrent Process
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Display_and_Export.html">
+     Display &amp; Export
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Running_in_Webassembly.html">
+     Running Panel in the Browser with WASM
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Server_Configuration.html">
+     Server Configuration
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Server_Deployment.html">
+     Server Deployment
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Authentication.html">
+     Authentication
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Django.html">
+     Django Integration
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/FastAPI.html">
+     FastAPI Integration
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Custom_Components.html">
+     Building Custom Components
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children">
+<a class="reference internal" href="../index.html">
+   Gallery
+  </a>
+<input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+<label for="toctree-checkbox-3">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul class="current">
+<li class="toctree-l2">
+<a class="reference internal" href="../demos/VTKInteractive.html">
+     VTKInteractive
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../demos/VTKSlicer.html">
+     VTKSlicer
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../demos/VTKWarp.html">
+     VTKWarp
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../demos/attractors.html">
+     Attractors
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../demos/gapminders.html">
+     Gapminders
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../demos/glaciers.html">
+     Glaciers
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../demos/nyc_taxi.html">
+     Nyc Taxi
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../demos/portfolio-optimizer.html">
+     Portfolio-optimizer
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../simple/altair_brushing.html">
+     Altair Brushing
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../simple/altair_choropleth.html">
+     Altair Choropleth
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../simple/clifford_interact.html">
+     Clifford Interact
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../simple/color_speech_recognition.html">
+     Color Speech Recognition
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../simple/deckgl_game_of_life.html">
+     Deckgl Game Of Life
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../simple/defer_data_load.html">
+     Defer Data Load
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../simple/file_download_examples.html">
+     File Download Examples
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../simple/hvplot_explorer.html">
+     Hvplot Explorer
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../simple/iris_kmeans.html">
+     Iris Kmeans
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../simple/loading_spinner.html">
+     Loading Spinner
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../simple/random_number_generator.html">
+     Random Number Generator
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../simple/save_filtered_df.html">
+     Save Filtered Df
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../simple/sync_location.html">
+     Sync Location
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../simple/temperature_distribution.html">
+     Temperature Distribution
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../simple/xgboost_classifier.html">
+     Xgboost Classifier
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../apis/stocks_altair.html">
+     Stocks Altair
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../apis/stocks_hvplot.html">
+     Stocks Hvplot
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../apis/stocks_matplotlib.html">
+     Stocks Matplotlib
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../apis/stocks_plotly.html">
+     Stocks Plotly
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../layout/distribution_tabs.html">
+     Distribution Tabs
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../layout/dynamic_tabs.html">
+     Dynamic Tabs
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../layout/plot_with_columns.html">
+     Plot With Columns
+    </a>
+</li>
+<li class="toctree-l2 current active">
+<a class="current reference internal" href="#">
+     Dynamic Plot Layout
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="dynamic_timeseries_image_analysis.html">
+     Dynamic Timeseries Image Analysis
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="dynamic_ui.html">
+     Dynamic Ui
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="dynamic_widget_values.html">
+     Dynamic Widget Values
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../param/action_button.html">
+     Action Button
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../param/deck_gl_global_power_plants.html">
+     Deck Gl Global Power Plants
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../param/download_upload_csv.html">
+     Download Upload Csv
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../param/loading_indicator.html">
+     Loading Indicator
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../param/param_subobjects.html">
+     Param Subobjects
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../param/precedence.html">
+     Precedence
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../param/reactive_plots.html">
+     Reactive Plots
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../param/reactive_tables.html">
+     Reactive Tables
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../streaming/hardware_automation.html">
+     Hardware Automation
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../streaming/streaming_bokeh.html">
+     Streaming Bokeh
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../streaming/streaming_indicator.html">
+     Streaming Indicator
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../streaming/streaming_perspective.html">
+     Streaming Perspective
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../streaming/streaming_tabulator.html">
+     Streaming Tabulator
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../components/CanvasDraw.html">
+     CanvasDraw
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../components/LeafletHeatMap.html">
+     LeafletHeatMap
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../components/MaterialUI.html">
+     MaterialUI
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../links/bokeh_property_editor.html">
+     Bokeh Property Editor
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../links/deck_gl_json_editor.html">
+     Deck Gl Json Editor
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../links/holoviews_glyph_link.html">
+     Holoviews Glyph Link
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../links/plotly_link.html">
+     Plotly Link
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../links/vega_heatmap_link.html">
+     Vega Heatmap Link
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../styles/MatplotlibStyle.html">
+     MatplotlibStyle
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../styles/PlotlyStyle.html">
+     PlotlyStyle
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../styles/SeabornStyle.html">
+     SeabornStyle
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../styles/VegaAltairStyle.html">
+     VegaAltairStyle
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../external/DataTable.html">
+     DataTable
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../external/Folium.html">
+     Folium
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../external/deck.gl.html">
+     Deck.gl
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../reference/index.html">
+   Reference Gallery
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+<label for="toctree-checkbox-4">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/panes/Alert.html">
+     Alert
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/panes/Audio.html">
+     Audio
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/panes/Bokeh.html">
+     Bokeh
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/panes/DataFrame.html">
+     DataFrame
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/panes/DeckGL.html">
+     DeckGL
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/panes/ECharts.html">
+     ECharts
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/panes/Folium.html">
+     Folium
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/panes/GIF.html">
+     GIF
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/panes/HTML.html">
+     HTML
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/panes/HoloViews.html">
+     HoloViews
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/panes/IDOM.html">
+     IDOM
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/panes/IPyWidget.html">
+     IPyWidget
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/panes/JPG.html">
+     JPG
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/panes/JSON.html">
+     JSON
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/panes/LaTeX.html">
+     LaTeX
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/panes/Markdown.html">
+     Markdown
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/panes/Matplotlib.html">
+     Matplotlib
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/panes/PDF.html">
+     PDF
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/panes/PNG.html">
+     PNG
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/panes/Param.html">
+     Param
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/panes/Perspective.html">
+     Perspective
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/panes/Plotly.html">
+     Plotly
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/panes/Reacton.html">
+     Reacton
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/panes/SVG.html">
+     SVG
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/panes/Str.html">
+     Str
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/panes/Streamz.html">
+     Streamz
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/panes/VTK.html">
+     VTK
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/panes/VTKJS.html">
+     VTKJS
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/panes/VTKVolume.html">
+     VTKVolume
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/panes/Vega.html">
+     Vega
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/panes/Video.html">
+     Video
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/layouts/Accordion.html">
+     Accordion
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/layouts/Card.html">
+     Card
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/layouts/Column.html">
+     Column
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/layouts/Divider.html">
+     Divider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/layouts/FlexBox.html">
+     FlexBox
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/layouts/GridBox.html">
+     GridBox
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/layouts/GridSpec.html">
+     GridSpec
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/layouts/GridStack.html">
+     GridStack
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/layouts/Row.html">
+     Row
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/layouts/Tabs.html">
+     Tabs
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/layouts/WidgetBox.html">
+     WidgetBox
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/templates/Bootstrap.html">
+     Bootstrap
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/templates/FastGridTemplate.html">
+     FastGridTemplate
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/templates/FastListTemplate.html">
+     FastListTemplate
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/templates/GoldenLayout.html">
+     GoldenLayout
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/templates/Material.html">
+     Material
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/templates/React.html">
+     React
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/templates/Vanilla.html">
+     Vanilla
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/global/Notifications.html">
+     Notifications
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/indicators/BooleanStatus.html">
+     BooleanStatus
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/indicators/Dial.html">
+     Dial
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/indicators/Gauge.html">
+     Gauge
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/indicators/LinearGauge.html">
+     LinearGauge
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/indicators/LoadingSpinner.html">
+     LoadingSpinner
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/indicators/Number.html">
+     Number
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/indicators/Progress.html">
+     Progress
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/indicators/Tqdm.html">
+     Tqdm
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/indicators/Trend.html">
+     Trend
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/Ace.html">
+     Ace
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/ArrayInput.html">
+     ArrayInput
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/AutocompleteInput.html">
+     AutocompleteInput
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/Button.html">
+     Button
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/CheckBoxGroup.html">
+     CheckBoxGroup
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/CheckButtonGroup.html">
+     CheckButtonGroup
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/Checkbox.html">
+     Checkbox
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/ColorPicker.html">
+     ColorPicker
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/CrossSelector.html">
+     CrossSelector
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/DataFrame.html">
+     DataFrame
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/DatePicker.html">
+     DatePicker
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/DateRangeSlider.html">
+     DateRangeSlider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/DateSlider.html">
+     DateSlider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/DatetimeInput.html">
+     DatetimeInput
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/DatetimePicker.html">
+     DatetimePicker
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/DatetimeRangeInput.html">
+     DatetimeRangeInput
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/DatetimeRangePicker.html">
+     DatetimeRangePicker
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/DatetimeRangeSlider.html">
+     DatetimeRangeSlider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/Debugger.html">
+     Debugger
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/DiscretePlayer.html">
+     DiscretePlayer
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/DiscreteSlider.html">
+     DiscreteSlider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/EditableFloatSlider.html">
+     EditableFloatSlider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/EditableIntSlider.html">
+     EditableIntSlider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/EditableRangeSlider.html">
+     EditableRangeSlider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/FileDownload.html">
+     FileDownload
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/FileInput.html">
+     FileInput
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/FileSelector.html">
+     FileSelector
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/FloatInput.html">
+     FloatInput
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/FloatSlider.html">
+     FloatSlider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/IntInput.html">
+     IntInput
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/IntRangeSlider.html">
+     IntRangeSlider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/IntSlider.html">
+     IntSlider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/JSONEditor.html">
+     JSONEditor
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/LiteralInput.html">
+     LiteralInput
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/MenuButton.html">
+     MenuButton
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/MultiChoice.html">
+     MultiChoice
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/MultiSelect.html">
+     MultiSelect
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/PasswordInput.html">
+     PasswordInput
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/Player.html">
+     Player
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/RadioBoxGroup.html">
+     RadioBoxGroup
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/RadioButtonGroup.html">
+     RadioButtonGroup
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/RangeSlider.html">
+     RangeSlider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/Select.html">
+     Select
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/SpeechToText.html">
+     SpeechToText
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/StaticText.html">
+     StaticText
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/Tabulator.html">
+     Tabulator
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/Terminal.html">
+     Terminal
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/TextAreaInput.html">
+     TextAreaInput
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/TextEditor.html">
+     TextEditor
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/TextInput.html">
+     TextInput
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/TextToSpeech.html">
+     TextToSpeech
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/Toggle.html">
+     Toggle
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/ToggleGroup.html">
+     ToggleGroup
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../reference/widgets/VideoStream.html">
+     VideoStream
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../developer_guide/index.html">
+   Developer Guide
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+<label for="toctree-checkbox-5">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../developer_guide/testing.html">
+     Testing
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../developer_guide/Developing_Custom_Models.html">
+     Developing custom models
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../api/index.html">
+   API Reference
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+<label for="toctree-checkbox-6">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../api/panel.io.html">
+     io
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../api/panel.layout.html">
+     layout
+    </a>
+</li>
+<li class="toctree-l2 has-children">
+<a class="reference internal" href="../../api/panel.pane.html">
+     pane
+    </a>
+<input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+<label for="toctree-checkbox-7">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l3">
+<a class="reference internal" href="../../api/panel.pane.vtk.html">
+       panel.vtk Package
+      </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../api/panel.param.html">
+     param
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../api/panel.pipeline.html">
+     pipeline
+    </a>
+</li>
+<li class="toctree-l2 has-children">
+<a class="reference internal" href="../../api/panel.template.html">
+     template
+    </a>
+<input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+<label for="toctree-checkbox-8">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l3">
+<a class="reference internal" href="../../api/panel.template.bootstrap.html">
+       panel.bootstrap Package
+      </a>
+</li>
+<li class="toctree-l3 has-children">
+<a class="reference internal" href="../../api/panel.template.fast.html">
+       panel.fast Package
+      </a>
+<input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+<label for="toctree-checkbox-9">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l4">
+<a class="reference internal" href="../../api/panel.template.fast.grid.html">
+         panel.grid Package
+        </a>
+</li>
+<li class="toctree-l4">
+<a class="reference internal" href="../../api/panel.template.fast.list.html">
+         panel.list Package
+        </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3">
+<a class="reference internal" href="../../api/panel.template.golden.html">
+       panel.golden Package
+      </a>
+</li>
+<li class="toctree-l3">
+<a class="reference internal" href="../../api/panel.template.material.html">
+       panel.material Package
+      </a>
+</li>
+<li class="toctree-l3">
+<a class="reference internal" href="../../api/panel.template.react.html">
+       panel.react Package
+      </a>
+</li>
+<li class="toctree-l3">
+<a class="reference internal" href="../../api/panel.template.theme.html">
+       panel.theme Package
+      </a>
+</li>
+<li class="toctree-l3">
+<a class="reference internal" href="../../api/panel.template.vanilla.html">
+       panel.vanilla Package
+      </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../api/panel.widgets.html">
+     widgets
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../api/panel.viewable.html">
+     viewable
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../api/panel.util.html">
+     util
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1">
+<a class="reference internal" href="../../releases.html">
+   Releases
+  </a>
+</li>
+<li class="toctree-l1">
+<a class="reference internal" href="../../FAQ.html">
+   FAQ
+  </a>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../about/index.html">
+   About
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+<label for="toctree-checkbox-10">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../about/comparisons.html">
+     Comparisons
+    </a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+<div class="sidebar-end-items">
+</div>
+</div>
+<div class="bd-sidebar-secondary d-none d-xl-block col-xl-2 bd-toc">
+<div class="toc-item">
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+<i class="fas fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav">
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#app">
+   App
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+<div class="toc-item">
+</div>
+</div>
+<div class="bd-content col-12 col-md-10 col-xl-8" role="main">
+<article class="bd-article" role="main">
+<section id="dynamic-plot-layout">
+<h1>Dynamic Plot Layout<a class="headerlink" href="#dynamic-plot-layout" title="Permalink to this heading">#</a></h1>
+<p><a class="reference external" href="https://raw.githubusercontent.com/holoviz/panel/master/examples/gallery/dynamic/dynamic_plot_layout.ipynb">Download this notebook from GitHub (right-click to download).</a></p>
+<hr class="docutils"/>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">panel</span> <span class="k">as</span> <span class="nn">pn</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">holoviews</span> <span class="k">as</span> <span class="nn">hv</span>
+
+<span class="n">pn</span><span class="o">.</span><span class="n">extension</span><span class="p">(</span><span class="n">sizing_mode</span><span class="o">=</span><span class="s2">"stretch_width"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/javascript">(function(root) {
+  function now() {
+    return new Date();
+  }
+
+  var force = true;
+
+  if (typeof root._bokeh_onload_callbacks === "undefined" || force === true) {
+    root._bokeh_onload_callbacks = [];
+    root._bokeh_is_loading = undefined;
+  }
+
+  if (typeof (root._bokeh_timeout) === "undefined" || force === true) {
+    root._bokeh_timeout = Date.now() + 5000;
+    root._bokeh_failed_load = false;
+  }
+
+  function run_callbacks() {
+    try {
+      root._bokeh_onload_callbacks.forEach(function(callback) {
+        if (callback != null)
+          callback();
+      });
+    } finally {
+      delete root._bokeh_onload_callbacks
+    }
+    console.debug("Bokeh: all callbacks have finished");
+  }
+
+  function load_libs(css_urls, js_urls, js_modules, callback) {
+    if (css_urls == null) css_urls = [];
+    if (js_urls == null) js_urls = [];
+    if (js_modules == null) js_modules = [];
+
+    root._bokeh_onload_callbacks.push(callback);
+    if (root._bokeh_is_loading > 0) {
+      console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
+      return null;
+    }
+    if (js_urls.length === 0 && js_modules.length === 0) {
+      run_callbacks();
+      return null;
+    }
+    console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
+
+    function on_load() {
+      root._bokeh_is_loading--;
+      if (root._bokeh_is_loading === 0) {
+        console.debug("Bokeh: all BokehJS libraries/stylesheets loaded");
+        run_callbacks()
+      }
+    }
+
+    function on_error() {
+      console.error("failed to load " + url);
+    }
+
+    for (var i = 0; i < css_urls.length; i++) {
+      var url = css_urls[i];
+      const element = document.createElement("link");
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.rel = "stylesheet";
+      element.type = "text/css";
+      element.href = url;
+      console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
+      document.body.appendChild(element);
+    }
+
+    var skip = [];
+    if (window.requirejs) {
+      window.requirejs.config({'packages': {}, 'paths': {'gridstack': 'https://cdn.jsdelivr.net/npm/gridstack@4.2.5/dist/gridstack-h5', 'notyf': 'https://cdn.jsdelivr.net/npm/notyf@3/notyf.min'}, 'shim': {'gridstack': {'exports': 'GridStack'}}});
+      require(["gridstack"], function(GridStack) {
+	window.GridStack = GridStack
+	on_load()
+      })
+      require(["notyf"], function() {
+	on_load()
+      })
+      root._bokeh_is_loading = css_urls.length + 2;
+    } else {
+      root._bokeh_is_loading = css_urls.length + js_urls.length + js_modules.length;
+    }    if (((window['GridStack'] !== undefined) && (!(window['GridStack'] instanceof HTMLElement))) || window.requirejs) {
+      var urls = ['https://cdn.holoviz.org/panel/0.14.2/dist/bundled/gridstack/gridstack@4.2.5/dist/gridstack-h5.js'];
+      for (var i = 0; i < urls.length; i++) {
+        skip.push(urls[i])
+      }
+    }    if (((window['Notyf'] !== undefined) && (!(window['Notyf'] instanceof HTMLElement))) || window.requirejs) {
+      var urls = ['https://cdn.holoviz.org/panel/0.14.2/dist/bundled/notificationarea/notyf@3/notyf.min.js'];
+      for (var i = 0; i < urls.length; i++) {
+        skip.push(urls[i])
+      }
+    }    for (var i = 0; i < js_urls.length; i++) {
+      var url = js_urls[i];
+      if (skip.indexOf(url) >= 0) {
+	if (!window.requirejs) {
+	  on_load();
+	}
+	continue;
+      }
+      var element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.async = false;
+      element.src = url;
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
+    }
+    for (var i = 0; i < js_modules.length; i++) {
+      var url = js_modules[i];
+      if (skip.indexOf(url) >= 0) {
+	if (!window.requirejs) {
+	  on_load();
+	}
+	continue;
+      }
+      var element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.async = false;
+      element.src = url;
+      element.type = "module";
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
+    }
+    if (!js_urls.length && !js_modules.length) {
+      on_load()
+    }
+  };
+
+  function inject_raw_css(css) {
+    const element = document.createElement("style");
+    element.appendChild(document.createTextNode(css));
+    document.body.appendChild(element);
+  }
+
+  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.4.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.4.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.4.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-mathjax-2.4.3.min.js", "https://unpkg.com/@holoviz/panel@0.14.2/dist/panel.min.js"];
+  var js_modules = [];
+  var css_urls = ["https://cdn.holoviz.org/panel/0.14.2/dist/css/card.css", "https://cdn.holoviz.org/panel/0.14.2/dist/css/alerts.css", "https://cdn.holoviz.org/panel/0.14.2/dist/css/markdown.css", "https://cdn.holoviz.org/panel/0.14.2/dist/css/dataframe.css", "https://cdn.holoviz.org/panel/0.14.2/dist/css/debugger.css", "https://cdn.holoviz.org/panel/0.14.2/dist/css/loading.css", "https://cdn.holoviz.org/panel/0.14.2/dist/css/json.css", "https://cdn.holoviz.org/panel/0.14.2/dist/css/widgets.css"];
+  var inline_js = [    function(Bokeh) {
+      inject_raw_css("\n    .bk.pn-loading.arc:before {\n      background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHN0eWxlPSJtYXJnaW46IGF1dG87IGJhY2tncm91bmQ6IG5vbmU7IGRpc3BsYXk6IGJsb2NrOyBzaGFwZS1yZW5kZXJpbmc6IGF1dG87IiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiPiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYzNjM2MzIiBzdHJva2Utd2lkdGg9IjEwIiByPSIzNSIgc3Ryb2tlLWRhc2hhcnJheT0iMTY0LjkzMzYxNDMxMzQ2NDE1IDU2Ljk3Nzg3MTQzNzgyMTM4Ij4gICAgPGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiBkdXI9IjFzIiB2YWx1ZXM9IjAgNTAgNTA7MzYwIDUwIDUwIiBrZXlUaW1lcz0iMDsxIj48L2FuaW1hdGVUcmFuc2Zvcm0+ICA8L2NpcmNsZT48L3N2Zz4=\");\n      background-size: auto calc(min(50%, 400px));\n    }\n    ");
+    },    function(Bokeh) {
+      Bokeh.set_log_level("info");
+    },
+function(Bokeh) {} // ensure no trailing comma for IE
+  ];
+
+  function run_inline_js() {
+    if ((root.Bokeh !== undefined) || (force === true)) {
+      for (var i = 0; i < inline_js.length; i++) {
+        inline_js[i].call(root, root.Bokeh);
+      }} else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(run_inline_js, 100);
+    } else if (!root._bokeh_failed_load) {
+      console.log("Bokeh: BokehJS failed to load within specified timeout.");
+      root._bokeh_failed_load = true;
+    }
+  }
+
+  if (root._bokeh_is_loading === 0) {
+    console.debug("Bokeh: BokehJS loaded, going straight to plotting");
+    run_inline_js();
+  } else {
+    load_libs(css_urls, js_urls, js_modules, function() {
+      console.debug("Bokeh: BokehJS plotting callback run at", now());
+      run_inline_js();
+    });
+  }
+}(window));</script><script type="application/javascript">
+if ((window.PyViz === undefined) || (window.PyViz instanceof HTMLElement)) {
+  window.PyViz = {comms: {}, comm_status:{}, kernels:{}, receivers: {}, plot_index: []}
+}
+
+
+    function JupyterCommManager() {
+    }
+
+    JupyterCommManager.prototype.register_target = function(plot_id, comm_id, msg_handler) {
+      if (window.comm_manager || ((window.Jupyter !== undefined) && (Jupyter.notebook.kernel != null))) {
+        var comm_manager = window.comm_manager || Jupyter.notebook.kernel.comm_manager;
+        comm_manager.register_target(comm_id, function(comm) {
+          comm.on_msg(msg_handler);
+        });
+      } else if ((plot_id in window.PyViz.kernels) && (window.PyViz.kernels[plot_id])) {
+        window.PyViz.kernels[plot_id].registerCommTarget(comm_id, function(comm) {
+          comm.onMsg = msg_handler;
+        });
+      } else if (typeof google != 'undefined' && google.colab.kernel != null) {
+        google.colab.kernel.comms.registerTarget(comm_id, (comm) => {
+          var messages = comm.messages[Symbol.asyncIterator]();
+          function processIteratorResult(result) {
+            var message = result.value;
+            console.log(message)
+            var content = {data: message.data, comm_id};
+            var buffers = []
+            for (var buffer of message.buffers || []) {
+              buffers.push(new DataView(buffer))
+            }
+            var metadata = message.metadata || {};
+            var msg = {content, buffers, metadata}
+            msg_handler(msg);
+            return messages.next().then(processIteratorResult);
+          }
+          return messages.next().then(processIteratorResult);
+        })
+      }
+    }
+
+    JupyterCommManager.prototype.get_client_comm = function(plot_id, comm_id, msg_handler) {
+      if (comm_id in window.PyViz.comms) {
+        return window.PyViz.comms[comm_id];
+      } else if (window.comm_manager || ((window.Jupyter !== undefined) && (Jupyter.notebook.kernel != null))) {
+        var comm_manager = window.comm_manager || Jupyter.notebook.kernel.comm_manager;
+        var comm = comm_manager.new_comm(comm_id, {}, {}, {}, comm_id);
+        if (msg_handler) {
+          comm.on_msg(msg_handler);
+        }
+      } else if ((plot_id in window.PyViz.kernels) && (window.PyViz.kernels[plot_id])) {
+        var comm = window.PyViz.kernels[plot_id].connectToComm(comm_id);
+        comm.open();
+        if (msg_handler) {
+          comm.onMsg = msg_handler;
+        }
+      } else if (typeof google != 'undefined' && google.colab.kernel != null) {
+        var comm_promise = google.colab.kernel.comms.open(comm_id)
+        comm_promise.then((comm) => {
+          window.PyViz.comms[comm_id] = comm;
+          if (msg_handler) {
+            var messages = comm.messages[Symbol.asyncIterator]();
+            function processIteratorResult(result) {
+              var message = result.value;
+              var content = {data: message.data};
+              var metadata = message.metadata || {comm_id};
+              var msg = {content, metadata}
+              msg_handler(msg);
+              return messages.next().then(processIteratorResult);
+            }
+            return messages.next().then(processIteratorResult);
+          }
+        }) 
+        var sendClosure = (data, metadata, buffers, disposeOnDone) => {
+          return comm_promise.then((comm) => {
+            comm.send(data, metadata, buffers, disposeOnDone);
+          });
+        };
+        var comm = {
+          send: sendClosure
+        };
+      }
+      window.PyViz.comms[comm_id] = comm;
+      return comm;
+    }
+    window.PyViz.comm_manager = new JupyterCommManager();
+    
+
+
+var JS_MIME_TYPE = 'application/javascript';
+var HTML_MIME_TYPE = 'text/html';
+var EXEC_MIME_TYPE = 'application/vnd.holoviews_exec.v0+json';
+var CLASS_NAME = 'output';
+
+/**
+ * Render data to the DOM node
+ */
+function render(props, node) {
+  var div = document.createElement("div");
+  var script = document.createElement("script");
+  node.appendChild(div);
+  node.appendChild(script);
+}
+
+/**
+ * Handle when a new output is added
+ */
+function handle_add_output(event, handle) {
+  var output_area = handle.output_area;
+  var output = handle.output;
+  if ((output.data == undefined) || (!output.data.hasOwnProperty(EXEC_MIME_TYPE))) {
+    return
+  }
+  var id = output.metadata[EXEC_MIME_TYPE]["id"];
+  var toinsert = output_area.element.find("." + CLASS_NAME.split(' ')[0]);
+  if (id !== undefined) {
+    var nchildren = toinsert.length;
+    var html_node = toinsert[nchildren-1].children[0];
+    html_node.innerHTML = output.data[HTML_MIME_TYPE];
+    var scripts = [];
+    var nodelist = html_node.querySelectorAll("script");
+    for (var i in nodelist) {
+      if (nodelist.hasOwnProperty(i)) {
+        scripts.push(nodelist[i])
+      }
+    }
+
+    scripts.forEach( function (oldScript) {
+      var newScript = document.createElement("script");
+      var attrs = [];
+      var nodemap = oldScript.attributes;
+      for (var j in nodemap) {
+        if (nodemap.hasOwnProperty(j)) {
+          attrs.push(nodemap[j])
+        }
+      }
+      attrs.forEach(function(attr) { newScript.setAttribute(attr.name, attr.value) });
+      newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+      oldScript.parentNode.replaceChild(newScript, oldScript);
+    });
+    if (JS_MIME_TYPE in output.data) {
+      toinsert[nchildren-1].children[1].textContent = output.data[JS_MIME_TYPE];
+    }
+    output_area._hv_plot_id = id;
+    if ((window.Bokeh !== undefined) && (id in Bokeh.index)) {
+      window.PyViz.plot_index[id] = Bokeh.index[id];
+    } else {
+      window.PyViz.plot_index[id] = null;
+    }
+  } else if (output.metadata[EXEC_MIME_TYPE]["server_id"] !== undefined) {
+    var bk_div = document.createElement("div");
+    bk_div.innerHTML = output.data[HTML_MIME_TYPE];
+    var script_attrs = bk_div.children[0].attributes;
+    for (var i = 0; i < script_attrs.length; i++) {
+      toinsert[toinsert.length - 1].childNodes[1].setAttribute(script_attrs[i].name, script_attrs[i].value);
+    }
+    // store reference to server id on output_area
+    output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
+  }
+}
+
+/**
+ * Handle when an output is cleared or removed
+ */
+function handle_clear_output(event, handle) {
+  var id = handle.cell.output_area._hv_plot_id;
+  var server_id = handle.cell.output_area._bokeh_server_id;
+  if (((id === undefined) || !(id in PyViz.plot_index)) && (server_id !== undefined)) { return; }
+  var comm = window.PyViz.comm_manager.get_client_comm("hv-extension-comm", "hv-extension-comm", function () {});
+  if (server_id !== null) {
+    comm.send({event_type: 'server_delete', 'id': server_id});
+    return;
+  } else if (comm !== null) {
+    comm.send({event_type: 'delete', 'id': id});
+  }
+  delete PyViz.plot_index[id];
+  if ((window.Bokeh !== undefined) & (id in window.Bokeh.index)) {
+    var doc = window.Bokeh.index[id].model.document
+    doc.clear();
+    const i = window.Bokeh.documents.indexOf(doc);
+    if (i > -1) {
+      window.Bokeh.documents.splice(i, 1);
+    }
+  }
+}
+
+/**
+ * Handle kernel restart event
+ */
+function handle_kernel_cleanup(event, handle) {
+  delete PyViz.comms["hv-extension-comm"];
+  window.PyViz.plot_index = {}
+}
+
+/**
+ * Handle update_display_data messages
+ */
+function handle_update_output(event, handle) {
+  handle_clear_output(event, {cell: {output_area: handle.output_area}})
+  handle_add_output(event, handle)
+}
+
+function register_renderer(events, OutputArea) {
+  function append_mime(data, metadata, element) {
+    // create a DOM node to render to
+    var toinsert = this.create_output_subarea(
+    metadata,
+    CLASS_NAME,
+    EXEC_MIME_TYPE
+    );
+    this.keyboard_manager.register_events(toinsert);
+    // Render to node
+    var props = {data: data, metadata: metadata[EXEC_MIME_TYPE]};
+    render(props, toinsert[0]);
+    element.append(toinsert);
+    return toinsert
+  }
+
+  events.on('output_added.OutputArea', handle_add_output);
+  events.on('output_updated.OutputArea', handle_update_output);
+  events.on('clear_output.CodeCell', handle_clear_output);
+  events.on('delete.Cell', handle_clear_output);
+  events.on('kernel_ready.Kernel', handle_kernel_cleanup);
+
+  OutputArea.prototype.register_mime_type(EXEC_MIME_TYPE, append_mime, {
+    safe: true,
+    index: 0
+  });
+}
+
+if (window.Jupyter !== undefined) {
+  try {
+    var events = require('base/js/events');
+    var OutputArea = require('notebook/js/outputarea').OutputArea;
+    if (OutputArea.prototype.mime_types().indexOf(EXEC_MIME_TYPE) == -1) {
+      register_renderer(events, OutputArea);
+    }
+  } catch(err) {
+  }
+}
+</script><div class="output text_html"><style>.bk-root, .bk-root .bk:before, .bk-root .bk:after {
+  font-family: var(--jp-ui-font-size1);
+  font-size: var(--jp-ui-font-size1);
+  color: var(--jp-ui-font-color1);
+}
+</style></div></div>
+</div>
+<p>This example demonstrates how to dynamically add and remove plots from a layout (in this case a Column) using the <code class="docutils literal notranslate"><span class="pre">pop</span></code> and <code class="docutils literal notranslate"><span class="pre">append</span></code> methods (requires a live Python server):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slider</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'N'</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">column</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="s1">'This column will be populated with N Plots'</span><span class="p">,</span> <span class="n">sizing_mode</span><span class="o">=</span><span class="s2">"stretch_width"</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">set_plots</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+    <span class="n">nplots</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">new</span><span class="o">-</span><span class="n">event</span><span class="o">.</span><span class="n">old</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">nplots</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">nplots</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">column</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">column</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">nplots</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">column</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hv</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">opts</span><span class="p">(</span><span class="n">responsive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">))</span>
+            
+    <span class="n">column</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="sa">f</span><span class="s1">'This column will be populated with </span><span class="si">{</span><span class="n">event</span><span class="o">.</span><span class="n">new</span><span class="si">}</span><span class="s1"> Plots'</span>
+    
+<span class="n">slider</span><span class="o">.</span><span class="n">param</span><span class="o">.</span><span class="n">watch</span><span class="p">(</span><span class="n">set_plots</span><span class="p">,</span> <span class="s1">'value'</span><span class="p">)</span>
+<span class="n">slider</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">pn</span><span class="o">.</span><span class="n">Row</span><span class="p">(</span><span class="n">pn</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">slider</span><span class="p">,</span> <span class="n">sizing_mode</span><span class="o">=</span><span class="s2">"fixed"</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">),</span> <span class="n">column</span><span class="p">,</span> <span class="n">sizing_mode</span><span class="o">=</span><span class="s2">"stretch_width"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="1002">
+<div class="bk-root" data-root-id="1002" id="96a4134b-2d61-44d9-a908-27091323c2bb"></div>
+</div>
+<script type="application/javascript">(function(root) {
+  function embed_document(root) {
+    var docs_json = {"1e3229b3-8689-4c62-90d8-7b0074a0235e":{"defs":[{"extends":null,"module":null,"name":"ReactiveHTML1","overrides":[],"properties":[]},{"extends":null,"module":null,"name":"FlexBox1","overrides":[],"properties":[{"default":"flex-start","kind":null,"name":"align_content"},{"default":"flex-start","kind":null,"name":"align_items"},{"default":"row","kind":null,"name":"flex_direction"},{"default":"wrap","kind":null,"name":"flex_wrap"},{"default":"flex-start","kind":null,"name":"justify_content"}]},{"extends":null,"module":null,"name":"GridStack1","overrides":[],"properties":[{"default":"warn","kind":null,"name":"mode"},{"default":null,"kind":null,"name":"ncols"},{"default":null,"kind":null,"name":"nrows"},{"default":true,"kind":null,"name":"allow_resize"},{"default":true,"kind":null,"name":"allow_drag"},{"default":[],"kind":null,"name":"state"}]},{"extends":null,"module":null,"name":"click1","overrides":[],"properties":[{"default":"","kind":null,"name":"terminal_output"},{"default":"","kind":null,"name":"debug_name"},{"default":0,"kind":null,"name":"clears"}]},{"extends":null,"module":null,"name":"NotificationAreaBase1","overrides":[],"properties":[{"default":"bottom-right","kind":null,"name":"position"},{"default":0,"kind":null,"name":"_clear"}]},{"extends":null,"module":null,"name":"NotificationArea1","overrides":[],"properties":[{"default":[],"kind":null,"name":"notifications"},{"default":"bottom-right","kind":null,"name":"position"},{"default":0,"kind":null,"name":"_clear"},{"default":[{"background":"#ffc107","icon":{"className":"fas fa-exclamation-triangle","color":"white","tagName":"i"},"type":"warning"},{"background":"#007bff","icon":{"className":"fas fa-info-circle","color":"white","tagName":"i"},"type":"info"}],"kind":null,"name":"types"}]},{"extends":null,"module":null,"name":"Notification","overrides":[],"properties":[{"default":null,"kind":null,"name":"background"},{"default":3000,"kind":null,"name":"duration"},{"default":null,"kind":null,"name":"icon"},{"default":"","kind":null,"name":"message"},{"default":null,"kind":null,"name":"notification_type"},{"default":false,"kind":null,"name":"_destroyed"}]},{"extends":null,"module":null,"name":"TemplateActions1","overrides":[],"properties":[{"default":0,"kind":null,"name":"open_modal"},{"default":0,"kind":null,"name":"close_modal"}]},{"extends":null,"module":null,"name":"MaterialTemplateActions1","overrides":[],"properties":[{"default":0,"kind":null,"name":"open_modal"},{"default":0,"kind":null,"name":"close_modal"}]}],"roots":{"references":[{"attributes":{"fill_color":{"value":"#30a2da"},"hatch_color":{"value":"#30a2da"},"line_color":{"value":"#30a2da"},"size":{"value":2.449489742783178},"x":{"field":"x"},"y":{"field":"y"}},"id":"1041","type":"Scatter"},{"attributes":{"axis_label":"x","coordinates":null,"formatter":{"id":"1048"},"group":null,"major_label_policy":{"id":"1049"},"ticker":{"id":"1019"}},"id":"1018","type":"LinearAxis"},{"attributes":{},"id":"1060","type":"UnionRenderers"},{"attributes":{"end":3.9415126465213657,"reset_end":3.9415126465213657,"reset_start":-4.083978915879742,"start":-4.083978915879742,"tags":[[["y","y",null]]]},"id":"1008","type":"Range1d"},{"attributes":{"children":[{"id":"1004"}],"margin":[0,0,0,0],"name":"Column01402","sizing_mode":"fixed","width":300},"id":"1003","type":"Column"},{"attributes":{"children":[{"id":"1003"},{"id":"1005"}],"margin":[0,0,0,0],"name":"Row01403","sizing_mode":"stretch_width"},"id":"1002","type":"Row"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#30a2da"},"hatch_alpha":{"value":0.1},"hatch_color":{"value":"#30a2da"},"line_alpha":{"value":0.1},"line_color":{"value":"#30a2da"},"size":{"value":2.449489742783178},"x":{"field":"x"},"y":{"field":"y"}},"id":"1042","type":"Scatter"},{"attributes":{"end":5,"margin":[5,10,5,10],"sizing_mode":"stretch_width","start":0,"title":"N","value":1},"id":"1004","type":"Slider"},{"attributes":{"end":3.8134451749679634,"reset_end":3.8134451749679634,"reset_start":-3.3132019576893694,"start":-3.3132019576893694,"tags":[[["x","x",null]]]},"id":"1007","type":"Range1d"},{"attributes":{"below":[{"id":"1018"}],"center":[{"id":"1021"},{"id":"1025"}],"height":300,"left":[{"id":"1022"}],"margin":[5,5,5,5],"min_border_bottom":10,"min_border_left":10,"min_border_right":10,"min_border_top":10,"renderers":[{"id":"1044"}],"sizing_mode":"stretch_width","title":{"id":"1010"},"toolbar":{"id":"1032"},"width":null,"x_range":{"id":"1007"},"x_scale":{"id":"1014"},"y_range":{"id":"1008"},"y_scale":{"id":"1016"}},"id":"1009","subtype":"Figure","type":"Plot"},{"attributes":{"children":[{"id":"1006"},{"id":"1009"}],"margin":[0,0,0,0],"name":"Column01378","sizing_mode":"stretch_width"},"id":"1005","type":"Column"},{"attributes":{"angle":{"value":0.0},"fill_alpha":{"value":1.0},"fill_color":{"value":"#30a2da"},"hatch_alpha":{"value":1.0},"hatch_color":{"value":"#30a2da"},"hatch_scale":{"value":12.0},"hatch_weight":{"value":1.0},"line_alpha":{"value":1.0},"line_cap":{"value":"butt"},"line_color":{"value":"#30a2da"},"line_dash":{"value":[]},"line_dash_offset":{"value":0},"line_join":{"value":"bevel"},"line_width":{"value":1},"marker":{"value":"circle"},"size":{"value":2.449489742783178},"x":{"field":"x"},"y":{"field":"y"}},"id":"1046","type":"Scatter"},{"attributes":{"coordinates":null,"data_source":{"id":"1038"},"glyph":{"id":"1041"},"group":null,"hover_glyph":null,"muted_glyph":{"id":"1043"},"nonselection_glyph":{"id":"1042"},"selection_glyph":{"id":"1046"},"view":{"id":"1045"}},"id":"1044","type":"GlyphRenderer"},{"attributes":{},"id":"1016","type":"LinearScale"},{"attributes":{},"id":"1014","type":"LinearScale"},{"attributes":{"source":{"id":"1038"}},"id":"1045","type":"CDSView"},{"attributes":{},"id":"1052","type":"AllLabels"},{"attributes":{"css_classes":["markdown"],"margin":[5,5,5,5],"name":"Markdown01400","sizing_mode":"stretch_width","text":"&lt;p&gt;This column will be populated with 1 Plots&lt;/p&gt;"},"id":"1006","type":"panel.models.markup.HTML"},{"attributes":{"coordinates":null,"group":null,"text_color":"black","text_font_size":"12pt"},"id":"1010","type":"Title"},{"attributes":{},"id":"1048","type":"BasicTickFormatter"},{"attributes":{},"id":"1019","type":"BasicTicker"},{"attributes":{"tools":[{"id":"1026"},{"id":"1027"},{"id":"1028"},{"id":"1029"},{"id":"1030"}]},"id":"1032","type":"Toolbar"},{"attributes":{},"id":"1051","type":"BasicTickFormatter"},{"attributes":{"reload":false},"id":"1124","type":"panel.models.location.Location"},{"attributes":{},"id":"1039","type":"Selection"},{"attributes":{"client_comm_id":"34a73207c39042718985cf545f6a68d9","comm_id":"f4a2e27e5bfe4f2e825e59e4f7fd4628","plot_id":"1002"},"id":"1093","type":"panel.models.comm_manager.CommManager"},{"attributes":{"axis":{"id":"1018"},"coordinates":null,"grid_line_color":null,"group":null,"ticker":null},"id":"1021","type":"Grid"},{"attributes":{},"id":"1049","type":"AllLabels"},{"attributes":{"axis":{"id":"1022"},"coordinates":null,"dimension":1,"grid_line_color":null,"group":null,"ticker":null},"id":"1025","type":"Grid"},{"attributes":{"data":{"x":{"__ndarray__":"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","dtype":"float64","order":"little","shape":[1000]},"y":{"__ndarray__":"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","dtype":"float64","order":"little","shape":[1000]}},"selected":{"id":"1039"},"selection_policy":{"id":"1060"}},"id":"1038","type":"ColumnDataSource"},{"attributes":{},"id":"1027","type":"PanTool"},{"attributes":{},"id":"1028","type":"WheelZoomTool"},{"attributes":{"fill_alpha":{"value":0.2},"fill_color":{"value":"#30a2da"},"hatch_alpha":{"value":0.2},"hatch_color":{"value":"#30a2da"},"line_alpha":{"value":0.2},"line_color":{"value":"#30a2da"},"size":{"value":2.449489742783178},"x":{"field":"x"},"y":{"field":"y"}},"id":"1043","type":"Scatter"},{"attributes":{"axis_label":"y","coordinates":null,"formatter":{"id":"1051"},"group":null,"major_label_policy":{"id":"1052"},"ticker":{"id":"1023"}},"id":"1022","type":"LinearAxis"},{"attributes":{},"id":"1023","type":"BasicTicker"},{"attributes":{},"id":"1030","type":"ResetTool"},{"attributes":{},"id":"1026","type":"SaveTool"},{"attributes":{"bottom_units":"screen","coordinates":null,"fill_alpha":0.5,"fill_color":"lightgrey","group":null,"left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"right_units":"screen","syncable":false,"top_units":"screen"},"id":"1031","type":"BoxAnnotation"},{"attributes":{"overlay":{"id":"1031"}},"id":"1029","type":"BoxZoomTool"}],"root_ids":["1002","1093","1124"]},"title":"Bokeh Application","version":"2.4.3"}};
+    var render_items = [{"docid":"1e3229b3-8689-4c62-90d8-7b0074a0235e","root_ids":["1002"],"roots":{"1002":"96a4134b-2d61-44d9-a908-27091323c2bb"}}];
+    root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
+    for (const render_item of render_items) {
+      for (const root_id of render_item.root_ids) {
+	const id_el = document.getElementById(root_id)
+	if (id_el.children.length && (id_el.children[0].className === 'bk-root')) {
+	  const root_el = id_el.children[0]
+	  root_el.id = root_el.id + '-rendered'
+	}
+      }
+    }
+  }
+  if (root.Bokeh !== undefined && root.Bokeh.Panel !== undefined) {
+    embed_document(root);
+  } else {
+    var attempts = 0;
+    var timer = setInterval(function(root) {
+      if (root.Bokeh !== undefined && root.Bokeh.Panel !== undefined) {
+        clearInterval(timer);
+        embed_document(root);
+      } else if (document.readyState == "complete") {
+        attempts++;
+        if (attempts > 200) {
+          clearInterval(timer);
+          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+        }
+      }
+    }, 25, root)
+  }
+})(window);</script></div></div>
+</div>
+<section id="app">
+<h2>App<a class="headerlink" href="#app" title="Permalink to this heading">#</a></h2>
+<p>Lets wrap it into nice template that can be served via <code class="docutils literal notranslate"><span class="pre">panel</span> <span class="pre">serve</span> <span class="pre">dynamic_plot_layout.ipynb</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">description</span> <span class="o">=</span> <span class="s2">"This example demonstrates **how to dynamically add and remove plots** from a layout (in this case a Column) using the ``pop`` and ``append`` methods."</span>
+<span class="n">pn</span><span class="o">.</span><span class="n">template</span><span class="o">.</span><span class="n">FastListTemplate</span><span class="p">(</span><span class="n">site</span><span class="o">=</span><span class="s2">"Panel"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Dynamic Plot Layout"</span><span class="p">,</span> <span class="n">sidebar</span><span class="o">=</span><span class="p">[</span><span class="n">slider</span><span class="p">],</span> <span class="n">main</span><span class="o">=</span><span class="p">[</span><span class="n">description</span><span class="p">,</span> <span class="n">column</span><span class="p">])</span><span class="o">.</span><span class="n">servable</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<div id="scroller-right">This web page was generated from a Jupyter notebook and not all interactivity will work on this website. <a href="https://raw.githubusercontent.com/holoviz/panel/v0.14.2/examples/gallery/dynamic/dynamic_plot_layout.ipynb">Right click to download and run locally</a> for full Python-backed interactivity.</div><hr class="docutils"/>
+<p><a class="reference external" href="https://raw.githubusercontent.com/holoviz/panel/master/examples/gallery/dynamic/dynamic_plot_layout.ipynb">Download this notebook from GitHub (right-click to download).</a></p>
+</section>
+</article>
+<footer class="bd-footer-article">
+<!-- Previous / next buttons -->
+<div class="prev-next-area">
+<a class="left-prev" href="../layout/plot_with_columns.html" id="prev-link" title="previous page">
+<i class="fas fa-angle-left"></i>
+<div class="prev-next-info">
+<p class="prev-next-subtitle">previous</p>
+<p class="prev-next-title">Plot With Columns</p>
+</div>
+</a>
+<a class="right-next" href="dynamic_timeseries_image_analysis.html" id="next-link" title="next page">
+<div class="prev-next-info">
+<p class="prev-next-subtitle">next</p>
+<p class="prev-next-title">Dynamic Timeseries Image Analysis</p>
+</div>
+<i class="fas fa-angle-right"></i>
+</a>
+</div>
+</footer>
+</div>
+</div>
+</div>
+<!-- Scripts loaded after <body> so the DOM is not blocked -->
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695"></script>
+<footer class="bd-footer"><div class="bd-footer__inner container">
+<div class="footer-item">
+<p class="copyright">
+    © Copyright 2019-2022 Holoviz contributors.<br/>
+</p>
+</div>
+<div class="footer-item">
+<p class="last-updated">
+Last updated on 2022-12-16.<br/>
+</p>
+</div>
+</div>
+</footer>
+</body>
+</html>

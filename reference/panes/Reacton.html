@@ -1,0 +1,2353 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="Docutils 0.19: https://docutils.sourceforge.io/" name="generator"/>
+<link href="../../site.webmanifest" rel="manifest"/>
+<title>Reacton — Panel v0.14.2</title>
+<script>
+  document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+  document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
+</script>
+<!-- Loaded before other Sphinx assets -->
+<link href="../../_static/styles/theme.css?digest=92025949c220c2e29695" rel="stylesheet"/>
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=92025949c220c2e29695" rel="stylesheet"/>
+<link href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css" rel="stylesheet"/>
+<link as="font" crossorigin="" href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+<link href="../../_static/pygments.css" rel="stylesheet" type="text/css">
+<link href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" rel="stylesheet" type="text/css">
+<link href="../../_static/graphviz.css" rel="stylesheet" type="text/css">
+<link href="../../_static/copybutton.css" rel="stylesheet" type="text/css">
+<link href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" rel="stylesheet" type="text/css">
+<link href="../../_static/nbsite.css" rel="stylesheet" type="text/css"/>
+<link href="../../_static/css/custom.css" rel="stylesheet" type="text/css"/>
+<link href="../../_static/css/dataframe.css" rel="stylesheet" type="text/css"/>
+<!-- Pre-loaded scripts that we'll load fully later -->
+<link as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695" rel="preload"/>
+<script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+<script src="../../_static/jquery.js"></script>
+<script src="../../_static/underscore.js"></script>
+<script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+<script src="../../_static/doctools.js"></script>
+<script src="../../_static/sphinx_highlight.js"></script>
+<script src="../../_static/clipboard.min.js"></script>
+<script src="../../_static/copybutton.js"></script>
+<script src="../../_static/design-tabs.js"></script>
+<script src="../../_static/ServiceHandler.js"></script>
+<script async="async" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                window.ga = window.ga || function () {
+                    (ga.q = ga.q || []).push(arguments) };
+                ga.l = +new Date;
+                ga('create', 'UA-154795830-2', 'auto');
+                ga('set', 'anonymizeIp', true);
+                ga('send', 'pageview');
+            </script>
+<link href="../../_static/favicon.ico" rel="shortcut icon">
+<link href="../../genindex.html" rel="index" title="Index"/>
+<link href="../../search.html" rel="search" title="Search"/>
+<link href="SVG.html" rel="next" title="SVG"/>
+<link href="Plotly.html" rel="prev" title="Plotly"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="en" name="docsearch:language"/>
+</link></link></link></link></link></link></head>
+<body data-default-mode="light" data-offset="180" data-spy="scroll" data-target="#bd-toc-nav">
+<div class="bd-header-announcement container-fluid" id="banner">
+</div>
+<nav class="navbar navbar-dark navbar-expand-lg bg-dark fixed-top bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
+<div id="navbar-start">
+<a class="navbar-brand logo" href="../../index.html">
+<img alt="Logo image" class="logo__image only-light" src="../../_static/logo_horizontal.png"/>
+<img alt="Logo image" class="logo__image only-dark" src="../../_static/logo_horizontal.png"/>
+</a>
+</div>
+<button aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar-collapsible" data-toggle="collapse" type="button">
+<span class="fas fa-bars"></span>
+</button>
+<div class="col-lg-9 collapse navbar-collapse" id="navbar-collapsible">
+<div class="mr-auto" id="navbar-center">
+<div class="navbar-center-item">
+<ul class="navbar-nav" id="navbar-main-elements">
+<li class="toctree-l1 nav-item">
+<a class="reference internal nav-link" href="../../index.html">
+  Overview
+ </a>
+</li>
+<li class="toctree-l1 nav-item">
+<a class="reference internal nav-link" href="../../getting_started/index.html">
+  Getting Started
+ </a>
+</li>
+<li class="toctree-l1 nav-item">
+<a class="reference internal nav-link" href="../../user_guide/index.html">
+  User Guide
+ </a>
+</li>
+<li class="toctree-l1 nav-item">
+<a class="reference internal nav-link" href="../../gallery/index.html">
+  Gallery
+ </a>
+</li>
+<li class="toctree-l1 current active nav-item">
+<a class="reference internal nav-link" href="../index.html">
+  Reference Gallery
+ </a>
+</li>
+<li class="toctree-l1 nav-item">
+<a class="reference internal nav-link" href="../../developer_guide/index.html">
+  Developer Guide
+ </a>
+</li>
+<li class="toctree-l1 nav-item">
+<a class="reference internal nav-link" href="../../api/index.html">
+  API Reference
+ </a>
+</li>
+<li class="toctree-l1 nav-item">
+<a class="reference internal nav-link" href="../../releases.html">
+  Releases
+ </a>
+</li>
+<li class="toctree-l1 nav-item">
+<a class="reference internal nav-link" href="../../FAQ.html">
+  FAQ
+ </a>
+</li>
+<li class="toctree-l1 nav-item">
+<a class="reference internal nav-link" href="../../about/index.html">
+  About
+ </a>
+</li>
+</ul>
+</div>
+</div>
+<div id="navbar-end">
+<div class="navbar-end-item">
+<ul aria-label="Icon Links" class="navbar-nav" id="navbar-icon-links">
+<li class="nav-item">
+<a class="nav-link" href="https://github.com/holoviz/panel" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github-square"></i></span>
+<label class="sr-only">GitHub</label></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://twitter.com/Panel_Org" rel="noopener" target="_blank" title="Twitter"><span><i class="fab fa-twitter-square"></i></span>
+<label class="sr-only">Twitter</label></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://discourse.holoviz.org/c/panel/5" rel="noopener" target="_blank" title="Discourse"><span><i class="fab fa-discourse"></i></span>
+<label class="sr-only">Discourse</label></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<div class="bd-container container-xl">
+<div class="bd-container__inner row">
+<!-- Only show if we have sidebars configured, else just a small margin  -->
+<div class="bd-sidebar-primary col-12 col-md-2 bd-sidebar">
+<div class="sidebar-start-items"><form action="../../search.html" class="bd-search d-flex align-items-center" method="get">
+<i class="icon fas fa-search"></i>
+<input aria-label="Search the docs ..." autocomplete="off" class="form-control" id="search-input" name="q" placeholder="Search the docs ..." type="search"/>
+</form><nav aria-label="Main navigation" class="bd-links" id="bd-docs-nav">
+<div class="bd-toc-item active">
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../index.html">
+   Overview
+  </a>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../getting_started/index.html">
+   Getting Started
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox">
+<label for="toctree-checkbox-1">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../getting_started/installation.html">
+     Installation
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../getting_started/build_app.html">
+     Build an app
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../getting_started/core_concepts.html">
+     Core Concepts
+    </a>
+</li>
+</ul>
+</input></li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../user_guide/index.html">
+   User Guide
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+<label for="toctree-checkbox-2">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Overview.html">
+     Overview
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Components.html">
+     Components
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/APIs.html">
+     APIs
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Customization.html">
+     Customization
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Interact.html">
+     Interact
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Widgets.html">
+     Widgets
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Param.html">
+     Parameters
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Links.html">
+     Linking
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Pipelines.html">
+     Pipelines
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Templates.html">
+     Templates
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Performance_and_Debugging.html">
+     Performance and Debugging
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Session_State_and_Callbacks.html">
+     Session state &amp; Callbacks
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Async_and_Concurrency.html">
+     Asynchronous and Concurrent Process
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Display_and_Export.html">
+     Display &amp; Export
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Running_in_Webassembly.html">
+     Running Panel in the Browser with WASM
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Server_Configuration.html">
+     Server Configuration
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Server_Deployment.html">
+     Server Deployment
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Authentication.html">
+     Authentication
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Django.html">
+     Django Integration
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/FastAPI.html">
+     FastAPI Integration
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Custom_Components.html">
+     Building Custom Components
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../gallery/index.html">
+   Gallery
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+<label for="toctree-checkbox-3">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/demos/VTKInteractive.html">
+     VTKInteractive
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/demos/VTKSlicer.html">
+     VTKSlicer
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/demos/VTKWarp.html">
+     VTKWarp
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/demos/attractors.html">
+     Attractors
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/demos/gapminders.html">
+     Gapminders
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/demos/glaciers.html">
+     Glaciers
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/demos/nyc_taxi.html">
+     Nyc Taxi
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/demos/portfolio-optimizer.html">
+     Portfolio-optimizer
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/simple/altair_brushing.html">
+     Altair Brushing
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/simple/altair_choropleth.html">
+     Altair Choropleth
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/simple/clifford_interact.html">
+     Clifford Interact
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/simple/color_speech_recognition.html">
+     Color Speech Recognition
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/simple/deckgl_game_of_life.html">
+     Deckgl Game Of Life
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/simple/defer_data_load.html">
+     Defer Data Load
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/simple/file_download_examples.html">
+     File Download Examples
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/simple/hvplot_explorer.html">
+     Hvplot Explorer
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/simple/iris_kmeans.html">
+     Iris Kmeans
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/simple/loading_spinner.html">
+     Loading Spinner
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/simple/random_number_generator.html">
+     Random Number Generator
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/simple/save_filtered_df.html">
+     Save Filtered Df
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/simple/sync_location.html">
+     Sync Location
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/simple/temperature_distribution.html">
+     Temperature Distribution
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/simple/xgboost_classifier.html">
+     Xgboost Classifier
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/apis/stocks_altair.html">
+     Stocks Altair
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/apis/stocks_hvplot.html">
+     Stocks Hvplot
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/apis/stocks_matplotlib.html">
+     Stocks Matplotlib
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/apis/stocks_plotly.html">
+     Stocks Plotly
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/layout/distribution_tabs.html">
+     Distribution Tabs
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/layout/dynamic_tabs.html">
+     Dynamic Tabs
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/layout/plot_with_columns.html">
+     Plot With Columns
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/dynamic/dynamic_plot_layout.html">
+     Dynamic Plot Layout
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/dynamic/dynamic_timeseries_image_analysis.html">
+     Dynamic Timeseries Image Analysis
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/dynamic/dynamic_ui.html">
+     Dynamic Ui
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/dynamic/dynamic_widget_values.html">
+     Dynamic Widget Values
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/param/action_button.html">
+     Action Button
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/param/deck_gl_global_power_plants.html">
+     Deck Gl Global Power Plants
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/param/download_upload_csv.html">
+     Download Upload Csv
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/param/loading_indicator.html">
+     Loading Indicator
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/param/param_subobjects.html">
+     Param Subobjects
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/param/precedence.html">
+     Precedence
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/param/reactive_plots.html">
+     Reactive Plots
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/param/reactive_tables.html">
+     Reactive Tables
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/streaming/hardware_automation.html">
+     Hardware Automation
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/streaming/streaming_bokeh.html">
+     Streaming Bokeh
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/streaming/streaming_indicator.html">
+     Streaming Indicator
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/streaming/streaming_perspective.html">
+     Streaming Perspective
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/streaming/streaming_tabulator.html">
+     Streaming Tabulator
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/components/CanvasDraw.html">
+     CanvasDraw
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/components/LeafletHeatMap.html">
+     LeafletHeatMap
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/components/MaterialUI.html">
+     MaterialUI
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/links/bokeh_property_editor.html">
+     Bokeh Property Editor
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/links/deck_gl_json_editor.html">
+     Deck Gl Json Editor
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/links/holoviews_glyph_link.html">
+     Holoviews Glyph Link
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/links/plotly_link.html">
+     Plotly Link
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/links/vega_heatmap_link.html">
+     Vega Heatmap Link
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/styles/MatplotlibStyle.html">
+     MatplotlibStyle
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/styles/PlotlyStyle.html">
+     PlotlyStyle
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/styles/SeabornStyle.html">
+     SeabornStyle
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/styles/VegaAltairStyle.html">
+     VegaAltairStyle
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/external/DataTable.html">
+     DataTable
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/external/Folium.html">
+     Folium
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/external/deck.gl.html">
+     Deck.gl
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children">
+<a class="reference internal" href="../index.html">
+   Reference Gallery
+  </a>
+<input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+<label for="toctree-checkbox-4">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul class="current">
+<li class="toctree-l2">
+<a class="reference internal" href="Alert.html">
+     Alert
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="Audio.html">
+     Audio
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="Bokeh.html">
+     Bokeh
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="DataFrame.html">
+     DataFrame
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="DeckGL.html">
+     DeckGL
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="ECharts.html">
+     ECharts
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="Folium.html">
+     Folium
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="GIF.html">
+     GIF
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="HTML.html">
+     HTML
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="HoloViews.html">
+     HoloViews
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="IDOM.html">
+     IDOM
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="IPyWidget.html">
+     IPyWidget
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="JPG.html">
+     JPG
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="JSON.html">
+     JSON
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="LaTeX.html">
+     LaTeX
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="Markdown.html">
+     Markdown
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="Matplotlib.html">
+     Matplotlib
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="PDF.html">
+     PDF
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="PNG.html">
+     PNG
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="Param.html">
+     Param
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="Perspective.html">
+     Perspective
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="Plotly.html">
+     Plotly
+    </a>
+</li>
+<li class="toctree-l2 current active">
+<a class="current reference internal" href="#">
+     Reacton
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="SVG.html">
+     SVG
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="Str.html">
+     Str
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="Streamz.html">
+     Streamz
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="VTK.html">
+     VTK
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="VTKJS.html">
+     VTKJS
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="VTKVolume.html">
+     VTKVolume
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="Vega.html">
+     Vega
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="Video.html">
+     Video
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../layouts/Accordion.html">
+     Accordion
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../layouts/Card.html">
+     Card
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../layouts/Column.html">
+     Column
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../layouts/Divider.html">
+     Divider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../layouts/FlexBox.html">
+     FlexBox
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../layouts/GridBox.html">
+     GridBox
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../layouts/GridSpec.html">
+     GridSpec
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../layouts/GridStack.html">
+     GridStack
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../layouts/Row.html">
+     Row
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../layouts/Tabs.html">
+     Tabs
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../layouts/WidgetBox.html">
+     WidgetBox
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../templates/Bootstrap.html">
+     Bootstrap
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../templates/FastGridTemplate.html">
+     FastGridTemplate
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../templates/FastListTemplate.html">
+     FastListTemplate
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../templates/GoldenLayout.html">
+     GoldenLayout
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../templates/Material.html">
+     Material
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../templates/React.html">
+     React
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../templates/Vanilla.html">
+     Vanilla
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../global/Notifications.html">
+     Notifications
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../indicators/BooleanStatus.html">
+     BooleanStatus
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../indicators/Dial.html">
+     Dial
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../indicators/Gauge.html">
+     Gauge
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../indicators/LinearGauge.html">
+     LinearGauge
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../indicators/LoadingSpinner.html">
+     LoadingSpinner
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../indicators/Number.html">
+     Number
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../indicators/Progress.html">
+     Progress
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../indicators/Tqdm.html">
+     Tqdm
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../indicators/Trend.html">
+     Trend
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/Ace.html">
+     Ace
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/ArrayInput.html">
+     ArrayInput
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/AutocompleteInput.html">
+     AutocompleteInput
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/Button.html">
+     Button
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/CheckBoxGroup.html">
+     CheckBoxGroup
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/CheckButtonGroup.html">
+     CheckButtonGroup
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/Checkbox.html">
+     Checkbox
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/ColorPicker.html">
+     ColorPicker
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/CrossSelector.html">
+     CrossSelector
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/DataFrame.html">
+     DataFrame
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/DatePicker.html">
+     DatePicker
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/DateRangeSlider.html">
+     DateRangeSlider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/DateSlider.html">
+     DateSlider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/DatetimeInput.html">
+     DatetimeInput
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/DatetimePicker.html">
+     DatetimePicker
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/DatetimeRangeInput.html">
+     DatetimeRangeInput
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/DatetimeRangePicker.html">
+     DatetimeRangePicker
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/DatetimeRangeSlider.html">
+     DatetimeRangeSlider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/Debugger.html">
+     Debugger
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/DiscretePlayer.html">
+     DiscretePlayer
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/DiscreteSlider.html">
+     DiscreteSlider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/EditableFloatSlider.html">
+     EditableFloatSlider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/EditableIntSlider.html">
+     EditableIntSlider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/EditableRangeSlider.html">
+     EditableRangeSlider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/FileDownload.html">
+     FileDownload
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/FileInput.html">
+     FileInput
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/FileSelector.html">
+     FileSelector
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/FloatInput.html">
+     FloatInput
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/FloatSlider.html">
+     FloatSlider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/IntInput.html">
+     IntInput
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/IntRangeSlider.html">
+     IntRangeSlider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/IntSlider.html">
+     IntSlider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/JSONEditor.html">
+     JSONEditor
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/LiteralInput.html">
+     LiteralInput
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/MenuButton.html">
+     MenuButton
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/MultiChoice.html">
+     MultiChoice
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/MultiSelect.html">
+     MultiSelect
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/PasswordInput.html">
+     PasswordInput
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/Player.html">
+     Player
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/RadioBoxGroup.html">
+     RadioBoxGroup
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/RadioButtonGroup.html">
+     RadioButtonGroup
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/RangeSlider.html">
+     RangeSlider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/Select.html">
+     Select
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/SpeechToText.html">
+     SpeechToText
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/StaticText.html">
+     StaticText
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/Tabulator.html">
+     Tabulator
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/Terminal.html">
+     Terminal
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/TextAreaInput.html">
+     TextAreaInput
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/TextEditor.html">
+     TextEditor
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/TextInput.html">
+     TextInput
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/TextToSpeech.html">
+     TextToSpeech
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/Toggle.html">
+     Toggle
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/ToggleGroup.html">
+     ToggleGroup
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/VideoStream.html">
+     VideoStream
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../developer_guide/index.html">
+   Developer Guide
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+<label for="toctree-checkbox-5">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../developer_guide/testing.html">
+     Testing
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../developer_guide/Developing_Custom_Models.html">
+     Developing custom models
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../api/index.html">
+   API Reference
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+<label for="toctree-checkbox-6">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../api/panel.io.html">
+     io
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../api/panel.layout.html">
+     layout
+    </a>
+</li>
+<li class="toctree-l2 has-children">
+<a class="reference internal" href="../../api/panel.pane.html">
+     pane
+    </a>
+<input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+<label for="toctree-checkbox-7">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l3">
+<a class="reference internal" href="../../api/panel.pane.vtk.html">
+       panel.vtk Package
+      </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../api/panel.param.html">
+     param
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../api/panel.pipeline.html">
+     pipeline
+    </a>
+</li>
+<li class="toctree-l2 has-children">
+<a class="reference internal" href="../../api/panel.template.html">
+     template
+    </a>
+<input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+<label for="toctree-checkbox-8">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l3">
+<a class="reference internal" href="../../api/panel.template.bootstrap.html">
+       panel.bootstrap Package
+      </a>
+</li>
+<li class="toctree-l3 has-children">
+<a class="reference internal" href="../../api/panel.template.fast.html">
+       panel.fast Package
+      </a>
+<input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+<label for="toctree-checkbox-9">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l4">
+<a class="reference internal" href="../../api/panel.template.fast.grid.html">
+         panel.grid Package
+        </a>
+</li>
+<li class="toctree-l4">
+<a class="reference internal" href="../../api/panel.template.fast.list.html">
+         panel.list Package
+        </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3">
+<a class="reference internal" href="../../api/panel.template.golden.html">
+       panel.golden Package
+      </a>
+</li>
+<li class="toctree-l3">
+<a class="reference internal" href="../../api/panel.template.material.html">
+       panel.material Package
+      </a>
+</li>
+<li class="toctree-l3">
+<a class="reference internal" href="../../api/panel.template.react.html">
+       panel.react Package
+      </a>
+</li>
+<li class="toctree-l3">
+<a class="reference internal" href="../../api/panel.template.theme.html">
+       panel.theme Package
+      </a>
+</li>
+<li class="toctree-l3">
+<a class="reference internal" href="../../api/panel.template.vanilla.html">
+       panel.vanilla Package
+      </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../api/panel.widgets.html">
+     widgets
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../api/panel.viewable.html">
+     viewable
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../api/panel.util.html">
+     util
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1">
+<a class="reference internal" href="../../releases.html">
+   Releases
+  </a>
+</li>
+<li class="toctree-l1">
+<a class="reference internal" href="../../FAQ.html">
+   FAQ
+  </a>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../about/index.html">
+   About
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+<label for="toctree-checkbox-10">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../about/comparisons.html">
+     Comparisons
+    </a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+<div class="sidebar-end-items">
+</div>
+</div>
+<div class="bd-sidebar-secondary d-none d-xl-block col-xl-2 bd-toc">
+<div class="toc-item">
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+<i class="fas fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav">
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#parameters">
+   Parameters:
+  </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#display">
+     Display
+    </a>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#combining-reacton-and-panel-components">
+   Combining Reacton and Panel components
+  </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#complex-examples">
+   Complex examples
+  </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#logic">
+     Logic
+    </a>
+</li>
+<li class="toc-h3 nav-item toc-entry">
+<a class="reference internal nav-link" href="#ui">
+     UI
+    </a>
+<ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry">
+<a class="reference internal nav-link" href="#ipywidgets">
+       ipywidgets
+      </a>
+</li>
+<li class="toc-h4 nav-item toc-entry">
+<a class="reference internal nav-link" href="#ipyvuetify">
+       ipyvuetify
+      </a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+<div class="toc-item">
+</div>
+</div>
+<div class="bd-content col-12 col-md-10 col-xl-8" role="main">
+<article class="bd-article" role="main">
+<section id="reacton">
+<h1>Reacton<a class="headerlink" href="#reacton" title="Permalink to this heading">#</a></h1>
+<p><a class="reference external" href="https://raw.githubusercontent.com/holoviz/panel/master/examples/reference/panes/Reacton.ipynb">Download this notebook from GitHub (right-click to download).</a></p>
+<hr class="docutils"/>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">panel</span> <span class="k">as</span> <span class="nn">pn</span>
+<span class="kn">import</span> <span class="nn">reacton</span>
+<span class="kn">import</span> <span class="nn">reacton.ipywidgets</span> <span class="k">as</span> <span class="nn">w</span>
+
+<span class="n">pn</span><span class="o">.</span><span class="n">extension</span><span class="p">(</span><span class="s1">'ipywidgets'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/javascript">(function(root) {
+  function now() {
+    return new Date();
+  }
+
+  var force = true;
+
+  if (typeof root._bokeh_onload_callbacks === "undefined" || force === true) {
+    root._bokeh_onload_callbacks = [];
+    root._bokeh_is_loading = undefined;
+  }
+
+  if (typeof (root._bokeh_timeout) === "undefined" || force === true) {
+    root._bokeh_timeout = Date.now() + 5000;
+    root._bokeh_failed_load = false;
+  }
+
+  function run_callbacks() {
+    try {
+      root._bokeh_onload_callbacks.forEach(function(callback) {
+        if (callback != null)
+          callback();
+      });
+    } finally {
+      delete root._bokeh_onload_callbacks
+    }
+    console.debug("Bokeh: all callbacks have finished");
+  }
+
+  function load_libs(css_urls, js_urls, js_modules, callback) {
+    if (css_urls == null) css_urls = [];
+    if (js_urls == null) js_urls = [];
+    if (js_modules == null) js_modules = [];
+
+    root._bokeh_onload_callbacks.push(callback);
+    if (root._bokeh_is_loading > 0) {
+      console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
+      return null;
+    }
+    if (js_urls.length === 0 && js_modules.length === 0) {
+      run_callbacks();
+      return null;
+    }
+    console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
+
+    function on_load() {
+      root._bokeh_is_loading--;
+      if (root._bokeh_is_loading === 0) {
+        console.debug("Bokeh: all BokehJS libraries/stylesheets loaded");
+        run_callbacks()
+      }
+    }
+
+    function on_error() {
+      console.error("failed to load " + url);
+    }
+
+    for (var i = 0; i < css_urls.length; i++) {
+      var url = css_urls[i];
+      const element = document.createElement("link");
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.rel = "stylesheet";
+      element.type = "text/css";
+      element.href = url;
+      console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
+      document.body.appendChild(element);
+    }
+
+    var skip = [];
+    if (window.requirejs) {
+      window.requirejs.config({'packages': {}, 'paths': {'gridstack': 'https://cdn.jsdelivr.net/npm/gridstack@4.2.5/dist/gridstack-h5', 'notyf': 'https://cdn.jsdelivr.net/npm/notyf@3/notyf.min'}, 'shim': {'gridstack': {'exports': 'GridStack'}}});
+      require(["gridstack"], function(GridStack) {
+	window.GridStack = GridStack
+	on_load()
+      })
+      require(["notyf"], function() {
+	on_load()
+      })
+      root._bokeh_is_loading = css_urls.length + 2;
+    } else {
+      root._bokeh_is_loading = css_urls.length + js_urls.length + js_modules.length;
+    }    if (((window['GridStack'] !== undefined) && (!(window['GridStack'] instanceof HTMLElement))) || window.requirejs) {
+      var urls = ['https://cdn.holoviz.org/panel/0.14.2/dist/bundled/gridstack/gridstack@4.2.5/dist/gridstack-h5.js'];
+      for (var i = 0; i < urls.length; i++) {
+        skip.push(urls[i])
+      }
+    }    if (((window['Notyf'] !== undefined) && (!(window['Notyf'] instanceof HTMLElement))) || window.requirejs) {
+      var urls = ['https://cdn.holoviz.org/panel/0.14.2/dist/bundled/notificationarea/notyf@3/notyf.min.js'];
+      for (var i = 0; i < urls.length; i++) {
+        skip.push(urls[i])
+      }
+    }    for (var i = 0; i < js_urls.length; i++) {
+      var url = js_urls[i];
+      if (skip.indexOf(url) >= 0) {
+	if (!window.requirejs) {
+	  on_load();
+	}
+	continue;
+      }
+      var element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.async = false;
+      element.src = url;
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
+    }
+    for (var i = 0; i < js_modules.length; i++) {
+      var url = js_modules[i];
+      if (skip.indexOf(url) >= 0) {
+	if (!window.requirejs) {
+	  on_load();
+	}
+	continue;
+      }
+      var element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.async = false;
+      element.src = url;
+      element.type = "module";
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
+    }
+    if (!js_urls.length && !js_modules.length) {
+      on_load()
+    }
+  };
+
+  function inject_raw_css(css) {
+    const element = document.createElement("style");
+    element.appendChild(document.createTextNode(css));
+    document.body.appendChild(element);
+  }
+
+  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.4.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.4.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.4.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-mathjax-2.4.3.min.js", "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js", "https://unpkg.com/@holoviz/panel@0.14.2/dist/panel.min.js", "https://unpkg.com/@bokeh/ipywidgets_bokeh@1.3.0/dist/ipywidgets_bokeh.js"];
+  var js_modules = [];
+  var css_urls = ["https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.css", "https://cdn.holoviz.org/panel/0.14.2/dist/css/card.css", "https://cdn.holoviz.org/panel/0.14.2/dist/css/alerts.css", "https://cdn.holoviz.org/panel/0.14.2/dist/css/markdown.css", "https://cdn.holoviz.org/panel/0.14.2/dist/css/dataframe.css", "https://cdn.holoviz.org/panel/0.14.2/dist/css/debugger.css", "https://cdn.holoviz.org/panel/0.14.2/dist/css/loading.css", "https://cdn.holoviz.org/panel/0.14.2/dist/css/json.css", "https://cdn.holoviz.org/panel/0.14.2/dist/css/widgets.css"];
+  var inline_js = [    function(Bokeh) {
+      inject_raw_css("\n    .bk.pn-loading.arc:before {\n      background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHN0eWxlPSJtYXJnaW46IGF1dG87IGJhY2tncm91bmQ6IG5vbmU7IGRpc3BsYXk6IGJsb2NrOyBzaGFwZS1yZW5kZXJpbmc6IGF1dG87IiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiPiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYzNjM2MzIiBzdHJva2Utd2lkdGg9IjEwIiByPSIzNSIgc3Ryb2tlLWRhc2hhcnJheT0iMTY0LjkzMzYxNDMxMzQ2NDE1IDU2Ljk3Nzg3MTQzNzgyMTM4Ij4gICAgPGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiBkdXI9IjFzIiB2YWx1ZXM9IjAgNTAgNTA7MzYwIDUwIDUwIiBrZXlUaW1lcz0iMDsxIj48L2FuaW1hdGVUcmFuc2Zvcm0+ICA8L2NpcmNsZT48L3N2Zz4=\");\n      background-size: auto calc(min(50%, 400px));\n    }\n    ");
+    },    function(Bokeh) {
+      Bokeh.set_log_level("info");
+    },
+function(Bokeh) {} // ensure no trailing comma for IE
+  ];
+
+  function run_inline_js() {
+    if ((root.Bokeh !== undefined) || (force === true)) {
+      for (var i = 0; i < inline_js.length; i++) {
+        inline_js[i].call(root, root.Bokeh);
+      }} else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(run_inline_js, 100);
+    } else if (!root._bokeh_failed_load) {
+      console.log("Bokeh: BokehJS failed to load within specified timeout.");
+      root._bokeh_failed_load = true;
+    }
+  }
+
+  if (root._bokeh_is_loading === 0) {
+    console.debug("Bokeh: BokehJS loaded, going straight to plotting");
+    run_inline_js();
+  } else {
+    load_libs(css_urls, js_urls, js_modules, function() {
+      console.debug("Bokeh: BokehJS plotting callback run at", now());
+      run_inline_js();
+    });
+  }
+}(window));</script><script type="application/javascript">
+if ((window.PyViz === undefined) || (window.PyViz instanceof HTMLElement)) {
+  window.PyViz = {comms: {}, comm_status:{}, kernels:{}, receivers: {}, plot_index: []}
+}
+
+
+    function JupyterCommManager() {
+    }
+
+    JupyterCommManager.prototype.register_target = function(plot_id, comm_id, msg_handler) {
+      if (window.comm_manager || ((window.Jupyter !== undefined) && (Jupyter.notebook.kernel != null))) {
+        var comm_manager = window.comm_manager || Jupyter.notebook.kernel.comm_manager;
+        comm_manager.register_target(comm_id, function(comm) {
+          comm.on_msg(msg_handler);
+        });
+      } else if ((plot_id in window.PyViz.kernels) && (window.PyViz.kernels[plot_id])) {
+        window.PyViz.kernels[plot_id].registerCommTarget(comm_id, function(comm) {
+          comm.onMsg = msg_handler;
+        });
+      } else if (typeof google != 'undefined' && google.colab.kernel != null) {
+        google.colab.kernel.comms.registerTarget(comm_id, (comm) => {
+          var messages = comm.messages[Symbol.asyncIterator]();
+          function processIteratorResult(result) {
+            var message = result.value;
+            console.log(message)
+            var content = {data: message.data, comm_id};
+            var buffers = []
+            for (var buffer of message.buffers || []) {
+              buffers.push(new DataView(buffer))
+            }
+            var metadata = message.metadata || {};
+            var msg = {content, buffers, metadata}
+            msg_handler(msg);
+            return messages.next().then(processIteratorResult);
+          }
+          return messages.next().then(processIteratorResult);
+        })
+      }
+    }
+
+    JupyterCommManager.prototype.get_client_comm = function(plot_id, comm_id, msg_handler) {
+      if (comm_id in window.PyViz.comms) {
+        return window.PyViz.comms[comm_id];
+      } else if (window.comm_manager || ((window.Jupyter !== undefined) && (Jupyter.notebook.kernel != null))) {
+        var comm_manager = window.comm_manager || Jupyter.notebook.kernel.comm_manager;
+        var comm = comm_manager.new_comm(comm_id, {}, {}, {}, comm_id);
+        if (msg_handler) {
+          comm.on_msg(msg_handler);
+        }
+      } else if ((plot_id in window.PyViz.kernels) && (window.PyViz.kernels[plot_id])) {
+        var comm = window.PyViz.kernels[plot_id].connectToComm(comm_id);
+        comm.open();
+        if (msg_handler) {
+          comm.onMsg = msg_handler;
+        }
+      } else if (typeof google != 'undefined' && google.colab.kernel != null) {
+        var comm_promise = google.colab.kernel.comms.open(comm_id)
+        comm_promise.then((comm) => {
+          window.PyViz.comms[comm_id] = comm;
+          if (msg_handler) {
+            var messages = comm.messages[Symbol.asyncIterator]();
+            function processIteratorResult(result) {
+              var message = result.value;
+              var content = {data: message.data};
+              var metadata = message.metadata || {comm_id};
+              var msg = {content, metadata}
+              msg_handler(msg);
+              return messages.next().then(processIteratorResult);
+            }
+            return messages.next().then(processIteratorResult);
+          }
+        }) 
+        var sendClosure = (data, metadata, buffers, disposeOnDone) => {
+          return comm_promise.then((comm) => {
+            comm.send(data, metadata, buffers, disposeOnDone);
+          });
+        };
+        var comm = {
+          send: sendClosure
+        };
+      }
+      window.PyViz.comms[comm_id] = comm;
+      return comm;
+    }
+    window.PyViz.comm_manager = new JupyterCommManager();
+    
+
+
+var JS_MIME_TYPE = 'application/javascript';
+var HTML_MIME_TYPE = 'text/html';
+var EXEC_MIME_TYPE = 'application/vnd.holoviews_exec.v0+json';
+var CLASS_NAME = 'output';
+
+/**
+ * Render data to the DOM node
+ */
+function render(props, node) {
+  var div = document.createElement("div");
+  var script = document.createElement("script");
+  node.appendChild(div);
+  node.appendChild(script);
+}
+
+/**
+ * Handle when a new output is added
+ */
+function handle_add_output(event, handle) {
+  var output_area = handle.output_area;
+  var output = handle.output;
+  if ((output.data == undefined) || (!output.data.hasOwnProperty(EXEC_MIME_TYPE))) {
+    return
+  }
+  var id = output.metadata[EXEC_MIME_TYPE]["id"];
+  var toinsert = output_area.element.find("." + CLASS_NAME.split(' ')[0]);
+  if (id !== undefined) {
+    var nchildren = toinsert.length;
+    var html_node = toinsert[nchildren-1].children[0];
+    html_node.innerHTML = output.data[HTML_MIME_TYPE];
+    var scripts = [];
+    var nodelist = html_node.querySelectorAll("script");
+    for (var i in nodelist) {
+      if (nodelist.hasOwnProperty(i)) {
+        scripts.push(nodelist[i])
+      }
+    }
+
+    scripts.forEach( function (oldScript) {
+      var newScript = document.createElement("script");
+      var attrs = [];
+      var nodemap = oldScript.attributes;
+      for (var j in nodemap) {
+        if (nodemap.hasOwnProperty(j)) {
+          attrs.push(nodemap[j])
+        }
+      }
+      attrs.forEach(function(attr) { newScript.setAttribute(attr.name, attr.value) });
+      newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+      oldScript.parentNode.replaceChild(newScript, oldScript);
+    });
+    if (JS_MIME_TYPE in output.data) {
+      toinsert[nchildren-1].children[1].textContent = output.data[JS_MIME_TYPE];
+    }
+    output_area._hv_plot_id = id;
+    if ((window.Bokeh !== undefined) && (id in Bokeh.index)) {
+      window.PyViz.plot_index[id] = Bokeh.index[id];
+    } else {
+      window.PyViz.plot_index[id] = null;
+    }
+  } else if (output.metadata[EXEC_MIME_TYPE]["server_id"] !== undefined) {
+    var bk_div = document.createElement("div");
+    bk_div.innerHTML = output.data[HTML_MIME_TYPE];
+    var script_attrs = bk_div.children[0].attributes;
+    for (var i = 0; i < script_attrs.length; i++) {
+      toinsert[toinsert.length - 1].childNodes[1].setAttribute(script_attrs[i].name, script_attrs[i].value);
+    }
+    // store reference to server id on output_area
+    output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
+  }
+}
+
+/**
+ * Handle when an output is cleared or removed
+ */
+function handle_clear_output(event, handle) {
+  var id = handle.cell.output_area._hv_plot_id;
+  var server_id = handle.cell.output_area._bokeh_server_id;
+  if (((id === undefined) || !(id in PyViz.plot_index)) && (server_id !== undefined)) { return; }
+  var comm = window.PyViz.comm_manager.get_client_comm("hv-extension-comm", "hv-extension-comm", function () {});
+  if (server_id !== null) {
+    comm.send({event_type: 'server_delete', 'id': server_id});
+    return;
+  } else if (comm !== null) {
+    comm.send({event_type: 'delete', 'id': id});
+  }
+  delete PyViz.plot_index[id];
+  if ((window.Bokeh !== undefined) & (id in window.Bokeh.index)) {
+    var doc = window.Bokeh.index[id].model.document
+    doc.clear();
+    const i = window.Bokeh.documents.indexOf(doc);
+    if (i > -1) {
+      window.Bokeh.documents.splice(i, 1);
+    }
+  }
+}
+
+/**
+ * Handle kernel restart event
+ */
+function handle_kernel_cleanup(event, handle) {
+  delete PyViz.comms["hv-extension-comm"];
+  window.PyViz.plot_index = {}
+}
+
+/**
+ * Handle update_display_data messages
+ */
+function handle_update_output(event, handle) {
+  handle_clear_output(event, {cell: {output_area: handle.output_area}})
+  handle_add_output(event, handle)
+}
+
+function register_renderer(events, OutputArea) {
+  function append_mime(data, metadata, element) {
+    // create a DOM node to render to
+    var toinsert = this.create_output_subarea(
+    metadata,
+    CLASS_NAME,
+    EXEC_MIME_TYPE
+    );
+    this.keyboard_manager.register_events(toinsert);
+    // Render to node
+    var props = {data: data, metadata: metadata[EXEC_MIME_TYPE]};
+    render(props, toinsert[0]);
+    element.append(toinsert);
+    return toinsert
+  }
+
+  events.on('output_added.OutputArea', handle_add_output);
+  events.on('output_updated.OutputArea', handle_update_output);
+  events.on('clear_output.CodeCell', handle_clear_output);
+  events.on('delete.Cell', handle_clear_output);
+  events.on('kernel_ready.Kernel', handle_kernel_cleanup);
+
+  OutputArea.prototype.register_mime_type(EXEC_MIME_TYPE, append_mime, {
+    safe: true,
+    index: 0
+  });
+}
+
+if (window.Jupyter !== undefined) {
+  try {
+    var events = require('base/js/events');
+    var OutputArea = require('notebook/js/outputarea').OutputArea;
+    if (OutputArea.prototype.mime_types().indexOf(EXEC_MIME_TYPE) == -1) {
+      register_renderer(events, OutputArea);
+    }
+  } catch(err) {
+  }
+}
+</script><div class="output text_html"><style>.bk-root, .bk-root .bk:before, .bk-root .bk:after {
+  font-family: var(--jp-ui-font-size1);
+  font-size: var(--jp-ui-font-size1);
+  color: var(--jp-ui-font-color1);
+}
+</style></div></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Reacton</span></code> pane renders <a class="reference external" href="https://reacton.solara.dev/en/latest/">Reacton</a> components both in the notebook and in a deployed server. Reacton provides a way to write reusable components in a React-like way, to make Python-based UI’s using the ipywidgets ecosystem (ipywidgets, ipyvolume, bqplot, threejs, leaflet, ipyvuetify, …). Note that Reacton is primarily a way to write apps</p>
+<p>In the notebook this is not necessary since Panel simply uses the regular notebook ipywidget renderer. Particularly in JupyterLab importing the ipywidgets extension in this way may interfere with the UI and render the JupyterLab UI unusable, so enable the extension with care.</p>
+<section id="parameters">
+<h2>Parameters:<a class="headerlink" href="#parameters" title="Permalink to this heading">#</a></h2>
+<p>For layout and styling related parameters see the <a class="reference internal" href="../../user_guide/Customization.html"><span class="doc std std-doc">customization user guide</span></a>.</p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">object</span></code></strong> (object): The ipywidget object being displayed</p></li>
+</ul>
+<section id="display">
+<h3>Display<a class="headerlink" href="#display" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">default_layout</span></code></strong> (pn.layout.Panel, default=Row): Layout to wrap the plot and widgets in</p></li>
+</ul>
+<hr class="docutils"/>
+<p>The <code class="docutils literal notranslate"><span class="pre">panel</span></code> function will automatically convert any <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code> object into a displayable panel, while keeping all of its interactive features:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@reacton</span><span class="o">.</span><span class="n">component</span>
+<span class="k">def</span> <span class="nf">ButtonClick</span><span class="p">():</span>
+    <span class="c1"># first render, this return 0, after that, the last argument</span>
+    <span class="c1"># of set_clicks</span>
+    <span class="n">clicks</span><span class="p">,</span> <span class="n">set_clicks</span> <span class="o">=</span> <span class="n">reacton</span><span class="o">.</span><span class="n">use_state</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">my_click_handler</span><span class="p">():</span>
+        <span class="c1"># trigger a new render with a new value for clicks</span>
+        <span class="n">set_clicks</span><span class="p">(</span><span class="n">clicks</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">button</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="sa">f</span><span class="s2">"Clicked </span><span class="si">{</span><span class="n">clicks</span><span class="si">}</span><span class="s2"> times"</span><span class="p">,</span>
+                      <span class="n">on_click</span><span class="o">=</span><span class="n">my_click_handler</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">button</span>
+
+<span class="n">pn</span><span class="o">.</span><span class="n">panel</span><span class="p">(</span><span class="n">ButtonClick</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="1002">
+<div class="bk-root" data-root-id="1002" id="20ff4d37-d643-411e-bbfc-828a893e8ac4"></div>
+</div>
+<script type="application/javascript">(function(root) {
+  function embed_document(root) {
+    var docs_json = {"8b70ba97-9a31-4d61-8309-063c9361e160":{"defs":[{"extends":null,"module":null,"name":"ReactiveHTML1","overrides":[],"properties":[]},{"extends":null,"module":null,"name":"FlexBox1","overrides":[],"properties":[{"default":"flex-start","kind":null,"name":"align_content"},{"default":"flex-start","kind":null,"name":"align_items"},{"default":"row","kind":null,"name":"flex_direction"},{"default":"wrap","kind":null,"name":"flex_wrap"},{"default":"flex-start","kind":null,"name":"justify_content"}]},{"extends":null,"module":null,"name":"GridStack1","overrides":[],"properties":[{"default":"warn","kind":null,"name":"mode"},{"default":null,"kind":null,"name":"ncols"},{"default":null,"kind":null,"name":"nrows"},{"default":true,"kind":null,"name":"allow_resize"},{"default":true,"kind":null,"name":"allow_drag"},{"default":[],"kind":null,"name":"state"}]},{"extends":null,"module":null,"name":"click1","overrides":[],"properties":[{"default":"","kind":null,"name":"terminal_output"},{"default":"","kind":null,"name":"debug_name"},{"default":0,"kind":null,"name":"clears"}]},{"extends":null,"module":null,"name":"NotificationAreaBase1","overrides":[],"properties":[{"default":"bottom-right","kind":null,"name":"position"},{"default":0,"kind":null,"name":"_clear"}]},{"extends":null,"module":null,"name":"NotificationArea1","overrides":[],"properties":[{"default":[],"kind":null,"name":"notifications"},{"default":"bottom-right","kind":null,"name":"position"},{"default":0,"kind":null,"name":"_clear"},{"default":[{"background":"#ffc107","icon":{"className":"fas fa-exclamation-triangle","color":"white","tagName":"i"},"type":"warning"},{"background":"#007bff","icon":{"className":"fas fa-info-circle","color":"white","tagName":"i"},"type":"info"}],"kind":null,"name":"types"}]},{"extends":null,"module":null,"name":"Notification","overrides":[],"properties":[{"default":null,"kind":null,"name":"background"},{"default":3000,"kind":null,"name":"duration"},{"default":null,"kind":null,"name":"icon"},{"default":"","kind":null,"name":"message"},{"default":null,"kind":null,"name":"notification_type"},{"default":false,"kind":null,"name":"_destroyed"}]},{"extends":null,"module":null,"name":"TemplateActions1","overrides":[],"properties":[{"default":0,"kind":null,"name":"open_modal"},{"default":0,"kind":null,"name":"close_modal"}]},{"extends":null,"module":null,"name":"MaterialTemplateActions1","overrides":[],"properties":[{"default":0,"kind":null,"name":"open_modal"},{"default":0,"kind":null,"name":"close_modal"}]}],"roots":{"references":[{"attributes":{"reload":false},"id":"1010","type":"panel.models.location.Location"},{"attributes":{"bundle":{"spec":{"model_id":"63008fb439d049049a293e57113a6df1","version_major":2,"version_minor":0},"state":{"state":{"0f6660eab35e4f7682113f3ee5c9843f":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonModel","state":{"_dom_classes":[],"description":"Clicked 0 times","layout":"IPY_MODEL_5185ff0d348e4f2fad716e2de993abe4","style":"IPY_MODEL_f0f86e0a23d24cd1a6112ee192aa9323"}},"5185ff0d348e4f2fad716e2de993abe4":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"5dbb23f541664bf284a6b7f522b89804":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"63008fb439d049049a293e57113a6df1":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"VBoxModel","state":{"_dom_classes":[],"children":["IPY_MODEL_0f6660eab35e4f7682113f3ee5c9843f"],"layout":"IPY_MODEL_5dbb23f541664bf284a6b7f522b89804"}},"f0f86e0a23d24cd1a6112ee192aa9323":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonStyleModel","state":{}}},"version_major":2,"version_minor":0}},"margin":[5,5,5,5]},"id":"1008","type":"ipywidgets_bokeh.widget.IPyWidget"},{"attributes":{"children":[{"id":"1008"}],"margin":[0,0,0,0],"name":"Row01376"},"id":"1002","type":"Row"},{"attributes":{"client_comm_id":"53ef08a3af4642b5a24081cbfe63f46f","comm_id":"d99a835b06ad4ace936639ce3b73c59e","plot_id":"1002"},"id":"1009","type":"panel.models.comm_manager.CommManager"}],"root_ids":["1002","1009","1010"]},"title":"Bokeh Application","version":"2.4.3"}};
+    var render_items = [{"docid":"8b70ba97-9a31-4d61-8309-063c9361e160","root_ids":["1002"],"roots":{"1002":"20ff4d37-d643-411e-bbfc-828a893e8ac4"}}];
+    root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
+    for (const render_item of render_items) {
+      for (const root_id of render_item.root_ids) {
+	const id_el = document.getElementById(root_id)
+	if (id_el.children.length && (id_el.children[0].className === 'bk-root')) {
+	  const root_el = id_el.children[0]
+	  root_el.id = root_el.id + '-rendered'
+	}
+      }
+    }
+  }
+  if (root.Bokeh !== undefined && root.Bokeh.Panel !== undefined&& (root.Bokeh.Models.registered_names().indexOf("ipywidgets_bokeh.widget.IPyWidget") > -1)) {
+    embed_document(root);
+  } else {
+    var attempts = 0;
+    var timer = setInterval(function(root) {
+      if (root.Bokeh !== undefined && root.Bokeh.Panel !== undefined&& (root.Bokeh.Models.registered_names().indexOf("ipywidgets_bokeh.widget.IPyWidget") > -1)) {
+        clearInterval(timer);
+        embed_document(root);
+      } else if (document.readyState == "complete") {
+        attempts++;
+        if (attempts > 200) {
+          clearInterval(timer);
+          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+        }
+      }
+    }, 25, root)
+  }
+})(window);</script></div></div>
+</div>
+</section>
+</section>
+<section id="combining-reacton-and-panel-components">
+<h2>Combining Reacton and Panel components<a class="headerlink" href="#combining-reacton-and-panel-components" title="Permalink to this heading">#</a></h2>
+<p>Reacton can be used in conjunction with Panel components however we have to make two modifications:</p>
+<ol class="arabic simple">
+<li><p>Panel components have to be wrapped as an ipywidget using the <code class="docutils literal notranslate"><span class="pre">pn.ipywidget</span></code> wrapper (this requires <code class="docutils literal notranslate"><span class="pre">jupyter_bokeh</span></code>).</p></li>
+<li><p>The wrapped Panel component must be added to a reacton layout component.</p></li>
+</ol>
+<p>In the example below we swap out the <code class="docutils literal notranslate"><span class="pre">reacton.ipywidgets.Button</span></code> for a <code class="docutils literal notranslate"><span class="pre">pn.widgets.Button</span></code> and then wrap it in <code class="docutils literal notranslate"><span class="pre">pn.ipywidgets</span></code> and a <code class="docutils literal notranslate"><span class="pre">reacton.ipywidgets.VBox</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@reacton</span><span class="o">.</span><span class="n">component</span>
+<span class="k">def</span> <span class="nf">PanelButtonClick</span><span class="p">():</span>
+    <span class="c1"># first render, this return 0, after that, the last argument</span>
+    <span class="c1"># of set_clicks</span>
+    <span class="n">clicks</span><span class="p">,</span> <span class="n">set_clicks</span> <span class="o">=</span> <span class="n">reacton</span><span class="o">.</span><span class="n">use_state</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">my_click_handler</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+        <span class="c1"># trigger a new render with a new value for clicks</span>
+        <span class="n">set_clicks</span><span class="p">(</span><span class="n">clicks</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">button</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s1">'Clicked </span><span class="si">{</span><span class="n">clicks</span><span class="si">}</span><span class="s1"> times'</span><span class="p">)</span>
+    <span class="n">button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">my_click_handler</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">w</span><span class="o">.</span><span class="n">VBox</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="n">pn</span><span class="o">.</span><span class="n">ipywidget</span><span class="p">(</span><span class="n">button</span><span class="p">)])</span>
+
+<span class="n">pn</span><span class="o">.</span><span class="n">panel</span><span class="p">(</span><span class="n">PanelButtonClick</span><span class="p">(),</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="1011">
+<div class="bk-root" data-root-id="1011" id="85a00783-473e-405c-9eb0-f0e26169e5c2"></div>
+</div>
+<script type="application/javascript">(function(root) {
+  function embed_document(root) {
+    var docs_json = {"a7b4578c-fdf2-44fe-9f88-556aa6580087":{"defs":[{"extends":null,"module":null,"name":"ReactiveHTML1","overrides":[],"properties":[]},{"extends":null,"module":null,"name":"FlexBox1","overrides":[],"properties":[{"default":"flex-start","kind":null,"name":"align_content"},{"default":"flex-start","kind":null,"name":"align_items"},{"default":"row","kind":null,"name":"flex_direction"},{"default":"wrap","kind":null,"name":"flex_wrap"},{"default":"flex-start","kind":null,"name":"justify_content"}]},{"extends":null,"module":null,"name":"GridStack1","overrides":[],"properties":[{"default":"warn","kind":null,"name":"mode"},{"default":null,"kind":null,"name":"ncols"},{"default":null,"kind":null,"name":"nrows"},{"default":true,"kind":null,"name":"allow_resize"},{"default":true,"kind":null,"name":"allow_drag"},{"default":[],"kind":null,"name":"state"}]},{"extends":null,"module":null,"name":"click1","overrides":[],"properties":[{"default":"","kind":null,"name":"terminal_output"},{"default":"","kind":null,"name":"debug_name"},{"default":0,"kind":null,"name":"clears"}]},{"extends":null,"module":null,"name":"NotificationAreaBase1","overrides":[],"properties":[{"default":"bottom-right","kind":null,"name":"position"},{"default":0,"kind":null,"name":"_clear"}]},{"extends":null,"module":null,"name":"NotificationArea1","overrides":[],"properties":[{"default":[],"kind":null,"name":"notifications"},{"default":"bottom-right","kind":null,"name":"position"},{"default":0,"kind":null,"name":"_clear"},{"default":[{"background":"#ffc107","icon":{"className":"fas fa-exclamation-triangle","color":"white","tagName":"i"},"type":"warning"},{"background":"#007bff","icon":{"className":"fas fa-info-circle","color":"white","tagName":"i"},"type":"info"}],"kind":null,"name":"types"}]},{"extends":null,"module":null,"name":"Notification","overrides":[],"properties":[{"default":null,"kind":null,"name":"background"},{"default":3000,"kind":null,"name":"duration"},{"default":null,"kind":null,"name":"icon"},{"default":"","kind":null,"name":"message"},{"default":null,"kind":null,"name":"notification_type"},{"default":false,"kind":null,"name":"_destroyed"}]},{"extends":null,"module":null,"name":"TemplateActions1","overrides":[],"properties":[{"default":0,"kind":null,"name":"open_modal"},{"default":0,"kind":null,"name":"close_modal"}]},{"extends":null,"module":null,"name":"MaterialTemplateActions1","overrides":[],"properties":[{"default":0,"kind":null,"name":"open_modal"},{"default":0,"kind":null,"name":"close_modal"}]}],"roots":{"references":[{"attributes":{"client_comm_id":"b03bcf40fcac438999e81caa048070d5","comm_id":"b777b54e37574112a995ba433b8e3f27","plot_id":"1011"},"id":"1019","type":"panel.models.comm_manager.CommManager"},{"attributes":{"children":[{"id":"1018"}],"height":50,"margin":[0,0,0,0],"min_height":50,"name":"Row01381"},"id":"1011","type":"Row"},{"attributes":{"bundle":{"spec":{"model_id":"96b1b8783f254422b07b87beed2b83e0","version_major":2,"version_minor":0},"state":{"state":{"290917c1b4db404780d80529e83f0625":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"VBoxModel","state":{"_dom_classes":[],"children":["IPY_MODEL_504b452b525d4931a08f173dffc23235"],"layout":"IPY_MODEL_824aa027c9024e8aab8c94bcbdab925b"}},"4b59a286aac0408b9c994063bfa63bbf":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"4ea9ac53db484452bd81d9694b78e62d":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"504b452b525d4931a08f173dffc23235":{"model_module":"@bokeh/jupyter_bokeh","model_module_version":"^3.0.5","model_name":"BokehModel","state":{"_dom_classes":[],"_view_count":0,"combine_events":true,"layout":"IPY_MODEL_4ea9ac53db484452bd81d9694b78e62d","render_bundle":"{\"div\":\"\\n  <div class=\\\"bk-root\\\" id=\\\"0915c53c-c48c-4238-bc62-106d604469f3\\\" data-root-id=\\\"1012\\\"></div>\\n\",\"docs_json\":{\"188e7d5a-761f-4980-b268-5ae43ceee543\":{\"defs\":[{\"extends\":null,\"module\":null,\"name\":\"ReactiveHTML1\",\"overrides\":[],\"properties\":[]},{\"extends\":null,\"module\":null,\"name\":\"FlexBox1\",\"overrides\":[],\"properties\":[{\"default\":\"flex-start\",\"kind\":null,\"name\":\"align_content\"},{\"default\":\"flex-start\",\"kind\":null,\"name\":\"align_items\"},{\"default\":\"row\",\"kind\":null,\"name\":\"flex_direction\"},{\"default\":\"wrap\",\"kind\":null,\"name\":\"flex_wrap\"},{\"default\":\"flex-start\",\"kind\":null,\"name\":\"justify_content\"}]},{\"extends\":null,\"module\":null,\"name\":\"GridStack1\",\"overrides\":[],\"properties\":[{\"default\":\"warn\",\"kind\":null,\"name\":\"mode\"},{\"default\":null,\"kind\":null,\"name\":\"ncols\"},{\"default\":null,\"kind\":null,\"name\":\"nrows\"},{\"default\":true,\"kind\":null,\"name\":\"allow_resize\"},{\"default\":true,\"kind\":null,\"name\":\"allow_drag\"},{\"default\":[],\"kind\":null,\"name\":\"state\"}]},{\"extends\":null,\"module\":null,\"name\":\"click1\",\"overrides\":[],\"properties\":[{\"default\":\"\",\"kind\":null,\"name\":\"terminal_output\"},{\"default\":\"\",\"kind\":null,\"name\":\"debug_name\"},{\"default\":0,\"kind\":null,\"name\":\"clears\"}]},{\"extends\":null,\"module\":null,\"name\":\"NotificationAreaBase1\",\"overrides\":[],\"properties\":[{\"default\":\"bottom-right\",\"kind\":null,\"name\":\"position\"},{\"default\":0,\"kind\":null,\"name\":\"_clear\"}]},{\"extends\":null,\"module\":null,\"name\":\"NotificationArea1\",\"overrides\":[],\"properties\":[{\"default\":[],\"kind\":null,\"name\":\"notifications\"},{\"default\":\"bottom-right\",\"kind\":null,\"name\":\"position\"},{\"default\":0,\"kind\":null,\"name\":\"_clear\"},{\"default\":[{\"background\":\"#ffc107\",\"icon\":{\"className\":\"fas fa-exclamation-triangle\",\"color\":\"white\",\"tagName\":\"i\"},\"type\":\"warning\"},{\"background\":\"#007bff\",\"icon\":{\"className\":\"fas fa-info-circle\",\"color\":\"white\",\"tagName\":\"i\"},\"type\":\"info\"}],\"kind\":null,\"name\":\"types\"}]},{\"extends\":null,\"module\":null,\"name\":\"Notification\",\"overrides\":[],\"properties\":[{\"default\":null,\"kind\":null,\"name\":\"background\"},{\"default\":3000,\"kind\":null,\"name\":\"duration\"},{\"default\":null,\"kind\":null,\"name\":\"icon\"},{\"default\":\"\",\"kind\":null,\"name\":\"message\"},{\"default\":null,\"kind\":null,\"name\":\"notification_type\"},{\"default\":false,\"kind\":null,\"name\":\"_destroyed\"}]},{\"extends\":null,\"module\":null,\"name\":\"TemplateActions1\",\"overrides\":[],\"properties\":[{\"default\":0,\"kind\":null,\"name\":\"open_modal\"},{\"default\":0,\"kind\":null,\"name\":\"close_modal\"}]},{\"extends\":null,\"module\":null,\"name\":\"MaterialTemplateActions1\",\"overrides\":[],\"properties\":[{\"default\":0,\"kind\":null,\"name\":\"open_modal\"},{\"default\":0,\"kind\":null,\"name\":\"close_modal\"}]}],\"roots\":{\"references\":[{\"attributes\":{\"icon\":null,\"label\":\"Clicked 0 times\",\"margin\":[5,10,5,10],\"subscribed_events\":[\"button_click\"]},\"id\":\"1012\",\"type\":\"Button\"}],\"root_ids\":[\"1012\"]},\"title\":\"Bokeh Application\",\"version\":\"2.4.3\"}},\"render_items\":[{\"docid\":\"188e7d5a-761f-4980-b268-5ae43ceee543\",\"root_ids\":[\"1012\"],\"roots\":{\"1012\":\"0915c53c-c48c-4238-bc62-106d604469f3\"}}]}"}},"824aa027c9024e8aab8c94bcbdab925b":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"96b1b8783f254422b07b87beed2b83e0":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"VBoxModel","state":{"_dom_classes":[],"children":["IPY_MODEL_290917c1b4db404780d80529e83f0625"],"layout":"IPY_MODEL_4b59a286aac0408b9c994063bfa63bbf"}}},"version_major":2,"version_minor":0}},"height":50,"margin":[5,5,5,5],"min_height":50},"id":"1018","type":"ipywidgets_bokeh.widget.IPyWidget"}],"root_ids":["1011","1019"]},"title":"Bokeh Application","version":"2.4.3"}};
+    var render_items = [{"docid":"a7b4578c-fdf2-44fe-9f88-556aa6580087","root_ids":["1011"],"roots":{"1011":"85a00783-473e-405c-9eb0-f0e26169e5c2"}}];
+    root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
+    for (const render_item of render_items) {
+      for (const root_id of render_item.root_ids) {
+	const id_el = document.getElementById(root_id)
+	if (id_el.children.length && (id_el.children[0].className === 'bk-root')) {
+	  const root_el = id_el.children[0]
+	  root_el.id = root_el.id + '-rendered'
+	}
+      }
+    }
+  }
+  if (root.Bokeh !== undefined && root.Bokeh.Panel !== undefined&& (root.Bokeh.Models.registered_names().indexOf("ipywidgets_bokeh.widget.IPyWidget") > -1)) {
+    embed_document(root);
+  } else {
+    var attempts = 0;
+    var timer = setInterval(function(root) {
+      if (root.Bokeh !== undefined && root.Bokeh.Panel !== undefined&& (root.Bokeh.Models.registered_names().indexOf("ipywidgets_bokeh.widget.IPyWidget") > -1)) {
+        clearInterval(timer);
+        embed_document(root);
+      } else if (document.readyState == "complete") {
+        attempts++;
+        if (attempts > 200) {
+          clearInterval(timer);
+          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+        }
+      }
+    }, 25, root)
+  }
+})(window);</script></div></div>
+</div>
+</section>
+<section id="complex-examples">
+<h2>Complex examples<a class="headerlink" href="#complex-examples" title="Permalink to this heading">#</a></h2>
+<p>Even more complex applications can be built in Reacton and displayed in Panel. Here is a Calculator example from the Reacton documentation.</p>
+<section id="logic">
+<h3>Logic<a class="headerlink" href="#logic" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ast</span>
+<span class="kn">import</span> <span class="nn">dataclasses</span>
+<span class="kn">import</span> <span class="nn">operator</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Optional</span>
+
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">operator_map</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"x"</span><span class="p">:</span> <span class="n">operator</span><span class="o">.</span><span class="n">mul</span><span class="p">,</span>
+    <span class="s2">"/"</span><span class="p">:</span> <span class="n">operator</span><span class="o">.</span><span class="n">truediv</span><span class="p">,</span>
+    <span class="s2">"+"</span><span class="p">:</span> <span class="n">operator</span><span class="o">.</span><span class="n">add</span><span class="p">,</span>
+    <span class="s2">"-"</span><span class="p">:</span> <span class="n">operator</span><span class="o">.</span><span class="n">sub</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">CalculatorState</span><span class="p">:</span>
+    <span class="nb">input</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span>
+    <span class="n">output</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span>
+    <span class="n">left</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">right</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">operator</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="n">operator</span><span class="o">.</span><span class="n">add</span>
+    <span class="n">error</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span>
+
+
+<span class="n">initial_state</span> <span class="o">=</span> <span class="n">CalculatorState</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">CalculatorState</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="n">state</span><span class="o">.</span><span class="n">right</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="n">result</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">calculator_reducer</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">CalculatorState</span><span class="p">,</span> <span class="n">action</span><span class="p">):</span>
+    <span class="n">action_type</span><span class="p">,</span> <span class="n">payload</span> <span class="o">=</span> <span class="n">action</span>
+    <span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"reducer"</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">action_type</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span>  <span class="c1"># noqa</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">action_type</span> <span class="o">==</span> <span class="s2">"digit"</span><span class="p">:</span>
+        <span class="n">digit</span> <span class="o">=</span> <span class="n">payload</span>
+        <span class="nb">input</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">input</span> <span class="o">+</span> <span class="n">digit</span>
+        <span class="k">return</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="nb">input</span><span class="o">=</span><span class="nb">input</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="nb">input</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">action_type</span> <span class="o">==</span> <span class="s2">"percent"</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">state</span><span class="o">.</span><span class="n">input</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">literal_eval</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">input</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">value</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">calculate</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">value</span> <span class="o">/</span> <span class="mi">100</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">"</span>
+            <span class="k">return</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">,</span> <span class="nb">input</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">state</span><span class="o">.</span><span class="n">left</span> <span class="o">/</span> <span class="mi">100</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">"</span>
+            <span class="k">return</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="n">state</span><span class="o">.</span><span class="n">left</span> <span class="o">/</span> <span class="mi">100</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">action_type</span> <span class="o">==</span> <span class="s2">"negate"</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">state</span><span class="o">.</span><span class="n">input</span><span class="p">:</span>
+            <span class="nb">input</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">output</span>
+            <span class="nb">input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="nb">input</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"-"</span> <span class="k">else</span> <span class="s2">"-"</span> <span class="o">+</span> <span class="nb">input</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="nb">input</span>
+            <span class="k">return</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="nb">input</span><span class="o">=</span><span class="nb">input</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="o">-</span><span class="n">state</span><span class="o">.</span><span class="n">left</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">"</span>
+            <span class="k">return</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">left</span><span class="o">=-</span><span class="n">state</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">action_type</span> <span class="o">==</span> <span class="s2">"clear"</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="nb">input</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">action_type</span> <span class="o">==</span> <span class="s2">"reset"</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">initial_state</span>
+    <span class="k">elif</span> <span class="n">action_type</span> <span class="o">==</span> <span class="s2">"calculate"</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">state</span><span class="o">.</span><span class="n">input</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">literal_eval</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">input</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">value</span><span class="p">)</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="n">calculate</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">state</span><span class="o">.</span><span class="n">left</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">"</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">,</span> <span class="nb">input</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">state</span>
+    <span class="k">elif</span> <span class="n">action_type</span> <span class="o">==</span> <span class="s2">"operator"</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">state</span><span class="o">.</span><span class="n">input</span><span class="p">:</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">calculator_reducer</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="p">(</span><span class="s2">"calculate"</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">operator</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="nb">input</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># e.g. 2+3=*= should give 5,25</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">operator</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">state</span><span class="o">.</span><span class="n">left</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">state</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"invalid action"</span><span class="p">,</span> <span class="n">action</span><span class="p">)</span>  <span class="c1"># noqa</span>
+        <span class="k">return</span> <span class="n">state</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ui">
+<h3>UI<a class="headerlink" href="#ui" title="Permalink to this heading">#</a></h3>
+<section id="ipywidgets">
+<h4>ipywidgets<a class="headerlink" href="#ipywidgets" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@reacton</span><span class="o">.</span><span class="n">component</span>
+<span class="k">def</span> <span class="nf">Calculator</span><span class="p">():</span>
+    <span class="n">state</span><span class="p">,</span> <span class="n">dispatch</span> <span class="o">=</span> <span class="n">reacton</span><span class="o">.</span><span class="n">use_reducer</span><span class="p">(</span><span class="n">calculator_reducer</span><span class="p">,</span> <span class="n">initial_state</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">w</span><span class="o">.</span><span class="n">VBox</span><span class="p">()</span> <span class="k">as</span> <span class="n">main</span><span class="p">:</span>
+        <span class="n">w</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">"&lt;b&gt;Calculator Using Reacton&lt;/b&gt;"</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">w</span><span class="o">.</span><span class="n">VBox</span><span class="p">():</span>
+            <span class="n">w</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">state</span><span class="o">.</span><span class="n">error</span> <span class="ow">or</span> <span class="n">state</span><span class="o">.</span><span class="n">output</span> <span class="ow">or</span> <span class="s2">"0"</span><span class="p">)</span>
+            <span class="k">with</span> <span class="n">w</span><span class="o">.</span><span class="n">HBox</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">state</span><span class="o">.</span><span class="n">input</span><span class="p">:</span>
+                    <span class="n">w</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">"C"</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">dispatch</span><span class="p">((</span><span class="s2">"clear"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">w</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">"AC"</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">dispatch</span><span class="p">((</span><span class="s2">"reset"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)))</span>
+                <span class="n">w</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">"+/-"</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">dispatch</span><span class="p">((</span><span class="s2">"negate"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)))</span>
+                <span class="n">w</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">"%"</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">dispatch</span><span class="p">((</span><span class="s2">"percent"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)))</span>
+                <span class="n">w</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">"/"</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">dispatch</span><span class="p">((</span><span class="s2">"operator"</span><span class="p">,</span> <span class="n">operator_map</span><span class="p">[</span><span class="s2">"/"</span><span class="p">])))</span>
+
+            <span class="n">column_op</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"x"</span><span class="p">,</span> <span class="s2">"-"</span><span class="p">,</span> <span class="s2">"+"</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+                <span class="k">with</span> <span class="n">w</span><span class="o">.</span><span class="n">HBox</span><span class="p">():</span>
+                    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+                        <span class="n">digit</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+                        <span class="n">w</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="n">digit</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="k">lambda</span> <span class="n">digit</span><span class="o">=</span><span class="n">digit</span><span class="p">:</span> <span class="n">dispatch</span><span class="p">((</span><span class="s2">"digit"</span><span class="p">,</span> <span class="n">digit</span><span class="p">)))</span>
+                    <span class="n">op_symbol</span> <span class="o">=</span> <span class="n">column_op</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                    <span class="n">op</span> <span class="o">=</span> <span class="n">operator_map</span><span class="p">[</span><span class="n">op_symbol</span><span class="p">]</span>
+                    <span class="n">w</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="n">op_symbol</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="k">lambda</span> <span class="n">op</span><span class="o">=</span><span class="n">op</span><span class="p">:</span> <span class="n">dispatch</span><span class="p">((</span><span class="s2">"operator"</span><span class="p">,</span> <span class="n">op</span><span class="p">)))</span>
+            <span class="k">with</span> <span class="n">w</span><span class="o">.</span><span class="n">HBox</span><span class="p">():</span>
+                <span class="k">def</span> <span class="nf">boom</span><span class="p">():</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">"boom"</span><span class="p">)</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"boom"</span><span class="p">)</span>
+
+                <span class="n">w</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">"?"</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="n">boom</span><span class="p">)</span>
+
+                <span class="n">w</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">"0"</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">dispatch</span><span class="p">((</span><span class="s2">"digit"</span><span class="p">,</span> <span class="s2">"0"</span><span class="p">)))</span>
+                <span class="n">w</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">"."</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">dispatch</span><span class="p">((</span><span class="s2">"digit"</span><span class="p">,</span> <span class="s2">"."</span><span class="p">)))</span>
+
+                <span class="n">w</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">"="</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">dispatch</span><span class="p">((</span><span class="s2">"calculate"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)))</span>
+
+    <span class="k">return</span> <span class="n">main</span>
+
+<span class="n">calculator</span> <span class="o">=</span> <span class="n">Calculator</span><span class="p">()</span>
+    
+<span class="n">pn</span><span class="o">.</span><span class="n">pane</span><span class="o">.</span><span class="n">Reacton</span><span class="p">(</span><span class="n">calculator</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">250</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="1020">
+<div class="bk-root" data-root-id="1020" id="5ea64b04-0c1a-474e-915b-018dc631ada3"></div>
+</div>
+<script type="application/javascript">(function(root) {
+  function embed_document(root) {
+    var docs_json = {"909a0a1c-df6f-4a73-9e03-45da57db02aa":{"defs":[{"extends":null,"module":null,"name":"ReactiveHTML1","overrides":[],"properties":[]},{"extends":null,"module":null,"name":"FlexBox1","overrides":[],"properties":[{"default":"flex-start","kind":null,"name":"align_content"},{"default":"flex-start","kind":null,"name":"align_items"},{"default":"row","kind":null,"name":"flex_direction"},{"default":"wrap","kind":null,"name":"flex_wrap"},{"default":"flex-start","kind":null,"name":"justify_content"}]},{"extends":null,"module":null,"name":"GridStack1","overrides":[],"properties":[{"default":"warn","kind":null,"name":"mode"},{"default":null,"kind":null,"name":"ncols"},{"default":null,"kind":null,"name":"nrows"},{"default":true,"kind":null,"name":"allow_resize"},{"default":true,"kind":null,"name":"allow_drag"},{"default":[],"kind":null,"name":"state"}]},{"extends":null,"module":null,"name":"click1","overrides":[],"properties":[{"default":"","kind":null,"name":"terminal_output"},{"default":"","kind":null,"name":"debug_name"},{"default":0,"kind":null,"name":"clears"}]},{"extends":null,"module":null,"name":"NotificationAreaBase1","overrides":[],"properties":[{"default":"bottom-right","kind":null,"name":"position"},{"default":0,"kind":null,"name":"_clear"}]},{"extends":null,"module":null,"name":"NotificationArea1","overrides":[],"properties":[{"default":[],"kind":null,"name":"notifications"},{"default":"bottom-right","kind":null,"name":"position"},{"default":0,"kind":null,"name":"_clear"},{"default":[{"background":"#ffc107","icon":{"className":"fas fa-exclamation-triangle","color":"white","tagName":"i"},"type":"warning"},{"background":"#007bff","icon":{"className":"fas fa-info-circle","color":"white","tagName":"i"},"type":"info"}],"kind":null,"name":"types"}]},{"extends":null,"module":null,"name":"Notification","overrides":[],"properties":[{"default":null,"kind":null,"name":"background"},{"default":3000,"kind":null,"name":"duration"},{"default":null,"kind":null,"name":"icon"},{"default":"","kind":null,"name":"message"},{"default":null,"kind":null,"name":"notification_type"},{"default":false,"kind":null,"name":"_destroyed"}]},{"extends":null,"module":null,"name":"TemplateActions1","overrides":[],"properties":[{"default":0,"kind":null,"name":"open_modal"},{"default":0,"kind":null,"name":"close_modal"}]},{"extends":null,"module":null,"name":"MaterialTemplateActions1","overrides":[],"properties":[{"default":0,"kind":null,"name":"open_modal"},{"default":0,"kind":null,"name":"close_modal"}]}],"roots":{"references":[{"attributes":{"client_comm_id":"6b1357496b4c449bbb62bd2b3fe371db","comm_id":"0b7f4983cc9b4f3f911e916a54b97ea4","plot_id":"1020"},"id":"1104","type":"panel.models.comm_manager.CommManager"},{"attributes":{"bundle":{"spec":{"model_id":"add282ba4dd741139ccbcccccabcf95e","version_major":2,"version_minor":0},"state":{"state":{"03a8163c1b1b4d40a344cc1512a935f1":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"DescriptionStyleModel","state":{}},"04707f8f4c6e40d692a6e8d1de1ac91a":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"089592d6394f4498912160c5c5064d03":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonModel","state":{"_dom_classes":[],"description":"x","layout":"IPY_MODEL_1413320073e54ed0a65adf938b0671f4","style":"IPY_MODEL_82cd72da37af4b1ca042301291437dde"}},"0cbc8332016d413cb7c43a025547b219":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"122114964fb9498dbc7f0f7a6b941876":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonStyleModel","state":{}},"12aece6d43a64d91805dbc4d7899f4ba":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonModel","state":{"_dom_classes":[],"description":"6","layout":"IPY_MODEL_63f0096bda6b40c0ae01a43ee63b2571","style":"IPY_MODEL_ce64cc5f727a445c879ee8ef88f85124"}},"134da906390b465a9d0d05476da4f2ce":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"1361829e80244ebda6cc9033206b7de7":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"1413320073e54ed0a65adf938b0671f4":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"15c381e7ed064a53ad08ac0ccd5c3541":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonStyleModel","state":{}},"1adc1f5892bb4248b1895e29c48a1b7b":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonModel","state":{"_dom_classes":[],"description":"%","layout":"IPY_MODEL_c347b99bde1f46238cba1c6f31a489a0","style":"IPY_MODEL_c1278accdd5247f89c6cde64aa3bff16"}},"1bdf80eab8ce4dbdaaca282aebb1409c":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HTMLModel","state":{"_dom_classes":[],"layout":"IPY_MODEL_e3959690775a444687751f0493f600a8","style":"IPY_MODEL_c036b50167054b059783fcdf251c5fb3","value":"<b>Calculator Using Reacton</b>"}},"249e7afc10f34ac392a01e06f14d21ca":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonModel","state":{"_dom_classes":[],"description":"9","layout":"IPY_MODEL_fc810a9f46ef41aba07ebf39b99d62dc","style":"IPY_MODEL_c4426a2591ba4b3fbd7bc47715ac3a17"}},"3beaa4ce20f147a4b505bc97616151d7":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"402148e04b1e468cb8887218a5b3c5f3":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonStyleModel","state":{}},"44ba2709889b45bca6178eb5b03ef29c":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonModel","state":{"_dom_classes":[],"description":"/","layout":"IPY_MODEL_df85d705a69e409592bee1ad5067cd4a","style":"IPY_MODEL_790e0604f4b44d3ba27363e0e27ebea6"}},"4632795a175e433396240eecb4e0360c":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HBoxModel","state":{"_dom_classes":[],"children":["IPY_MODEL_bbe17d7f4f22423ea32434b1e70cd1e9","IPY_MODEL_935c0c2c0b5c44aab2ed7412e0bf3291","IPY_MODEL_754eef9a3f3749789b9a2aadb3b8c71d","IPY_MODEL_9b706c8f1f0b4446b0f0c1b497dd0dcb"],"layout":"IPY_MODEL_b43c6f7d3ef8415fba4fcc077af6c599"}},"518f612648564781a80252351db7190e":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"5a688a7036eb41cd80b45361d1e59c5e":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HBoxModel","state":{"_dom_classes":[],"children":["IPY_MODEL_a761026480ce4417978b448e7fef8d61","IPY_MODEL_8907505dc3f24ce389b912239ae21a9b","IPY_MODEL_5e50e23759234ffe9d5a22f3df94e8b8","IPY_MODEL_85da1752b3d6452f876a3f04665909de"],"layout":"IPY_MODEL_f73ff35445eb410e8cbe43824dcc2de0"}},"5e50e23759234ffe9d5a22f3df94e8b8":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonModel","state":{"_dom_classes":[],"description":"3","layout":"IPY_MODEL_cf81bfda4f784bdeb66bbb5a4653bce2","style":"IPY_MODEL_de38b1d01b824423ac3de99b945e8d39"}},"63f0096bda6b40c0ae01a43ee63b2571":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"66e0e736f5ff4d9a80b091e5932d00f4":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"678f524865d34931ba6bcc9b2bcf5bf2":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonStyleModel","state":{}},"680a58edd8ee4c2698f663ffbc93d680":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"68fb4fb7997c4dbd928e7c997cfa8da9":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"6ae9006b931b4485b6d194b546aae302":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonStyleModel","state":{}},"6ee1da5e48aa494c9048bedb7162fb59":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"6ef6039b5cfe407db07318c29b05d1b9":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"754eef9a3f3749789b9a2aadb3b8c71d":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonModel","state":{"_dom_classes":[],"description":".","layout":"IPY_MODEL_f0af7e9a253c40f4b14e5d31913fcf8e","style":"IPY_MODEL_6ae9006b931b4485b6d194b546aae302"}},"7794c8923b264cd3a64070a54dc4c59a":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonStyleModel","state":{}},"790e0604f4b44d3ba27363e0e27ebea6":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonStyleModel","state":{}},"81bbbff89a4945809808d8b41acf5d3b":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"VBoxModel","state":{"_dom_classes":[],"children":["IPY_MODEL_1bdf80eab8ce4dbdaaca282aebb1409c","IPY_MODEL_8b2e0aed2c7f4685ad7672cec2fb56d1"],"layout":"IPY_MODEL_66e0e736f5ff4d9a80b091e5932d00f4"}},"82cd72da37af4b1ca042301291437dde":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonStyleModel","state":{}},"85da1752b3d6452f876a3f04665909de":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonModel","state":{"_dom_classes":[],"description":"+","layout":"IPY_MODEL_0cbc8332016d413cb7c43a025547b219","style":"IPY_MODEL_d14b40509d214640a5c841c5740b2894"}},"85e3bc7ba3e7402aa05fb402a7741cac":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonStyleModel","state":{}},"8907505dc3f24ce389b912239ae21a9b":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonModel","state":{"_dom_classes":[],"description":"2","layout":"IPY_MODEL_6ef6039b5cfe407db07318c29b05d1b9","style":"IPY_MODEL_678f524865d34931ba6bcc9b2bcf5bf2"}},"8b2e0aed2c7f4685ad7672cec2fb56d1":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"VBoxModel","state":{"_dom_classes":[],"children":["IPY_MODEL_9666ec94b20b4b1bb345ca2468b786c4","IPY_MODEL_9bb5368a69874dfe92a3993e4534bdbe","IPY_MODEL_927515223c9843f280fb995d0df6773a","IPY_MODEL_ea65d9111ea1432f92830c823c89c6c6","IPY_MODEL_5a688a7036eb41cd80b45361d1e59c5e","IPY_MODEL_4632795a175e433396240eecb4e0360c"],"layout":"IPY_MODEL_e9027d18472040b192fcff6a85631aca"}},"8d45c76fa730459f8dae94a0233efbd3":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonModel","state":{"_dom_classes":[],"description":"+/-","layout":"IPY_MODEL_680a58edd8ee4c2698f663ffbc93d680","style":"IPY_MODEL_e11fcafec40a475b88ad136fcb1395d2"}},"927515223c9843f280fb995d0df6773a":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HBoxModel","state":{"_dom_classes":[],"children":["IPY_MODEL_9b0c2b43649f446ea62c843521d11c20","IPY_MODEL_93012b9f3a78453792e8583b5fa86e9a","IPY_MODEL_249e7afc10f34ac392a01e06f14d21ca","IPY_MODEL_089592d6394f4498912160c5c5064d03"],"layout":"IPY_MODEL_04707f8f4c6e40d692a6e8d1de1ac91a"}},"93012b9f3a78453792e8583b5fa86e9a":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonModel","state":{"_dom_classes":[],"description":"8","layout":"IPY_MODEL_ef34e64f7c034d6d96c99ebd523eedca","style":"IPY_MODEL_e7114a29d1204379a13df2dd865cd0ea"}},"93408fc1f2b143fca4b278cc4d7c90dd":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonStyleModel","state":{}},"935c0c2c0b5c44aab2ed7412e0bf3291":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonModel","state":{"_dom_classes":[],"description":"0","layout":"IPY_MODEL_134da906390b465a9d0d05476da4f2ce","style":"IPY_MODEL_f983c37c593142bfa88de2b5dde56617"}},"9454f387476b4489a9635725a872929e":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonModel","state":{"_dom_classes":[],"description":"AC","layout":"IPY_MODEL_b850a7da44aa4e24b7b7b8ab9fef5e68","style":"IPY_MODEL_93408fc1f2b143fca4b278cc4d7c90dd"}},"9666ec94b20b4b1bb345ca2468b786c4":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HTMLModel","state":{"_dom_classes":[],"layout":"IPY_MODEL_3beaa4ce20f147a4b505bc97616151d7","style":"IPY_MODEL_03a8163c1b1b4d40a344cc1512a935f1","value":"0"}},"9b0c2b43649f446ea62c843521d11c20":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonModel","state":{"_dom_classes":[],"description":"7","layout":"IPY_MODEL_1361829e80244ebda6cc9033206b7de7","style":"IPY_MODEL_7794c8923b264cd3a64070a54dc4c59a"}},"9b706c8f1f0b4446b0f0c1b497dd0dcb":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonModel","state":{"_dom_classes":[],"description":"=","layout":"IPY_MODEL_f520c4f28ca64aadb8bf51bffeaa072a","style":"IPY_MODEL_f12bad14118d4f50bded1d7fecc3eb1a"}},"9bb5368a69874dfe92a3993e4534bdbe":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HBoxModel","state":{"_dom_classes":[],"children":["IPY_MODEL_9454f387476b4489a9635725a872929e","IPY_MODEL_8d45c76fa730459f8dae94a0233efbd3","IPY_MODEL_1adc1f5892bb4248b1895e29c48a1b7b","IPY_MODEL_44ba2709889b45bca6178eb5b03ef29c"],"layout":"IPY_MODEL_aa25e0a94bc846d7beca5f879015e747"}},"a761026480ce4417978b448e7fef8d61":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonModel","state":{"_dom_classes":[],"description":"1","layout":"IPY_MODEL_aa8950ab3d9246049901be298d9d86d3","style":"IPY_MODEL_15c381e7ed064a53ad08ac0ccd5c3541"}},"aa25e0a94bc846d7beca5f879015e747":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"aa8950ab3d9246049901be298d9d86d3":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"ad21baa30fc04e77a56d191336a3b234":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonModel","state":{"_dom_classes":[],"description":"4","layout":"IPY_MODEL_68fb4fb7997c4dbd928e7c997cfa8da9","style":"IPY_MODEL_402148e04b1e468cb8887218a5b3c5f3"}},"add282ba4dd741139ccbcccccabcf95e":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"VBoxModel","state":{"_dom_classes":[],"children":["IPY_MODEL_81bbbff89a4945809808d8b41acf5d3b"],"layout":"IPY_MODEL_518f612648564781a80252351db7190e"}},"afa235ed6afe4aefa54d79075b480a85":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonModel","state":{"_dom_classes":[],"description":"5","layout":"IPY_MODEL_da0a234865ae4d75984dbdf1cf5974cf","style":"IPY_MODEL_bb4cc21d80b44dc38f6c2b19139050df"}},"b43c6f7d3ef8415fba4fcc077af6c599":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"b789d8c56eb348f48bd54d9c3e8bf7ba":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"b850a7da44aa4e24b7b7b8ab9fef5e68":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"bb4cc21d80b44dc38f6c2b19139050df":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonStyleModel","state":{}},"bbe17d7f4f22423ea32434b1e70cd1e9":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonModel","state":{"_dom_classes":[],"description":"?","layout":"IPY_MODEL_6ee1da5e48aa494c9048bedb7162fb59","style":"IPY_MODEL_122114964fb9498dbc7f0f7a6b941876"}},"c036b50167054b059783fcdf251c5fb3":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"DescriptionStyleModel","state":{}},"c1278accdd5247f89c6cde64aa3bff16":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonStyleModel","state":{}},"c347b99bde1f46238cba1c6f31a489a0":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"c4426a2591ba4b3fbd7bc47715ac3a17":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonStyleModel","state":{}},"ce64cc5f727a445c879ee8ef88f85124":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonStyleModel","state":{}},"cf81bfda4f784bdeb66bbb5a4653bce2":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"d14b40509d214640a5c841c5740b2894":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonStyleModel","state":{}},"da0a234865ae4d75984dbdf1cf5974cf":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"de38b1d01b824423ac3de99b945e8d39":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonStyleModel","state":{}},"df85d705a69e409592bee1ad5067cd4a":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"e11fcafec40a475b88ad136fcb1395d2":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonStyleModel","state":{}},"e3959690775a444687751f0493f600a8":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"e7114a29d1204379a13df2dd865cd0ea":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonStyleModel","state":{}},"e9027d18472040b192fcff6a85631aca":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"ea65d9111ea1432f92830c823c89c6c6":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HBoxModel","state":{"_dom_classes":[],"children":["IPY_MODEL_ad21baa30fc04e77a56d191336a3b234","IPY_MODEL_afa235ed6afe4aefa54d79075b480a85","IPY_MODEL_12aece6d43a64d91805dbc4d7899f4ba","IPY_MODEL_f068e87be96e4a2083fd04bb4311d6ab"],"layout":"IPY_MODEL_b789d8c56eb348f48bd54d9c3e8bf7ba"}},"eb510aa9f7d04e57addc0d5d51ca2843":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"ef34e64f7c034d6d96c99ebd523eedca":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"f068e87be96e4a2083fd04bb4311d6ab":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonModel","state":{"_dom_classes":[],"description":"-","layout":"IPY_MODEL_eb510aa9f7d04e57addc0d5d51ca2843","style":"IPY_MODEL_85e3bc7ba3e7402aa05fb402a7741cac"}},"f0af7e9a253c40f4b14e5d31913fcf8e":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"f12bad14118d4f50bded1d7fecc3eb1a":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonStyleModel","state":{}},"f520c4f28ca64aadb8bf51bffeaa072a":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"f73ff35445eb410e8cbe43824dcc2de0":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"f983c37c593142bfa88de2b5dde56617":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ButtonStyleModel","state":{}},"fc810a9f46ef41aba07ebf39b99d62dc":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}}},"version_major":2,"version_minor":0}},"height":250,"margin":[5,5,5,5],"sizing_mode":"fixed","width":500},"id":"1103","type":"ipywidgets_bokeh.widget.IPyWidget"},{"attributes":{"children":[{"id":"1103"}],"height":250,"margin":[0,0,0,0],"name":"Row01386","sizing_mode":"fixed","width":500},"id":"1020","type":"Row"}],"root_ids":["1020","1104"]},"title":"Bokeh Application","version":"2.4.3"}};
+    var render_items = [{"docid":"909a0a1c-df6f-4a73-9e03-45da57db02aa","root_ids":["1020"],"roots":{"1020":"5ea64b04-0c1a-474e-915b-018dc631ada3"}}];
+    root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
+    for (const render_item of render_items) {
+      for (const root_id of render_item.root_ids) {
+	const id_el = document.getElementById(root_id)
+	if (id_el.children.length && (id_el.children[0].className === 'bk-root')) {
+	  const root_el = id_el.children[0]
+	  root_el.id = root_el.id + '-rendered'
+	}
+      }
+    }
+  }
+  if (root.Bokeh !== undefined && root.Bokeh.Panel !== undefined&& (root.Bokeh.Models.registered_names().indexOf("ipywidgets_bokeh.widget.IPyWidget") > -1)) {
+    embed_document(root);
+  } else {
+    var attempts = 0;
+    var timer = setInterval(function(root) {
+      if (root.Bokeh !== undefined && root.Bokeh.Panel !== undefined&& (root.Bokeh.Models.registered_names().indexOf("ipywidgets_bokeh.widget.IPyWidget") > -1)) {
+        clearInterval(timer);
+        embed_document(root);
+      } else if (document.readyState == "complete") {
+        attempts++;
+        if (attempts > 200) {
+          clearInterval(timer);
+          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+        }
+      }
+    }, 25, root)
+  }
+})(window);</script></div></div>
+</div>
+</section>
+<section id="ipyvuetify">
+<h4>ipyvuetify<a class="headerlink" href="#ipyvuetify" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">reacton.ipyvuetify</span> <span class="k">as</span> <span class="nn">v</span>
+
+<span class="nd">@reacton</span><span class="o">.</span><span class="n">component</span>
+<span class="k">def</span> <span class="nf">CalculatorVuetify</span><span class="p">():</span>
+    <span class="n">state</span><span class="p">,</span> <span class="n">dispatch</span> <span class="o">=</span> <span class="n">reacton</span><span class="o">.</span><span class="n">use_reducer</span><span class="p">(</span><span class="n">calculator_reducer</span><span class="p">,</span> <span class="n">initial_state</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">v</span><span class="o">.</span><span class="n">Card</span><span class="p">(</span><span class="n">elevation</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">"ma-4"</span><span class="p">)</span> <span class="k">as</span> <span class="n">main</span><span class="p">:</span>
+        <span class="k">with</span> <span class="n">v</span><span class="o">.</span><span class="n">CardTitle</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s2">"Calculator"</span><span class="p">]):</span>
+            <span class="k">pass</span>
+        <span class="k">with</span> <span class="n">v</span><span class="o">.</span><span class="n">CardSubtitle</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="s2">"With ipyvuetify and Reacton"</span><span class="p">]):</span>
+            <span class="k">pass</span>
+        <span class="k">with</span> <span class="n">v</span><span class="o">.</span><span class="n">CardText</span><span class="p">():</span>
+            <span class="k">with</span> <span class="n">w</span><span class="o">.</span><span class="n">VBox</span><span class="p">():</span>
+                <span class="n">w</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">state</span><span class="o">.</span><span class="n">error</span> <span class="ow">or</span> <span class="n">state</span><span class="o">.</span><span class="n">output</span> <span class="ow">or</span> <span class="s2">"0"</span><span class="p">)</span>
+                <span class="n">class_</span> <span class="o">=</span> <span class="s2">"pa-0 ma-1"</span>
+
+                <span class="k">with</span> <span class="n">w</span><span class="o">.</span><span class="n">HBox</span><span class="p">():</span>
+                    <span class="k">if</span> <span class="n">state</span><span class="o">.</span><span class="n">input</span><span class="p">:</span>
+                        <span class="n">v</span><span class="o">.</span><span class="n">BtnWithClick</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="s2">"C"</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">dispatch</span><span class="p">((</span><span class="s2">"clear"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)),</span> <span class="n">dark</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="n">class_</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">v</span><span class="o">.</span><span class="n">BtnWithClick</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="s2">"AC"</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">dispatch</span><span class="p">((</span><span class="s2">"reset"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)),</span> <span class="n">dark</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="n">class_</span><span class="p">)</span>
+                    <span class="n">v</span><span class="o">.</span><span class="n">BtnWithClick</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="s2">"+/-"</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">dispatch</span><span class="p">((</span><span class="s2">"negate"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)),</span> <span class="n">dark</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="n">class_</span><span class="p">)</span>
+                    <span class="n">v</span><span class="o">.</span><span class="n">BtnWithClick</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="s2">"%"</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">dispatch</span><span class="p">((</span><span class="s2">"percent"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)),</span> <span class="n">dark</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="n">class_</span><span class="p">)</span>
+                    <span class="n">v</span><span class="o">.</span><span class="n">BtnWithClick</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="s2">"/"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"primary"</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">dispatch</span><span class="p">((</span><span class="s2">"operator"</span><span class="p">,</span> <span class="n">operator_map</span><span class="p">[</span><span class="s2">"/"</span><span class="p">])),</span> <span class="n">class_</span><span class="o">=</span><span class="n">class_</span><span class="p">)</span>
+
+                <span class="n">column_op</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"x"</span><span class="p">,</span> <span class="s2">"-"</span><span class="p">,</span> <span class="s2">"+"</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+                    <span class="k">with</span> <span class="n">w</span><span class="o">.</span><span class="n">HBox</span><span class="p">():</span>
+                        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+                            <span class="n">digit</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+                            <span class="n">v</span><span class="o">.</span><span class="n">BtnWithClick</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="n">digit</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="k">lambda</span> <span class="n">digit</span><span class="o">=</span><span class="n">digit</span><span class="p">:</span> <span class="n">dispatch</span><span class="p">((</span><span class="s2">"digit"</span><span class="p">,</span> <span class="n">digit</span><span class="p">)),</span> <span class="n">class_</span><span class="o">=</span><span class="n">class_</span><span class="p">)</span>
+                        <span class="n">op_symbol</span> <span class="o">=</span> <span class="n">column_op</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                        <span class="n">op</span> <span class="o">=</span> <span class="n">operator_map</span><span class="p">[</span><span class="n">op_symbol</span><span class="p">]</span>
+                        <span class="n">v</span><span class="o">.</span><span class="n">BtnWithClick</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="n">op_symbol</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"primary"</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="k">lambda</span> <span class="n">op</span><span class="o">=</span><span class="n">op</span><span class="p">:</span> <span class="n">dispatch</span><span class="p">((</span><span class="s2">"operator"</span><span class="p">,</span> <span class="n">op</span><span class="p">)),</span> <span class="n">class_</span><span class="o">=</span><span class="n">class_</span><span class="p">)</span>
+                <span class="k">with</span> <span class="n">w</span><span class="o">.</span><span class="n">HBox</span><span class="p">():</span>
+                    <span class="k">def</span> <span class="nf">boom</span><span class="p">():</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="s2">"boom"</span><span class="p">)</span>
+                        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"boom"</span><span class="p">)</span>
+
+                    <span class="n">v</span><span class="o">.</span><span class="n">BtnWithClick</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="s2">"?"</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="n">boom</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="n">class_</span><span class="p">)</span>
+
+                    <span class="n">v</span><span class="o">.</span><span class="n">BtnWithClick</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="s2">"0"</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">dispatch</span><span class="p">((</span><span class="s2">"digit"</span><span class="p">,</span> <span class="s2">"0"</span><span class="p">)),</span> <span class="n">class_</span><span class="o">=</span><span class="n">class_</span><span class="p">)</span>
+                    <span class="n">v</span><span class="o">.</span><span class="n">BtnWithClick</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="s2">"."</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">dispatch</span><span class="p">((</span><span class="s2">"digit"</span><span class="p">,</span> <span class="s2">"."</span><span class="p">)),</span> <span class="n">class_</span><span class="o">=</span><span class="n">class_</span><span class="p">)</span>
+
+                    <span class="n">v</span><span class="o">.</span><span class="n">BtnWithClick</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="s2">"="</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"primary"</span><span class="p">,</span> <span class="n">on_click</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">dispatch</span><span class="p">((</span><span class="s2">"calculate"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)),</span> <span class="n">class_</span><span class="o">=</span><span class="n">class_</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">main</span>
+
+<span class="n">pn</span><span class="o">.</span><span class="n">pane</span><span class="o">.</span><span class="n">Reacton</span><span class="p">(</span><span class="n">CalculatorVuetify</span><span class="p">(),</span> <span class="n">width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">420</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="1105">
+<div class="bk-root" data-root-id="1105" id="1b031280-15ad-469e-b5c4-f3cdb814cb83"></div>
+</div>
+<script type="application/javascript">(function(root) {
+  function embed_document(root) {
+    var docs_json = {"4676d975-c3f1-4180-8b6e-5e0e2a53e6f5":{"defs":[{"extends":null,"module":null,"name":"ReactiveHTML1","overrides":[],"properties":[]},{"extends":null,"module":null,"name":"FlexBox1","overrides":[],"properties":[{"default":"flex-start","kind":null,"name":"align_content"},{"default":"flex-start","kind":null,"name":"align_items"},{"default":"row","kind":null,"name":"flex_direction"},{"default":"wrap","kind":null,"name":"flex_wrap"},{"default":"flex-start","kind":null,"name":"justify_content"}]},{"extends":null,"module":null,"name":"GridStack1","overrides":[],"properties":[{"default":"warn","kind":null,"name":"mode"},{"default":null,"kind":null,"name":"ncols"},{"default":null,"kind":null,"name":"nrows"},{"default":true,"kind":null,"name":"allow_resize"},{"default":true,"kind":null,"name":"allow_drag"},{"default":[],"kind":null,"name":"state"}]},{"extends":null,"module":null,"name":"click1","overrides":[],"properties":[{"default":"","kind":null,"name":"terminal_output"},{"default":"","kind":null,"name":"debug_name"},{"default":0,"kind":null,"name":"clears"}]},{"extends":null,"module":null,"name":"NotificationAreaBase1","overrides":[],"properties":[{"default":"bottom-right","kind":null,"name":"position"},{"default":0,"kind":null,"name":"_clear"}]},{"extends":null,"module":null,"name":"NotificationArea1","overrides":[],"properties":[{"default":[],"kind":null,"name":"notifications"},{"default":"bottom-right","kind":null,"name":"position"},{"default":0,"kind":null,"name":"_clear"},{"default":[{"background":"#ffc107","icon":{"className":"fas fa-exclamation-triangle","color":"white","tagName":"i"},"type":"warning"},{"background":"#007bff","icon":{"className":"fas fa-info-circle","color":"white","tagName":"i"},"type":"info"}],"kind":null,"name":"types"}]},{"extends":null,"module":null,"name":"Notification","overrides":[],"properties":[{"default":null,"kind":null,"name":"background"},{"default":3000,"kind":null,"name":"duration"},{"default":null,"kind":null,"name":"icon"},{"default":"","kind":null,"name":"message"},{"default":null,"kind":null,"name":"notification_type"},{"default":false,"kind":null,"name":"_destroyed"}]},{"extends":null,"module":null,"name":"TemplateActions1","overrides":[],"properties":[{"default":0,"kind":null,"name":"open_modal"},{"default":0,"kind":null,"name":"close_modal"}]},{"extends":null,"module":null,"name":"MaterialTemplateActions1","overrides":[],"properties":[{"default":0,"kind":null,"name":"open_modal"},{"default":0,"kind":null,"name":"close_modal"}]}],"roots":{"references":[{"attributes":{"client_comm_id":"7761dc7296a04f1092d6106c43cd919b","comm_id":"28bc330012e94275b57ff308b86a0e8e","plot_id":"1105"},"id":"1177","type":"panel.models.comm_manager.CommManager"},{"attributes":{"children":[{"id":"1176"}],"height":420,"margin":[0,0,0,0],"name":"Row01390","sizing_mode":"fixed","width":500},"id":"1105","type":"Row"},{"attributes":{"bundle":{"spec":{"model_id":"aa8cb272a229428488f4b6fff7b9b71f","version_major":2,"version_minor":0},"state":{"state":{"02d905528c3941928f9e78291ff1d321":{"model_module":"jupyter-vuetify","model_module_version":"^1.8.4","model_name":"BtnModel","state":{"_dom_classes":[],"_events":["click"],"_jupyter_vue":"IPY_MODEL_dfcaf7f057b14908b0c5fbf75cf3c1f2","_metadata":null,"attributes":{},"children":["0"],"class_":"pa-0 ma-1","layout":"IPY_MODEL_af9722182d654192b1e00dc710821038","v_slots":[]}},"0a5579544f6f450fa9cdaa60c58a24c0":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"12304c3a020440f9b0ede6cd5598341f":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HBoxModel","state":{"_dom_classes":[],"children":["IPY_MODEL_825684e2f4684732b59fb1f6b2030218","IPY_MODEL_aa0c8f750ca543c8a2d02ed1d2cef017","IPY_MODEL_e3f993fa66904d3ea42a27522a030d71","IPY_MODEL_d19f49a186d249908031e6a531f2e663"],"layout":"IPY_MODEL_a1fcd4e272f24977b871a0ae7c24b563"}},"12533b70d3b14b7c846e76ff365c5b58":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"1ad5341f3a1749809360d43f77ce9a9d":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HBoxModel","state":{"_dom_classes":[],"children":["IPY_MODEL_1e9abd5cd5964df5a71375d38fff88d2","IPY_MODEL_1d24ccb2db584337b1cb19ce9154d90a","IPY_MODEL_f59d177952354d2f8c3f34198a12fe46","IPY_MODEL_4acbc22c4a84454f85658358536eb352"],"layout":"IPY_MODEL_a61904d7fe234b12902c55f8768ad9f1"}},"1cd9ed86decb42238fb2f54f34324b79":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HTMLModel","state":{"_dom_classes":[],"layout":"IPY_MODEL_e606660ceba34aff999c80b24a3d9327","style":"IPY_MODEL_9eba064c16744d2aa660d13dda860260","value":"0"}},"1d24ccb2db584337b1cb19ce9154d90a":{"model_module":"jupyter-vuetify","model_module_version":"^1.8.4","model_name":"BtnModel","state":{"_dom_classes":[],"_events":["click"],"_jupyter_vue":"IPY_MODEL_dfcaf7f057b14908b0c5fbf75cf3c1f2","_metadata":null,"attributes":{},"children":["2"],"class_":"pa-0 ma-1","layout":"IPY_MODEL_12533b70d3b14b7c846e76ff365c5b58","v_slots":[]}},"1e9abd5cd5964df5a71375d38fff88d2":{"model_module":"jupyter-vuetify","model_module_version":"^1.8.4","model_name":"BtnModel","state":{"_dom_classes":[],"_events":["click"],"_jupyter_vue":"IPY_MODEL_dfcaf7f057b14908b0c5fbf75cf3c1f2","_metadata":null,"attributes":{},"children":["1"],"class_":"pa-0 ma-1","layout":"IPY_MODEL_caf283be90224999af22f253409771af","v_slots":[]}},"22d710f0dcb2441f88eb111bb57b7268":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"27128a3b05814d6ea6236dc5ef9fe931":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"2817c680c5734f0bbbb612adf6dee543":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"2a287c4567db482eb4bde64d5a6e7719":{"model_module":"jupyter-vuetify","model_module_version":"^1.8.4","model_name":"BtnModel","state":{"_dom_classes":[],"_events":["click"],"_jupyter_vue":"IPY_MODEL_dfcaf7f057b14908b0c5fbf75cf3c1f2","_metadata":null,"attributes":{},"children":["8"],"class_":"pa-0 ma-1","layout":"IPY_MODEL_2817c680c5734f0bbbb612adf6dee543","v_slots":[]}},"3110971a7e6445e09855e3474e1b147a":{"model_module":"jupyter-vuetify","model_module_version":"^1.8.4","model_name":"BtnModel","state":{"_dom_classes":[],"_events":["click"],"_jupyter_vue":"IPY_MODEL_dfcaf7f057b14908b0c5fbf75cf3c1f2","_metadata":null,"attributes":{},"children":["-"],"class_":"pa-0 ma-1","color":"primary","layout":"IPY_MODEL_6b37f206dca644538e99379e770e529f","v_slots":[]}},"37a09b5015094bacabfc237f3375a1d3":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"3dd58e3a77c14e58b6c0b741b01cfc1e":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"3e28a13ec63848de98e1776a0d375d99":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"419ad7c52f25494280867dfcae173ea1":{"model_module":"jupyter-vuetify","model_module_version":"^1.8.4","model_name":"BtnModel","state":{"_dom_classes":[],"_events":["click"],"_jupyter_vue":"IPY_MODEL_dfcaf7f057b14908b0c5fbf75cf3c1f2","_metadata":null,"attributes":{},"children":["."],"class_":"pa-0 ma-1","layout":"IPY_MODEL_27128a3b05814d6ea6236dc5ef9fe931","v_slots":[]}},"49560bc56e7643efae6d88ce9e3d7c31":{"model_module":"jupyter-vuetify","model_module_version":"^1.8.4","model_name":"BtnModel","state":{"_dom_classes":[],"_events":["click"],"_jupyter_vue":"IPY_MODEL_dfcaf7f057b14908b0c5fbf75cf3c1f2","_metadata":null,"attributes":{},"children":["="],"class_":"pa-0 ma-1","color":"primary","layout":"IPY_MODEL_b86a1c4b9bc24e1e925c780a31b02545","v_slots":[]}},"4acbc22c4a84454f85658358536eb352":{"model_module":"jupyter-vuetify","model_module_version":"^1.8.4","model_name":"BtnModel","state":{"_dom_classes":[],"_events":["click"],"_jupyter_vue":"IPY_MODEL_dfcaf7f057b14908b0c5fbf75cf3c1f2","_metadata":null,"attributes":{},"children":["+"],"class_":"pa-0 ma-1","color":"primary","layout":"IPY_MODEL_80b05288d95945cd86b6600a1dc8e769","v_slots":[]}},"52a8aa707c814c0285517400cb888562":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"5d415e80f2f04aa185a23c96035b83a7":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"60b189ff8b8e4c1589e4a9fac1c9aa8b":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"65feebf08b454142af7dc15e5e88d254":{"model_module":"jupyter-vuetify","model_module_version":"^1.8.4","model_name":"BtnModel","state":{"_dom_classes":[],"_events":["click"],"_jupyter_vue":"IPY_MODEL_dfcaf7f057b14908b0c5fbf75cf3c1f2","_metadata":null,"attributes":{},"children":["6"],"class_":"pa-0 ma-1","layout":"IPY_MODEL_3dd58e3a77c14e58b6c0b741b01cfc1e","v_slots":[]}},"67a5de68d3b343f1aa9f0821346e501e":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HBoxModel","state":{"_dom_classes":[],"children":["IPY_MODEL_fee7d8f1f3c74310ad2914c0a952a2ec","IPY_MODEL_deeb47c50cee4b52bfee82c194300b50","IPY_MODEL_65feebf08b454142af7dc15e5e88d254","IPY_MODEL_3110971a7e6445e09855e3474e1b147a"],"layout":"IPY_MODEL_e6f6a749936f479b87213e0c15a1ffb0"}},"6b37f206dca644538e99379e770e529f":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"79704de11be84d6e933c0adbf115084c":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HBoxModel","state":{"_dom_classes":[],"children":["IPY_MODEL_cc997a8b58c04530b5a394c5a0004d97","IPY_MODEL_02d905528c3941928f9e78291ff1d321","IPY_MODEL_419ad7c52f25494280867dfcae173ea1","IPY_MODEL_49560bc56e7643efae6d88ce9e3d7c31"],"layout":"IPY_MODEL_d403cfbd83874521a319262b696c3f0b"}},"7a356238531844098af1759547a4a30e":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"80b05288d95945cd86b6600a1dc8e769":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"825684e2f4684732b59fb1f6b2030218":{"model_module":"jupyter-vuetify","model_module_version":"^1.8.4","model_name":"BtnModel","state":{"_dom_classes":[],"_events":["click"],"_jupyter_vue":"IPY_MODEL_dfcaf7f057b14908b0c5fbf75cf3c1f2","_metadata":null,"attributes":{},"children":["AC"],"class_":"pa-0 ma-1","dark":true,"layout":"IPY_MODEL_a5d699deb71147a5b6dfe0143cff8359","v_slots":[]}},"87fce09d94894773975372b22ae455ba":{"model_module":"jupyter-vuetify","model_module_version":"^1.8.4","model_name":"CardTitleModel","state":{"_dom_classes":[],"_events":[],"_jupyter_vue":"IPY_MODEL_dfcaf7f057b14908b0c5fbf75cf3c1f2","_metadata":null,"attributes":{},"children":["Calculator"],"layout":"IPY_MODEL_e230be818f1249e98a93e16baaf1f760","v_slots":[]}},"8c060cd877a14a7fbe7860eba7a5d750":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"8fab3b5151a3446ea9628b332484dabf":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"VBoxModel","state":{"_dom_classes":[],"children":["IPY_MODEL_1cd9ed86decb42238fb2f54f34324b79","IPY_MODEL_12304c3a020440f9b0ede6cd5598341f","IPY_MODEL_e0c0778aaa954d66ad8c9a87c262ad5b","IPY_MODEL_67a5de68d3b343f1aa9f0821346e501e","IPY_MODEL_1ad5341f3a1749809360d43f77ce9a9d","IPY_MODEL_79704de11be84d6e933c0adbf115084c"],"layout":"IPY_MODEL_5d415e80f2f04aa185a23c96035b83a7"}},"9eba064c16744d2aa660d13dda860260":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"DescriptionStyleModel","state":{}},"a1fcd4e272f24977b871a0ae7c24b563":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"a37f59d292ec4df0849e3975c4251608":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"a5d699deb71147a5b6dfe0143cff8359":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"a61904d7fe234b12902c55f8768ad9f1":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"a9b3d5aaae8c4adcb6908118ecdb90b4":{"model_module":"jupyter-vuetify","model_module_version":"^1.8.4","model_name":"CardModel","state":{"_dom_classes":[],"_events":[],"_jupyter_vue":"IPY_MODEL_dfcaf7f057b14908b0c5fbf75cf3c1f2","_metadata":null,"attributes":{},"children":["IPY_MODEL_87fce09d94894773975372b22ae455ba","IPY_MODEL_f785479990de4a71a5d22fd328c57e4f","IPY_MODEL_adc25db52cce4421a21c7e09ac3791c6"],"class_":"ma-4","elevation":10.0,"layout":"IPY_MODEL_dc1eff6f054e41248e1e3401f7b0629c","v_slots":[]}},"aa0c8f750ca543c8a2d02ed1d2cef017":{"model_module":"jupyter-vuetify","model_module_version":"^1.8.4","model_name":"BtnModel","state":{"_dom_classes":[],"_events":["click"],"_jupyter_vue":"IPY_MODEL_dfcaf7f057b14908b0c5fbf75cf3c1f2","_metadata":null,"attributes":{},"children":["+/-"],"class_":"pa-0 ma-1","dark":true,"layout":"IPY_MODEL_0a5579544f6f450fa9cdaa60c58a24c0","v_slots":[]}},"aa8cb272a229428488f4b6fff7b9b71f":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"VBoxModel","state":{"_dom_classes":[],"children":["IPY_MODEL_a9b3d5aaae8c4adcb6908118ecdb90b4"],"layout":"IPY_MODEL_bcf0299b696e4a0a943e284f9ce99461"}},"abfbc2296341492f9152a9ad8316f54d":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"ad2a1b3221594adf84a44ddcdb25ee3b":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"adc25db52cce4421a21c7e09ac3791c6":{"model_module":"jupyter-vuetify","model_module_version":"^1.8.4","model_name":"CardTextModel","state":{"_dom_classes":[],"_events":[],"_jupyter_vue":"IPY_MODEL_dfcaf7f057b14908b0c5fbf75cf3c1f2","_metadata":null,"attributes":{},"children":["IPY_MODEL_8fab3b5151a3446ea9628b332484dabf"],"layout":"IPY_MODEL_52a8aa707c814c0285517400cb888562","v_slots":[]}},"ae4ab5c094cd490c9438276e03b6394d":{"model_module":"jupyter-vuetify","model_module_version":"^1.8.4","model_name":"BtnModel","state":{"_dom_classes":[],"_events":["click"],"_jupyter_vue":"IPY_MODEL_dfcaf7f057b14908b0c5fbf75cf3c1f2","_metadata":null,"attributes":{},"children":["x"],"class_":"pa-0 ma-1","color":"primary","layout":"IPY_MODEL_37a09b5015094bacabfc237f3375a1d3","v_slots":[]}},"af9722182d654192b1e00dc710821038":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"b86a1c4b9bc24e1e925c780a31b02545":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"ba5a169b146e47b3a549f2250117823b":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"bcf0299b696e4a0a943e284f9ce99461":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"caf283be90224999af22f253409771af":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"cc997a8b58c04530b5a394c5a0004d97":{"model_module":"jupyter-vuetify","model_module_version":"^1.8.4","model_name":"BtnModel","state":{"_dom_classes":[],"_events":["click"],"_jupyter_vue":"IPY_MODEL_dfcaf7f057b14908b0c5fbf75cf3c1f2","_metadata":null,"attributes":{},"children":["?"],"class_":"pa-0 ma-1","layout":"IPY_MODEL_d25ca07f154b474baa0aaf3131972e04","v_slots":[]}},"d0fe1efb99e443b2a13177f3bbc83769":{"model_module":"jupyter-vuetify","model_module_version":"^1.8.4","model_name":"BtnModel","state":{"_dom_classes":[],"_events":["click"],"_jupyter_vue":"IPY_MODEL_dfcaf7f057b14908b0c5fbf75cf3c1f2","_metadata":null,"attributes":{},"children":["9"],"class_":"pa-0 ma-1","layout":"IPY_MODEL_60b189ff8b8e4c1589e4a9fac1c9aa8b","v_slots":[]}},"d19f49a186d249908031e6a531f2e663":{"model_module":"jupyter-vuetify","model_module_version":"^1.8.4","model_name":"BtnModel","state":{"_dom_classes":[],"_events":["click"],"_jupyter_vue":"IPY_MODEL_dfcaf7f057b14908b0c5fbf75cf3c1f2","_metadata":null,"attributes":{},"children":["/"],"class_":"pa-0 ma-1","color":"primary","layout":"IPY_MODEL_3e28a13ec63848de98e1776a0d375d99","v_slots":[]}},"d25183ae5a8b45d1a1a262e77f7dc02b":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"d25ca07f154b474baa0aaf3131972e04":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"d403cfbd83874521a319262b696c3f0b":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"dc1eff6f054e41248e1e3401f7b0629c":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"deeb47c50cee4b52bfee82c194300b50":{"model_module":"jupyter-vuetify","model_module_version":"^1.8.4","model_name":"BtnModel","state":{"_dom_classes":[],"_events":["click"],"_jupyter_vue":"IPY_MODEL_dfcaf7f057b14908b0c5fbf75cf3c1f2","_metadata":null,"attributes":{},"children":["5"],"class_":"pa-0 ma-1","layout":"IPY_MODEL_ad2a1b3221594adf84a44ddcdb25ee3b","v_slots":[]}},"dfcaf7f057b14908b0c5fbf75cf3c1f2":{"model_module":"jupyter-vue","model_module_version":"^1.8.0","model_name":"ForceLoadModel","state":{"_dom_classes":[],"layout":"IPY_MODEL_ba5a169b146e47b3a549f2250117823b"}},"e0c0778aaa954d66ad8c9a87c262ad5b":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HBoxModel","state":{"_dom_classes":[],"children":["IPY_MODEL_f85117d24d0445d2846394fbe8ff5a17","IPY_MODEL_2a287c4567db482eb4bde64d5a6e7719","IPY_MODEL_d0fe1efb99e443b2a13177f3bbc83769","IPY_MODEL_ae4ab5c094cd490c9438276e03b6394d"],"layout":"IPY_MODEL_7a356238531844098af1759547a4a30e"}},"e230be818f1249e98a93e16baaf1f760":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"e3f993fa66904d3ea42a27522a030d71":{"model_module":"jupyter-vuetify","model_module_version":"^1.8.4","model_name":"BtnModel","state":{"_dom_classes":[],"_events":["click"],"_jupyter_vue":"IPY_MODEL_dfcaf7f057b14908b0c5fbf75cf3c1f2","_metadata":null,"attributes":{},"children":["%"],"class_":"pa-0 ma-1","dark":true,"layout":"IPY_MODEL_a37f59d292ec4df0849e3975c4251608","v_slots":[]}},"e606660ceba34aff999c80b24a3d9327":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"e6f6a749936f479b87213e0c15a1ffb0":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{}},"f59d177952354d2f8c3f34198a12fe46":{"model_module":"jupyter-vuetify","model_module_version":"^1.8.4","model_name":"BtnModel","state":{"_dom_classes":[],"_events":["click"],"_jupyter_vue":"IPY_MODEL_dfcaf7f057b14908b0c5fbf75cf3c1f2","_metadata":null,"attributes":{},"children":["3"],"class_":"pa-0 ma-1","layout":"IPY_MODEL_8c060cd877a14a7fbe7860eba7a5d750","v_slots":[]}},"f785479990de4a71a5d22fd328c57e4f":{"model_module":"jupyter-vuetify","model_module_version":"^1.8.4","model_name":"CardSubtitleModel","state":{"_dom_classes":[],"_events":[],"_jupyter_vue":"IPY_MODEL_dfcaf7f057b14908b0c5fbf75cf3c1f2","_metadata":null,"attributes":{},"children":["With ipyvuetify and Reacton"],"layout":"IPY_MODEL_d25183ae5a8b45d1a1a262e77f7dc02b","v_slots":[]}},"f85117d24d0445d2846394fbe8ff5a17":{"model_module":"jupyter-vuetify","model_module_version":"^1.8.4","model_name":"BtnModel","state":{"_dom_classes":[],"_events":["click"],"_jupyter_vue":"IPY_MODEL_dfcaf7f057b14908b0c5fbf75cf3c1f2","_metadata":null,"attributes":{},"children":["7"],"class_":"pa-0 ma-1","layout":"IPY_MODEL_22d710f0dcb2441f88eb111bb57b7268","v_slots":[]}},"fee7d8f1f3c74310ad2914c0a952a2ec":{"model_module":"jupyter-vuetify","model_module_version":"^1.8.4","model_name":"BtnModel","state":{"_dom_classes":[],"_events":["click"],"_jupyter_vue":"IPY_MODEL_dfcaf7f057b14908b0c5fbf75cf3c1f2","_metadata":null,"attributes":{},"children":["4"],"class_":"pa-0 ma-1","layout":"IPY_MODEL_abfbc2296341492f9152a9ad8316f54d","v_slots":[]}}},"version_major":2,"version_minor":0}},"height":420,"margin":[5,5,5,5],"sizing_mode":"fixed","width":500},"id":"1176","type":"ipywidgets_bokeh.widget.IPyWidget"}],"root_ids":["1105","1177"]},"title":"Bokeh Application","version":"2.4.3"}};
+    var render_items = [{"docid":"4676d975-c3f1-4180-8b6e-5e0e2a53e6f5","root_ids":["1105"],"roots":{"1105":"1b031280-15ad-469e-b5c4-f3cdb814cb83"}}];
+    root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
+    for (const render_item of render_items) {
+      for (const root_id of render_item.root_ids) {
+	const id_el = document.getElementById(root_id)
+	if (id_el.children.length && (id_el.children[0].className === 'bk-root')) {
+	  const root_el = id_el.children[0]
+	  root_el.id = root_el.id + '-rendered'
+	}
+      }
+    }
+  }
+  if (root.Bokeh !== undefined && root.Bokeh.Panel !== undefined&& (root.Bokeh.Models.registered_names().indexOf("ipywidgets_bokeh.widget.IPyWidget") > -1)) {
+    embed_document(root);
+  } else {
+    var attempts = 0;
+    var timer = setInterval(function(root) {
+      if (root.Bokeh !== undefined && root.Bokeh.Panel !== undefined&& (root.Bokeh.Models.registered_names().indexOf("ipywidgets_bokeh.widget.IPyWidget") > -1)) {
+        clearInterval(timer);
+        embed_document(root);
+      } else if (document.readyState == "complete") {
+        attempts++;
+        if (attempts > 200) {
+          clearInterval(timer);
+          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+        }
+      }
+    }, 25, root)
+  }
+})(window);</script></div></div>
+</div>
+</section>
+</section>
+</section>
+<div id="scroller-right">This web page was generated from a Jupyter notebook and not all interactivity will work on this website. <a href="https://raw.githubusercontent.com/holoviz/panel/v0.14.2/examples/reference/panes/Reacton.ipynb">Right click to download and run locally</a> for full Python-backed interactivity.</div><hr class="docutils"/>
+<p><a class="reference external" href="https://raw.githubusercontent.com/holoviz/panel/master/examples/reference/panes/Reacton.ipynb">Download this notebook from GitHub (right-click to download).</a></p>
+</section>
+</article>
+<footer class="bd-footer-article">
+<!-- Previous / next buttons -->
+<div class="prev-next-area">
+<a class="left-prev" href="Plotly.html" id="prev-link" title="previous page">
+<i class="fas fa-angle-left"></i>
+<div class="prev-next-info">
+<p class="prev-next-subtitle">previous</p>
+<p class="prev-next-title">Plotly</p>
+</div>
+</a>
+<a class="right-next" href="SVG.html" id="next-link" title="next page">
+<div class="prev-next-info">
+<p class="prev-next-subtitle">next</p>
+<p class="prev-next-title">SVG</p>
+</div>
+<i class="fas fa-angle-right"></i>
+</a>
+</div>
+</footer>
+</div>
+</div>
+</div>
+<!-- Scripts loaded after <body> so the DOM is not blocked -->
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695"></script>
+<footer class="bd-footer"><div class="bd-footer__inner container">
+<div class="footer-item">
+<p class="copyright">
+    © Copyright 2019-2022 Holoviz contributors.<br/>
+</p>
+</div>
+<div class="footer-item">
+<p class="last-updated">
+Last updated on 2022-12-16.<br/>
+</p>
+</div>
+</div>
+</footer>
+</body>
+</html>

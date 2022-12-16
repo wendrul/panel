@@ -1,0 +1,2344 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="Docutils 0.19: https://docutils.sourceforge.io/" name="generator"/>
+<link href="../../site.webmanifest" rel="manifest"/>
+<title>Perspective — Panel v0.14.2</title>
+<script>
+  document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+  document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
+</script>
+<!-- Loaded before other Sphinx assets -->
+<link href="../../_static/styles/theme.css?digest=92025949c220c2e29695" rel="stylesheet"/>
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=92025949c220c2e29695" rel="stylesheet"/>
+<link href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css" rel="stylesheet"/>
+<link as="font" crossorigin="" href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
+<link href="../../_static/pygments.css" rel="stylesheet" type="text/css">
+<link href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" rel="stylesheet" type="text/css">
+<link href="../../_static/graphviz.css" rel="stylesheet" type="text/css">
+<link href="../../_static/copybutton.css" rel="stylesheet" type="text/css">
+<link href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" rel="stylesheet" type="text/css">
+<link href="../../_static/nbsite.css" rel="stylesheet" type="text/css"/>
+<link href="../../_static/css/custom.css" rel="stylesheet" type="text/css"/>
+<link href="../../_static/css/dataframe.css" rel="stylesheet" type="text/css"/>
+<!-- Pre-loaded scripts that we'll load fully later -->
+<link as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695" rel="preload"/>
+<script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+<script src="../../_static/jquery.js"></script>
+<script src="../../_static/underscore.js"></script>
+<script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+<script src="../../_static/doctools.js"></script>
+<script src="../../_static/sphinx_highlight.js"></script>
+<script src="../../_static/clipboard.min.js"></script>
+<script src="../../_static/copybutton.js"></script>
+<script src="../../_static/design-tabs.js"></script>
+<script src="../../_static/ServiceHandler.js"></script>
+<script async="async" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                window.ga = window.ga || function () {
+                    (ga.q = ga.q || []).push(arguments) };
+                ga.l = +new Date;
+                ga('create', 'UA-154795830-2', 'auto');
+                ga('set', 'anonymizeIp', true);
+                ga('send', 'pageview');
+            </script>
+<link href="../../_static/favicon.ico" rel="shortcut icon">
+<link href="../../genindex.html" rel="index" title="Index"/>
+<link href="../../search.html" rel="search" title="Search"/>
+<link href="Plotly.html" rel="next" title="Plotly"/>
+<link href="Param.html" rel="prev" title="Param"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="en" name="docsearch:language"/>
+</link></link></link></link></link></link></head>
+<body data-default-mode="light" data-offset="180" data-spy="scroll" data-target="#bd-toc-nav">
+<div class="bd-header-announcement container-fluid" id="banner">
+</div>
+<nav class="navbar navbar-dark navbar-expand-lg bg-dark fixed-top bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
+<div id="navbar-start">
+<a class="navbar-brand logo" href="../../index.html">
+<img alt="Logo image" class="logo__image only-light" src="../../_static/logo_horizontal.png"/>
+<img alt="Logo image" class="logo__image only-dark" src="../../_static/logo_horizontal.png"/>
+</a>
+</div>
+<button aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar-collapsible" data-toggle="collapse" type="button">
+<span class="fas fa-bars"></span>
+</button>
+<div class="col-lg-9 collapse navbar-collapse" id="navbar-collapsible">
+<div class="mr-auto" id="navbar-center">
+<div class="navbar-center-item">
+<ul class="navbar-nav" id="navbar-main-elements">
+<li class="toctree-l1 nav-item">
+<a class="reference internal nav-link" href="../../index.html">
+  Overview
+ </a>
+</li>
+<li class="toctree-l1 nav-item">
+<a class="reference internal nav-link" href="../../getting_started/index.html">
+  Getting Started
+ </a>
+</li>
+<li class="toctree-l1 nav-item">
+<a class="reference internal nav-link" href="../../user_guide/index.html">
+  User Guide
+ </a>
+</li>
+<li class="toctree-l1 nav-item">
+<a class="reference internal nav-link" href="../../gallery/index.html">
+  Gallery
+ </a>
+</li>
+<li class="toctree-l1 current active nav-item">
+<a class="reference internal nav-link" href="../index.html">
+  Reference Gallery
+ </a>
+</li>
+<li class="toctree-l1 nav-item">
+<a class="reference internal nav-link" href="../../developer_guide/index.html">
+  Developer Guide
+ </a>
+</li>
+<li class="toctree-l1 nav-item">
+<a class="reference internal nav-link" href="../../api/index.html">
+  API Reference
+ </a>
+</li>
+<li class="toctree-l1 nav-item">
+<a class="reference internal nav-link" href="../../releases.html">
+  Releases
+ </a>
+</li>
+<li class="toctree-l1 nav-item">
+<a class="reference internal nav-link" href="../../FAQ.html">
+  FAQ
+ </a>
+</li>
+<li class="toctree-l1 nav-item">
+<a class="reference internal nav-link" href="../../about/index.html">
+  About
+ </a>
+</li>
+</ul>
+</div>
+</div>
+<div id="navbar-end">
+<div class="navbar-end-item">
+<ul aria-label="Icon Links" class="navbar-nav" id="navbar-icon-links">
+<li class="nav-item">
+<a class="nav-link" href="https://github.com/holoviz/panel" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github-square"></i></span>
+<label class="sr-only">GitHub</label></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://twitter.com/Panel_Org" rel="noopener" target="_blank" title="Twitter"><span><i class="fab fa-twitter-square"></i></span>
+<label class="sr-only">Twitter</label></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://discourse.holoviz.org/c/panel/5" rel="noopener" target="_blank" title="Discourse"><span><i class="fab fa-discourse"></i></span>
+<label class="sr-only">Discourse</label></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<div class="bd-container container-xl">
+<div class="bd-container__inner row">
+<!-- Only show if we have sidebars configured, else just a small margin  -->
+<div class="bd-sidebar-primary col-12 col-md-2 bd-sidebar">
+<div class="sidebar-start-items"><form action="../../search.html" class="bd-search d-flex align-items-center" method="get">
+<i class="icon fas fa-search"></i>
+<input aria-label="Search the docs ..." autocomplete="off" class="form-control" id="search-input" name="q" placeholder="Search the docs ..." type="search"/>
+</form><nav aria-label="Main navigation" class="bd-links" id="bd-docs-nav">
+<div class="bd-toc-item active">
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1">
+<a class="reference internal" href="../../index.html">
+   Overview
+  </a>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../getting_started/index.html">
+   Getting Started
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox">
+<label for="toctree-checkbox-1">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../getting_started/installation.html">
+     Installation
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../getting_started/build_app.html">
+     Build an app
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../getting_started/core_concepts.html">
+     Core Concepts
+    </a>
+</li>
+</ul>
+</input></li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../user_guide/index.html">
+   User Guide
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+<label for="toctree-checkbox-2">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Overview.html">
+     Overview
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Components.html">
+     Components
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/APIs.html">
+     APIs
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Customization.html">
+     Customization
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Interact.html">
+     Interact
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Widgets.html">
+     Widgets
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Param.html">
+     Parameters
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Links.html">
+     Linking
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Pipelines.html">
+     Pipelines
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Templates.html">
+     Templates
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Performance_and_Debugging.html">
+     Performance and Debugging
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Session_State_and_Callbacks.html">
+     Session state &amp; Callbacks
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Async_and_Concurrency.html">
+     Asynchronous and Concurrent Process
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Display_and_Export.html">
+     Display &amp; Export
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Running_in_Webassembly.html">
+     Running Panel in the Browser with WASM
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Server_Configuration.html">
+     Server Configuration
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Server_Deployment.html">
+     Server Deployment
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Authentication.html">
+     Authentication
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Django.html">
+     Django Integration
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/FastAPI.html">
+     FastAPI Integration
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../user_guide/Custom_Components.html">
+     Building Custom Components
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../gallery/index.html">
+   Gallery
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+<label for="toctree-checkbox-3">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/demos/VTKInteractive.html">
+     VTKInteractive
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/demos/VTKSlicer.html">
+     VTKSlicer
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/demos/VTKWarp.html">
+     VTKWarp
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/demos/attractors.html">
+     Attractors
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/demos/gapminders.html">
+     Gapminders
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/demos/glaciers.html">
+     Glaciers
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/demos/nyc_taxi.html">
+     Nyc Taxi
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/demos/portfolio-optimizer.html">
+     Portfolio-optimizer
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/simple/altair_brushing.html">
+     Altair Brushing
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/simple/altair_choropleth.html">
+     Altair Choropleth
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/simple/clifford_interact.html">
+     Clifford Interact
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/simple/color_speech_recognition.html">
+     Color Speech Recognition
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/simple/deckgl_game_of_life.html">
+     Deckgl Game Of Life
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/simple/defer_data_load.html">
+     Defer Data Load
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/simple/file_download_examples.html">
+     File Download Examples
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/simple/hvplot_explorer.html">
+     Hvplot Explorer
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/simple/iris_kmeans.html">
+     Iris Kmeans
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/simple/loading_spinner.html">
+     Loading Spinner
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/simple/random_number_generator.html">
+     Random Number Generator
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/simple/save_filtered_df.html">
+     Save Filtered Df
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/simple/sync_location.html">
+     Sync Location
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/simple/temperature_distribution.html">
+     Temperature Distribution
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/simple/xgboost_classifier.html">
+     Xgboost Classifier
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/apis/stocks_altair.html">
+     Stocks Altair
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/apis/stocks_hvplot.html">
+     Stocks Hvplot
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/apis/stocks_matplotlib.html">
+     Stocks Matplotlib
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/apis/stocks_plotly.html">
+     Stocks Plotly
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/layout/distribution_tabs.html">
+     Distribution Tabs
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/layout/dynamic_tabs.html">
+     Dynamic Tabs
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/layout/plot_with_columns.html">
+     Plot With Columns
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/dynamic/dynamic_plot_layout.html">
+     Dynamic Plot Layout
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/dynamic/dynamic_timeseries_image_analysis.html">
+     Dynamic Timeseries Image Analysis
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/dynamic/dynamic_ui.html">
+     Dynamic Ui
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/dynamic/dynamic_widget_values.html">
+     Dynamic Widget Values
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/param/action_button.html">
+     Action Button
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/param/deck_gl_global_power_plants.html">
+     Deck Gl Global Power Plants
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/param/download_upload_csv.html">
+     Download Upload Csv
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/param/loading_indicator.html">
+     Loading Indicator
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/param/param_subobjects.html">
+     Param Subobjects
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/param/precedence.html">
+     Precedence
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/param/reactive_plots.html">
+     Reactive Plots
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/param/reactive_tables.html">
+     Reactive Tables
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/streaming/hardware_automation.html">
+     Hardware Automation
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/streaming/streaming_bokeh.html">
+     Streaming Bokeh
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/streaming/streaming_indicator.html">
+     Streaming Indicator
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/streaming/streaming_perspective.html">
+     Streaming Perspective
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/streaming/streaming_tabulator.html">
+     Streaming Tabulator
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/components/CanvasDraw.html">
+     CanvasDraw
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/components/LeafletHeatMap.html">
+     LeafletHeatMap
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/components/MaterialUI.html">
+     MaterialUI
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/links/bokeh_property_editor.html">
+     Bokeh Property Editor
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/links/deck_gl_json_editor.html">
+     Deck Gl Json Editor
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/links/holoviews_glyph_link.html">
+     Holoviews Glyph Link
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/links/plotly_link.html">
+     Plotly Link
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/links/vega_heatmap_link.html">
+     Vega Heatmap Link
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/styles/MatplotlibStyle.html">
+     MatplotlibStyle
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/styles/PlotlyStyle.html">
+     PlotlyStyle
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/styles/SeabornStyle.html">
+     SeabornStyle
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/styles/VegaAltairStyle.html">
+     VegaAltairStyle
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/external/DataTable.html">
+     DataTable
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/external/Folium.html">
+     Folium
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../gallery/external/deck.gl.html">
+     Deck.gl
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children">
+<a class="reference internal" href="../index.html">
+   Reference Gallery
+  </a>
+<input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+<label for="toctree-checkbox-4">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul class="current">
+<li class="toctree-l2">
+<a class="reference internal" href="Alert.html">
+     Alert
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="Audio.html">
+     Audio
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="Bokeh.html">
+     Bokeh
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="DataFrame.html">
+     DataFrame
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="DeckGL.html">
+     DeckGL
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="ECharts.html">
+     ECharts
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="Folium.html">
+     Folium
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="GIF.html">
+     GIF
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="HTML.html">
+     HTML
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="HoloViews.html">
+     HoloViews
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="IDOM.html">
+     IDOM
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="IPyWidget.html">
+     IPyWidget
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="JPG.html">
+     JPG
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="JSON.html">
+     JSON
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="LaTeX.html">
+     LaTeX
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="Markdown.html">
+     Markdown
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="Matplotlib.html">
+     Matplotlib
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="PDF.html">
+     PDF
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="PNG.html">
+     PNG
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="Param.html">
+     Param
+    </a>
+</li>
+<li class="toctree-l2 current active">
+<a class="current reference internal" href="#">
+     Perspective
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="Plotly.html">
+     Plotly
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="Reacton.html">
+     Reacton
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="SVG.html">
+     SVG
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="Str.html">
+     Str
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="Streamz.html">
+     Streamz
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="VTK.html">
+     VTK
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="VTKJS.html">
+     VTKJS
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="VTKVolume.html">
+     VTKVolume
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="Vega.html">
+     Vega
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="Video.html">
+     Video
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../layouts/Accordion.html">
+     Accordion
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../layouts/Card.html">
+     Card
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../layouts/Column.html">
+     Column
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../layouts/Divider.html">
+     Divider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../layouts/FlexBox.html">
+     FlexBox
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../layouts/GridBox.html">
+     GridBox
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../layouts/GridSpec.html">
+     GridSpec
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../layouts/GridStack.html">
+     GridStack
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../layouts/Row.html">
+     Row
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../layouts/Tabs.html">
+     Tabs
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../layouts/WidgetBox.html">
+     WidgetBox
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../templates/Bootstrap.html">
+     Bootstrap
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../templates/FastGridTemplate.html">
+     FastGridTemplate
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../templates/FastListTemplate.html">
+     FastListTemplate
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../templates/GoldenLayout.html">
+     GoldenLayout
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../templates/Material.html">
+     Material
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../templates/React.html">
+     React
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../templates/Vanilla.html">
+     Vanilla
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../global/Notifications.html">
+     Notifications
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../indicators/BooleanStatus.html">
+     BooleanStatus
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../indicators/Dial.html">
+     Dial
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../indicators/Gauge.html">
+     Gauge
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../indicators/LinearGauge.html">
+     LinearGauge
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../indicators/LoadingSpinner.html">
+     LoadingSpinner
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../indicators/Number.html">
+     Number
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../indicators/Progress.html">
+     Progress
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../indicators/Tqdm.html">
+     Tqdm
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../indicators/Trend.html">
+     Trend
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/Ace.html">
+     Ace
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/ArrayInput.html">
+     ArrayInput
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/AutocompleteInput.html">
+     AutocompleteInput
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/Button.html">
+     Button
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/CheckBoxGroup.html">
+     CheckBoxGroup
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/CheckButtonGroup.html">
+     CheckButtonGroup
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/Checkbox.html">
+     Checkbox
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/ColorPicker.html">
+     ColorPicker
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/CrossSelector.html">
+     CrossSelector
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/DataFrame.html">
+     DataFrame
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/DatePicker.html">
+     DatePicker
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/DateRangeSlider.html">
+     DateRangeSlider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/DateSlider.html">
+     DateSlider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/DatetimeInput.html">
+     DatetimeInput
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/DatetimePicker.html">
+     DatetimePicker
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/DatetimeRangeInput.html">
+     DatetimeRangeInput
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/DatetimeRangePicker.html">
+     DatetimeRangePicker
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/DatetimeRangeSlider.html">
+     DatetimeRangeSlider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/Debugger.html">
+     Debugger
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/DiscretePlayer.html">
+     DiscretePlayer
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/DiscreteSlider.html">
+     DiscreteSlider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/EditableFloatSlider.html">
+     EditableFloatSlider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/EditableIntSlider.html">
+     EditableIntSlider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/EditableRangeSlider.html">
+     EditableRangeSlider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/FileDownload.html">
+     FileDownload
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/FileInput.html">
+     FileInput
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/FileSelector.html">
+     FileSelector
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/FloatInput.html">
+     FloatInput
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/FloatSlider.html">
+     FloatSlider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/IntInput.html">
+     IntInput
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/IntRangeSlider.html">
+     IntRangeSlider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/IntSlider.html">
+     IntSlider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/JSONEditor.html">
+     JSONEditor
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/LiteralInput.html">
+     LiteralInput
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/MenuButton.html">
+     MenuButton
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/MultiChoice.html">
+     MultiChoice
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/MultiSelect.html">
+     MultiSelect
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/PasswordInput.html">
+     PasswordInput
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/Player.html">
+     Player
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/RadioBoxGroup.html">
+     RadioBoxGroup
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/RadioButtonGroup.html">
+     RadioButtonGroup
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/RangeSlider.html">
+     RangeSlider
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/Select.html">
+     Select
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/SpeechToText.html">
+     SpeechToText
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/StaticText.html">
+     StaticText
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/Tabulator.html">
+     Tabulator
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/Terminal.html">
+     Terminal
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/TextAreaInput.html">
+     TextAreaInput
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/TextEditor.html">
+     TextEditor
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/TextInput.html">
+     TextInput
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/TextToSpeech.html">
+     TextToSpeech
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/Toggle.html">
+     Toggle
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/ToggleGroup.html">
+     ToggleGroup
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../widgets/VideoStream.html">
+     VideoStream
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../developer_guide/index.html">
+   Developer Guide
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+<label for="toctree-checkbox-5">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../developer_guide/testing.html">
+     Testing
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../developer_guide/Developing_Custom_Models.html">
+     Developing custom models
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../api/index.html">
+   API Reference
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+<label for="toctree-checkbox-6">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../api/panel.io.html">
+     io
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../api/panel.layout.html">
+     layout
+    </a>
+</li>
+<li class="toctree-l2 has-children">
+<a class="reference internal" href="../../api/panel.pane.html">
+     pane
+    </a>
+<input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+<label for="toctree-checkbox-7">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l3">
+<a class="reference internal" href="../../api/panel.pane.vtk.html">
+       panel.vtk Package
+      </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../api/panel.param.html">
+     param
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../api/panel.pipeline.html">
+     pipeline
+    </a>
+</li>
+<li class="toctree-l2 has-children">
+<a class="reference internal" href="../../api/panel.template.html">
+     template
+    </a>
+<input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+<label for="toctree-checkbox-8">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l3">
+<a class="reference internal" href="../../api/panel.template.bootstrap.html">
+       panel.bootstrap Package
+      </a>
+</li>
+<li class="toctree-l3 has-children">
+<a class="reference internal" href="../../api/panel.template.fast.html">
+       panel.fast Package
+      </a>
+<input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+<label for="toctree-checkbox-9">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l4">
+<a class="reference internal" href="../../api/panel.template.fast.grid.html">
+         panel.grid Package
+        </a>
+</li>
+<li class="toctree-l4">
+<a class="reference internal" href="../../api/panel.template.fast.list.html">
+         panel.list Package
+        </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3">
+<a class="reference internal" href="../../api/panel.template.golden.html">
+       panel.golden Package
+      </a>
+</li>
+<li class="toctree-l3">
+<a class="reference internal" href="../../api/panel.template.material.html">
+       panel.material Package
+      </a>
+</li>
+<li class="toctree-l3">
+<a class="reference internal" href="../../api/panel.template.react.html">
+       panel.react Package
+      </a>
+</li>
+<li class="toctree-l3">
+<a class="reference internal" href="../../api/panel.template.theme.html">
+       panel.theme Package
+      </a>
+</li>
+<li class="toctree-l3">
+<a class="reference internal" href="../../api/panel.template.vanilla.html">
+       panel.vanilla Package
+      </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../api/panel.widgets.html">
+     widgets
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../api/panel.viewable.html">
+     viewable
+    </a>
+</li>
+<li class="toctree-l2">
+<a class="reference internal" href="../../api/panel.util.html">
+     util
+    </a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1">
+<a class="reference internal" href="../../releases.html">
+   Releases
+  </a>
+</li>
+<li class="toctree-l1">
+<a class="reference internal" href="../../FAQ.html">
+   FAQ
+  </a>
+</li>
+<li class="toctree-l1 has-children">
+<a class="reference internal" href="../../about/index.html">
+   About
+  </a>
+<input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+<label for="toctree-checkbox-10">
+<i class="fas fa-chevron-down">
+</i>
+</label>
+<ul>
+<li class="toctree-l2">
+<a class="reference internal" href="../../about/comparisons.html">
+     Comparisons
+    </a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+<div class="sidebar-end-items">
+</div>
+</div>
+<div class="bd-sidebar-secondary d-none d-xl-block col-xl-2 bd-toc">
+<div class="toc-item">
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+<i class="fas fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav">
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#parameters">
+   Parameters:
+  </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="#controls">
+   Controls
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+<div class="toc-item">
+</div>
+</div>
+<div class="bd-content col-12 col-md-10 col-xl-8" role="main">
+<article class="bd-article" role="main">
+<section id="perspective">
+<h1>Perspective<a class="headerlink" href="#perspective" title="Permalink to this heading">#</a></h1>
+<p><a class="reference external" href="https://raw.githubusercontent.com/holoviz/panel/master/examples/reference/panes/Perspective.ipynb">Download this notebook from GitHub (right-click to download).</a></p>
+<hr class="docutils"/>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">panel</span> <span class="k">as</span> <span class="nn">pn</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">pn</span><span class="o">.</span><span class="n">extension</span><span class="p">(</span><span class="s1">'perspective'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/javascript">(function(root) {
+  function now() {
+    return new Date();
+  }
+
+  var force = true;
+
+  if (typeof root._bokeh_onload_callbacks === "undefined" || force === true) {
+    root._bokeh_onload_callbacks = [];
+    root._bokeh_is_loading = undefined;
+  }
+
+  if (typeof (root._bokeh_timeout) === "undefined" || force === true) {
+    root._bokeh_timeout = Date.now() + 5000;
+    root._bokeh_failed_load = false;
+  }
+
+  function run_callbacks() {
+    try {
+      root._bokeh_onload_callbacks.forEach(function(callback) {
+        if (callback != null)
+          callback();
+      });
+    } finally {
+      delete root._bokeh_onload_callbacks
+    }
+    console.debug("Bokeh: all callbacks have finished");
+  }
+
+  function load_libs(css_urls, js_urls, js_modules, callback) {
+    if (css_urls == null) css_urls = [];
+    if (js_urls == null) js_urls = [];
+    if (js_modules == null) js_modules = [];
+
+    root._bokeh_onload_callbacks.push(callback);
+    if (root._bokeh_is_loading > 0) {
+      console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
+      return null;
+    }
+    if (js_urls.length === 0 && js_modules.length === 0) {
+      run_callbacks();
+      return null;
+    }
+    console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
+
+    function on_load() {
+      root._bokeh_is_loading--;
+      if (root._bokeh_is_loading === 0) {
+        console.debug("Bokeh: all BokehJS libraries/stylesheets loaded");
+        run_callbacks()
+      }
+    }
+
+    function on_error() {
+      console.error("failed to load " + url);
+    }
+
+    for (var i = 0; i < css_urls.length; i++) {
+      var url = css_urls[i];
+      const element = document.createElement("link");
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.rel = "stylesheet";
+      element.type = "text/css";
+      element.href = url;
+      console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
+      document.body.appendChild(element);
+    }
+
+    var skip = [];
+    if (window.requirejs) {
+      window.requirejs.config({'packages': {}, 'paths': {'perspective': 'https://cdn.jsdelivr.net/npm/@finos/perspective@1.3.6/dist/umd/perspective', 'perspective-viewer': 'https://cdn.jsdelivr.net/npm/@finos/perspective-viewer@1.3.6/dist/umd/perspective-viewer', 'perspective-viewer-datagrid': 'https://cdn.jsdelivr.net/npm/@finos/perspective-viewer-datagrid@1.3.6/dist/umd/perspective-viewer-datagrid', 'perspective-viewer-d3fc': 'https://cdn.jsdelivr.net/npm/@finos/perspective-viewer-d3fc@1.3.6/dist/umd/perspective-viewer-d3fc', 'gridstack': 'https://cdn.jsdelivr.net/npm/gridstack@4.2.5/dist/gridstack-h5', 'notyf': 'https://cdn.jsdelivr.net/npm/notyf@3/notyf.min'}, 'shim': {'gridstack': {'exports': 'GridStack'}}});
+      require(["perspective"], function(perspective) {
+	window.perspective = perspective
+	on_load()
+      })
+      require(["perspective-viewer"], function(PerspectiveViewer) {
+	window.PerspectiveViewer = PerspectiveViewer
+	on_load()
+      })
+      require(["perspective-viewer-datagrid"], function(PerspectiveViewerDatagrid) {
+	window.PerspectiveViewerDatagrid = PerspectiveViewerDatagrid
+	on_load()
+      })
+      require(["perspective-viewer-d3fc"], function(PerspectiveViewerD3fc) {
+	window.PerspectiveViewerD3fc = PerspectiveViewerD3fc
+	on_load()
+      })
+      require(["gridstack"], function(GridStack) {
+	window.GridStack = GridStack
+	on_load()
+      })
+      require(["notyf"], function() {
+	on_load()
+      })
+      root._bokeh_is_loading = css_urls.length + 6;
+    } else {
+      root._bokeh_is_loading = css_urls.length + js_urls.length + js_modules.length;
+    }    if (((window['perspective'] !== undefined) && (!(window['perspective'] instanceof HTMLElement))) || window.requirejs) {
+      var urls = ['https://cdn.jsdelivr.net/npm/@finos/perspective@1.3.6/dist/umd/perspective.js', 'https://cdn.jsdelivr.net/npm/@finos/perspective-viewer@1.3.6/dist/umd/perspective-viewer.js', 'https://cdn.jsdelivr.net/npm/@finos/perspective-viewer-datagrid@1.3.6/dist/umd/perspective-viewer-datagrid.js', 'https://cdn.jsdelivr.net/npm/@finos/perspective-viewer-d3fc@1.3.6/dist/umd/perspective-viewer-d3fc.js'];
+      for (var i = 0; i < urls.length; i++) {
+        skip.push(urls[i])
+      }
+    }    if (((window['GridStack'] !== undefined) && (!(window['GridStack'] instanceof HTMLElement))) || window.requirejs) {
+      var urls = ['https://cdn.holoviz.org/panel/0.14.2/dist/bundled/gridstack/gridstack@4.2.5/dist/gridstack-h5.js'];
+      for (var i = 0; i < urls.length; i++) {
+        skip.push(urls[i])
+      }
+    }    if (((window['Notyf'] !== undefined) && (!(window['Notyf'] instanceof HTMLElement))) || window.requirejs) {
+      var urls = ['https://cdn.holoviz.org/panel/0.14.2/dist/bundled/notificationarea/notyf@3/notyf.min.js'];
+      for (var i = 0; i < urls.length; i++) {
+        skip.push(urls[i])
+      }
+    }    for (var i = 0; i < js_urls.length; i++) {
+      var url = js_urls[i];
+      if (skip.indexOf(url) >= 0) {
+	if (!window.requirejs) {
+	  on_load();
+	}
+	continue;
+      }
+      var element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.async = false;
+      element.src = url;
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
+    }
+    for (var i = 0; i < js_modules.length; i++) {
+      var url = js_modules[i];
+      if (skip.indexOf(url) >= 0) {
+	if (!window.requirejs) {
+	  on_load();
+	}
+	continue;
+      }
+      var element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.async = false;
+      element.src = url;
+      element.type = "module";
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
+    }
+    if (!js_urls.length && !js_modules.length) {
+      on_load()
+    }
+  };
+
+  function inject_raw_css(css) {
+    const element = document.createElement("style");
+    element.appendChild(document.createTextNode(css));
+    document.body.appendChild(element);
+  }
+
+  var js_urls = ["https://cdn.jsdelivr.net/npm/@finos/perspective@1.3.6/dist/umd/perspective.js", "https://cdn.jsdelivr.net/npm/@finos/perspective-viewer@1.3.6/dist/umd/perspective-viewer.js", "https://cdn.jsdelivr.net/npm/@finos/perspective-viewer-datagrid@1.3.6/dist/umd/perspective-viewer-datagrid.js", "https://cdn.jsdelivr.net/npm/@finos/perspective-viewer-d3fc@1.3.6/dist/umd/perspective-viewer-d3fc.js", "https://cdn.bokeh.org/bokeh/release/bokeh-2.4.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.4.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.4.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-mathjax-2.4.3.min.js", "https://unpkg.com/@holoviz/panel@0.14.2/dist/panel.min.js"];
+  var js_modules = [];
+  var css_urls = ["https://cdn.jsdelivr.net/npm/@finos/perspective-viewer@1.3.6/dist/css/themes.css", "https://cdn.holoviz.org/panel/0.14.2/dist/css/card.css", "https://cdn.holoviz.org/panel/0.14.2/dist/css/alerts.css", "https://cdn.holoviz.org/panel/0.14.2/dist/css/markdown.css", "https://cdn.holoviz.org/panel/0.14.2/dist/css/dataframe.css", "https://cdn.holoviz.org/panel/0.14.2/dist/css/debugger.css", "https://cdn.holoviz.org/panel/0.14.2/dist/css/loading.css", "https://cdn.holoviz.org/panel/0.14.2/dist/css/json.css", "https://cdn.holoviz.org/panel/0.14.2/dist/css/widgets.css"];
+  var inline_js = [    function(Bokeh) {
+      inject_raw_css("\n    .bk.pn-loading.arc:before {\n      background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHN0eWxlPSJtYXJnaW46IGF1dG87IGJhY2tncm91bmQ6IG5vbmU7IGRpc3BsYXk6IGJsb2NrOyBzaGFwZS1yZW5kZXJpbmc6IGF1dG87IiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiPiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYzNjM2MzIiBzdHJva2Utd2lkdGg9IjEwIiByPSIzNSIgc3Ryb2tlLWRhc2hhcnJheT0iMTY0LjkzMzYxNDMxMzQ2NDE1IDU2Ljk3Nzg3MTQzNzgyMTM4Ij4gICAgPGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiBkdXI9IjFzIiB2YWx1ZXM9IjAgNTAgNTA7MzYwIDUwIDUwIiBrZXlUaW1lcz0iMDsxIj48L2FuaW1hdGVUcmFuc2Zvcm0+ICA8L2NpcmNsZT48L3N2Zz4=\");\n      background-size: auto calc(min(50%, 400px));\n    }\n    ");
+    },    function(Bokeh) {
+      Bokeh.set_log_level("info");
+    },
+function(Bokeh) {} // ensure no trailing comma for IE
+  ];
+
+  function run_inline_js() {
+    if ((root.Bokeh !== undefined) || (force === true)) {
+      for (var i = 0; i < inline_js.length; i++) {
+        inline_js[i].call(root, root.Bokeh);
+      }} else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(run_inline_js, 100);
+    } else if (!root._bokeh_failed_load) {
+      console.log("Bokeh: BokehJS failed to load within specified timeout.");
+      root._bokeh_failed_load = true;
+    }
+  }
+
+  if (root._bokeh_is_loading === 0) {
+    console.debug("Bokeh: BokehJS loaded, going straight to plotting");
+    run_inline_js();
+  } else {
+    load_libs(css_urls, js_urls, js_modules, function() {
+      console.debug("Bokeh: BokehJS plotting callback run at", now());
+      run_inline_js();
+    });
+  }
+}(window));</script><script type="application/javascript">
+if ((window.PyViz === undefined) || (window.PyViz instanceof HTMLElement)) {
+  window.PyViz = {comms: {}, comm_status:{}, kernels:{}, receivers: {}, plot_index: []}
+}
+
+
+    function JupyterCommManager() {
+    }
+
+    JupyterCommManager.prototype.register_target = function(plot_id, comm_id, msg_handler) {
+      if (window.comm_manager || ((window.Jupyter !== undefined) && (Jupyter.notebook.kernel != null))) {
+        var comm_manager = window.comm_manager || Jupyter.notebook.kernel.comm_manager;
+        comm_manager.register_target(comm_id, function(comm) {
+          comm.on_msg(msg_handler);
+        });
+      } else if ((plot_id in window.PyViz.kernels) && (window.PyViz.kernels[plot_id])) {
+        window.PyViz.kernels[plot_id].registerCommTarget(comm_id, function(comm) {
+          comm.onMsg = msg_handler;
+        });
+      } else if (typeof google != 'undefined' && google.colab.kernel != null) {
+        google.colab.kernel.comms.registerTarget(comm_id, (comm) => {
+          var messages = comm.messages[Symbol.asyncIterator]();
+          function processIteratorResult(result) {
+            var message = result.value;
+            console.log(message)
+            var content = {data: message.data, comm_id};
+            var buffers = []
+            for (var buffer of message.buffers || []) {
+              buffers.push(new DataView(buffer))
+            }
+            var metadata = message.metadata || {};
+            var msg = {content, buffers, metadata}
+            msg_handler(msg);
+            return messages.next().then(processIteratorResult);
+          }
+          return messages.next().then(processIteratorResult);
+        })
+      }
+    }
+
+    JupyterCommManager.prototype.get_client_comm = function(plot_id, comm_id, msg_handler) {
+      if (comm_id in window.PyViz.comms) {
+        return window.PyViz.comms[comm_id];
+      } else if (window.comm_manager || ((window.Jupyter !== undefined) && (Jupyter.notebook.kernel != null))) {
+        var comm_manager = window.comm_manager || Jupyter.notebook.kernel.comm_manager;
+        var comm = comm_manager.new_comm(comm_id, {}, {}, {}, comm_id);
+        if (msg_handler) {
+          comm.on_msg(msg_handler);
+        }
+      } else if ((plot_id in window.PyViz.kernels) && (window.PyViz.kernels[plot_id])) {
+        var comm = window.PyViz.kernels[plot_id].connectToComm(comm_id);
+        comm.open();
+        if (msg_handler) {
+          comm.onMsg = msg_handler;
+        }
+      } else if (typeof google != 'undefined' && google.colab.kernel != null) {
+        var comm_promise = google.colab.kernel.comms.open(comm_id)
+        comm_promise.then((comm) => {
+          window.PyViz.comms[comm_id] = comm;
+          if (msg_handler) {
+            var messages = comm.messages[Symbol.asyncIterator]();
+            function processIteratorResult(result) {
+              var message = result.value;
+              var content = {data: message.data};
+              var metadata = message.metadata || {comm_id};
+              var msg = {content, metadata}
+              msg_handler(msg);
+              return messages.next().then(processIteratorResult);
+            }
+            return messages.next().then(processIteratorResult);
+          }
+        }) 
+        var sendClosure = (data, metadata, buffers, disposeOnDone) => {
+          return comm_promise.then((comm) => {
+            comm.send(data, metadata, buffers, disposeOnDone);
+          });
+        };
+        var comm = {
+          send: sendClosure
+        };
+      }
+      window.PyViz.comms[comm_id] = comm;
+      return comm;
+    }
+    window.PyViz.comm_manager = new JupyterCommManager();
+    
+
+
+var JS_MIME_TYPE = 'application/javascript';
+var HTML_MIME_TYPE = 'text/html';
+var EXEC_MIME_TYPE = 'application/vnd.holoviews_exec.v0+json';
+var CLASS_NAME = 'output';
+
+/**
+ * Render data to the DOM node
+ */
+function render(props, node) {
+  var div = document.createElement("div");
+  var script = document.createElement("script");
+  node.appendChild(div);
+  node.appendChild(script);
+}
+
+/**
+ * Handle when a new output is added
+ */
+function handle_add_output(event, handle) {
+  var output_area = handle.output_area;
+  var output = handle.output;
+  if ((output.data == undefined) || (!output.data.hasOwnProperty(EXEC_MIME_TYPE))) {
+    return
+  }
+  var id = output.metadata[EXEC_MIME_TYPE]["id"];
+  var toinsert = output_area.element.find("." + CLASS_NAME.split(' ')[0]);
+  if (id !== undefined) {
+    var nchildren = toinsert.length;
+    var html_node = toinsert[nchildren-1].children[0];
+    html_node.innerHTML = output.data[HTML_MIME_TYPE];
+    var scripts = [];
+    var nodelist = html_node.querySelectorAll("script");
+    for (var i in nodelist) {
+      if (nodelist.hasOwnProperty(i)) {
+        scripts.push(nodelist[i])
+      }
+    }
+
+    scripts.forEach( function (oldScript) {
+      var newScript = document.createElement("script");
+      var attrs = [];
+      var nodemap = oldScript.attributes;
+      for (var j in nodemap) {
+        if (nodemap.hasOwnProperty(j)) {
+          attrs.push(nodemap[j])
+        }
+      }
+      attrs.forEach(function(attr) { newScript.setAttribute(attr.name, attr.value) });
+      newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+      oldScript.parentNode.replaceChild(newScript, oldScript);
+    });
+    if (JS_MIME_TYPE in output.data) {
+      toinsert[nchildren-1].children[1].textContent = output.data[JS_MIME_TYPE];
+    }
+    output_area._hv_plot_id = id;
+    if ((window.Bokeh !== undefined) && (id in Bokeh.index)) {
+      window.PyViz.plot_index[id] = Bokeh.index[id];
+    } else {
+      window.PyViz.plot_index[id] = null;
+    }
+  } else if (output.metadata[EXEC_MIME_TYPE]["server_id"] !== undefined) {
+    var bk_div = document.createElement("div");
+    bk_div.innerHTML = output.data[HTML_MIME_TYPE];
+    var script_attrs = bk_div.children[0].attributes;
+    for (var i = 0; i < script_attrs.length; i++) {
+      toinsert[toinsert.length - 1].childNodes[1].setAttribute(script_attrs[i].name, script_attrs[i].value);
+    }
+    // store reference to server id on output_area
+    output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
+  }
+}
+
+/**
+ * Handle when an output is cleared or removed
+ */
+function handle_clear_output(event, handle) {
+  var id = handle.cell.output_area._hv_plot_id;
+  var server_id = handle.cell.output_area._bokeh_server_id;
+  if (((id === undefined) || !(id in PyViz.plot_index)) && (server_id !== undefined)) { return; }
+  var comm = window.PyViz.comm_manager.get_client_comm("hv-extension-comm", "hv-extension-comm", function () {});
+  if (server_id !== null) {
+    comm.send({event_type: 'server_delete', 'id': server_id});
+    return;
+  } else if (comm !== null) {
+    comm.send({event_type: 'delete', 'id': id});
+  }
+  delete PyViz.plot_index[id];
+  if ((window.Bokeh !== undefined) & (id in window.Bokeh.index)) {
+    var doc = window.Bokeh.index[id].model.document
+    doc.clear();
+    const i = window.Bokeh.documents.indexOf(doc);
+    if (i > -1) {
+      window.Bokeh.documents.splice(i, 1);
+    }
+  }
+}
+
+/**
+ * Handle kernel restart event
+ */
+function handle_kernel_cleanup(event, handle) {
+  delete PyViz.comms["hv-extension-comm"];
+  window.PyViz.plot_index = {}
+}
+
+/**
+ * Handle update_display_data messages
+ */
+function handle_update_output(event, handle) {
+  handle_clear_output(event, {cell: {output_area: handle.output_area}})
+  handle_add_output(event, handle)
+}
+
+function register_renderer(events, OutputArea) {
+  function append_mime(data, metadata, element) {
+    // create a DOM node to render to
+    var toinsert = this.create_output_subarea(
+    metadata,
+    CLASS_NAME,
+    EXEC_MIME_TYPE
+    );
+    this.keyboard_manager.register_events(toinsert);
+    // Render to node
+    var props = {data: data, metadata: metadata[EXEC_MIME_TYPE]};
+    render(props, toinsert[0]);
+    element.append(toinsert);
+    return toinsert
+  }
+
+  events.on('output_added.OutputArea', handle_add_output);
+  events.on('output_updated.OutputArea', handle_update_output);
+  events.on('clear_output.CodeCell', handle_clear_output);
+  events.on('delete.Cell', handle_clear_output);
+  events.on('kernel_ready.Kernel', handle_kernel_cleanup);
+
+  OutputArea.prototype.register_mime_type(EXEC_MIME_TYPE, append_mime, {
+    safe: true,
+    index: 0
+  });
+}
+
+if (window.Jupyter !== undefined) {
+  try {
+    var events = require('base/js/events');
+    var OutputArea = require('notebook/js/outputarea').OutputArea;
+    if (OutputArea.prototype.mime_types().indexOf(EXEC_MIME_TYPE) == -1) {
+      register_renderer(events, OutputArea);
+    }
+  } catch(err) {
+  }
+}
+</script><div class="output text_html"><style>.bk-root, .bk-root .bk:before, .bk-root .bk:after {
+  font-family: var(--jp-ui-font-size1);
+  font-size: var(--jp-ui-font-size1);
+  color: var(--jp-ui-font-color1);
+}
+</style></div></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Perspective</span></code> pane provides an interactive visualization component for large, real-time datasets built on the <a class="reference external" href="https://perspective.finos.org/">Perspective</a> project.</p>
+<section id="parameters">
+<h2>Parameters:<a class="headerlink" href="#parameters" title="Permalink to this heading">#</a></h2>
+<p>For layout and styling related parameters see the <a class="reference internal" href="../../user_guide/Customization.html"><span class="doc std std-doc">customization user guide</span></a>.</p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">aggregates</span></code></strong> (dict): Aggregation spec, e.g. {x: “distinct count”}</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">columns</span></code></strong> (list): List of displayed columns.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">expressions</span></code></strong> (list): List of expressions, e.g. <code class="docutils literal notranslate"><span class="pre">['"x"+"y"']</span></code></p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">filters</span></code></strong> (list): A list of filters, e.g. <code class="docutils literal notranslate"><span class="pre">[["x",</span> <span class="pre">"&lt;",</span> <span class="pre">3],</span> <span class="pre">["y",</span> <span class="pre">"contains",</span> <span class="pre">"abc"]]</span></code>.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">group_by</span></code></strong> (list): List of columns to group by, e.g. <code class="docutils literal notranslate"><span class="pre">["x",</span> <span class="pre">"y"]</span></code></p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">object</span></code></strong> (dict or pd.DataFrame): The plot data declared as a dictionary of arrays or a DataFrame.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">selectable</span></code></strong> (bool, default=True): Whether rows are selectable</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">split_by</span></code></strong> (list):  A list of columns to pivot by. e.g. <code class="docutils literal notranslate"><span class="pre">["x",</span> <span class="pre">"y"]</span></code></p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">sort</span></code></strong> (list): List of sorting specs, e.g. <code class="docutils literal notranslate"><span class="pre">[["x",</span> <span class="pre">"desc"]]</span></code></p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">plugin</span></code></strong> (str): The name of a plugin to display the data. For example ‘datagrid’ or ‘d3_xy_scatter’.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">plugin_config</span></code></strong> (dict): Configuration for the PerspectiveViewerPlugin</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">toggle_config</span></code></strong> (bool): Whether to show the config menu.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">theme</span></code></strong> (str): The theme of the viewer, available options include <code class="docutils literal notranslate"><span class="pre">'material'</span></code>, <code class="docutils literal notranslate"><span class="pre">'material-dark'</span></code>, <code class="docutils literal notranslate"><span class="pre">'material-dense'</span></code>, <code class="docutils literal notranslate"><span class="pre">'material-dense-dark'</span></code>, <code class="docutils literal notranslate"><span class="pre">'monokai'</span></code>, <code class="docutils literal notranslate"><span class="pre">'solarized'</span></code>, <code class="docutils literal notranslate"><span class="pre">'solarized-dark'</span></code> and <code class="docutils literal notranslate"><span class="pre">'vaporwave'</span></code></p></li>
+</ul>
+<hr class="docutils"/>
+<p>The <code class="docutils literal notranslate"><span class="pre">Perspective</span></code> pane renders columns of data specified as a dictionary of lists or arrays and pandas DataFrames:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'x'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">'y'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]}</span>
+
+<span class="n">pn</span><span class="o">.</span><span class="n">pane</span><span class="o">.</span><span class="n">Perspective</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="1003">
+<div class="bk-root" data-root-id="1003" id="34767ef0-c091-4e52-9ee3-e39a0d69ed43"></div>
+</div>
+<script type="application/javascript">(function(root) {
+  function embed_document(root) {
+    var docs_json = {"31eb694b-6aad-44a6-8e04-8966e8ac6ad0":{"defs":[{"extends":null,"module":null,"name":"ReactiveHTML1","overrides":[],"properties":[]},{"extends":null,"module":null,"name":"FlexBox1","overrides":[],"properties":[{"default":"flex-start","kind":null,"name":"align_content"},{"default":"flex-start","kind":null,"name":"align_items"},{"default":"row","kind":null,"name":"flex_direction"},{"default":"wrap","kind":null,"name":"flex_wrap"},{"default":"flex-start","kind":null,"name":"justify_content"}]},{"extends":null,"module":null,"name":"GridStack1","overrides":[],"properties":[{"default":"warn","kind":null,"name":"mode"},{"default":null,"kind":null,"name":"ncols"},{"default":null,"kind":null,"name":"nrows"},{"default":true,"kind":null,"name":"allow_resize"},{"default":true,"kind":null,"name":"allow_drag"},{"default":[],"kind":null,"name":"state"}]},{"extends":null,"module":null,"name":"click1","overrides":[],"properties":[{"default":"","kind":null,"name":"terminal_output"},{"default":"","kind":null,"name":"debug_name"},{"default":0,"kind":null,"name":"clears"}]},{"extends":null,"module":null,"name":"NotificationAreaBase1","overrides":[],"properties":[{"default":"bottom-right","kind":null,"name":"position"},{"default":0,"kind":null,"name":"_clear"}]},{"extends":null,"module":null,"name":"NotificationArea1","overrides":[],"properties":[{"default":[],"kind":null,"name":"notifications"},{"default":"bottom-right","kind":null,"name":"position"},{"default":0,"kind":null,"name":"_clear"},{"default":[{"background":"#ffc107","icon":{"className":"fas fa-exclamation-triangle","color":"white","tagName":"i"},"type":"warning"},{"background":"#007bff","icon":{"className":"fas fa-info-circle","color":"white","tagName":"i"},"type":"info"}],"kind":null,"name":"types"}]},{"extends":null,"module":null,"name":"Notification","overrides":[],"properties":[{"default":null,"kind":null,"name":"background"},{"default":3000,"kind":null,"name":"duration"},{"default":null,"kind":null,"name":"icon"},{"default":"","kind":null,"name":"message"},{"default":null,"kind":null,"name":"notification_type"},{"default":false,"kind":null,"name":"_destroyed"}]},{"extends":null,"module":null,"name":"TemplateActions1","overrides":[],"properties":[{"default":0,"kind":null,"name":"open_modal"},{"default":0,"kind":null,"name":"close_modal"}]},{"extends":null,"module":null,"name":"MaterialTemplateActions1","overrides":[],"properties":[{"default":0,"kind":null,"name":"open_modal"},{"default":0,"kind":null,"name":"close_modal"}]}],"roots":{"references":[{"attributes":{"client_comm_id":"cd603c95671146fdbbcdb8e88c03cdcb","comm_id":"16c597631f60489cbddc6137f1e0ca8d","plot_id":"1003"},"id":"1010","type":"panel.models.comm_manager.CommManager"},{"attributes":{"data":{"x":[1,2,3],"y":[1,2,3]},"selected":{"id":"1005"},"selection_policy":{"id":"1004"}},"id":"1002","type":"ColumnDataSource"},{"attributes":{"height":300,"margin":[5,5,5,5],"min_width":1000,"plugin":"datagrid","schema":{"x":"integer","y":"integer"},"selectable":true,"source":{"id":"1002"},"theme":"material","width":1000},"id":"1003","type":"panel.models.perspective.Perspective"},{"attributes":{"reload":false},"id":"1017","type":"panel.models.location.Location"},{"attributes":{},"id":"1004","type":"UnionRenderers"},{"attributes":{},"id":"1005","type":"Selection"}],"root_ids":["1003","1010","1017"]},"title":"Bokeh Application","version":"2.4.3"}};
+    var render_items = [{"docid":"31eb694b-6aad-44a6-8e04-8966e8ac6ad0","root_ids":["1003"],"roots":{"1003":"34767ef0-c091-4e52-9ee3-e39a0d69ed43"}}];
+    root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
+    for (const render_item of render_items) {
+      for (const root_id of render_item.root_ids) {
+	const id_el = document.getElementById(root_id)
+	if (id_el.children.length && (id_el.children[0].className === 'bk-root')) {
+	  const root_el = id_el.children[0]
+	  root_el.id = root_el.id + '-rendered'
+	}
+      }
+    }
+  }
+  if (root.Bokeh !== undefined && root.Bokeh.Panel !== undefined) {
+    embed_document(root);
+  } else {
+    var attempts = 0;
+    var timer = setInterval(function(root) {
+      if (root.Bokeh !== undefined && root.Bokeh.Panel !== undefined) {
+        clearInterval(timer);
+        embed_document(root);
+      } else if (document.readyState == "complete") {
+        attempts++;
+        if (attempts > 200) {
+          clearInterval(timer);
+          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+        }
+      }
+    }, 25, root)
+  }
+})(window);</script></div></div>
+</div>
+<p>You can also provide configuration options for the viewer plugins:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">'XY'</span><span class="p">))</span>
+
+<span class="n">pn</span><span class="o">.</span><span class="n">pane</span><span class="o">.</span><span class="n">Perspective</span><span class="p">(</span><span class="n">random_df</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">plugin_config</span><span class="o">=</span><span class="p">{</span>
+    <span class="s1">'columns'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">'X'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'gradient'</span><span class="p">:</span> <span class="mf">0.7836544570728833</span><span class="p">,</span> <span class="s1">'neg_color'</span><span class="p">:</span> <span class="s1">'#f07160'</span><span class="p">,</span> <span class="s1">'number_color_mode'</span><span class="p">:</span> <span class="s1">'gradient'</span><span class="p">,</span> <span class="s1">'pos_color'</span><span class="p">:</span> <span class="s1">'#7dc3f0'</span><span class="p">},</span>
+        <span class="s1">'Y'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'gradient'</span><span class="p">:</span> <span class="mf">1.5673089141457666</span><span class="p">,</span> <span class="s1">'neg_color'</span><span class="p">:</span> <span class="s1">'#ff9485'</span><span class="p">,</span> <span class="s1">'number_color_mode'</span><span class="p">:</span> <span class="s1">'gradient'</span><span class="p">,</span> <span class="s1">'pos_color'</span><span class="p">:</span> <span class="s1">'#607785'</span><span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="1025">
+<div class="bk-root" data-root-id="1025" id="118699e2-a7a7-48c5-b797-7789d0a8e8e3"></div>
+</div>
+<script type="application/javascript">(function(root) {
+  function embed_document(root) {
+    var docs_json = {"2af9fa39-0089-472f-b08d-137e45dab4cc":{"defs":[{"extends":null,"module":null,"name":"ReactiveHTML1","overrides":[],"properties":[]},{"extends":null,"module":null,"name":"FlexBox1","overrides":[],"properties":[{"default":"flex-start","kind":null,"name":"align_content"},{"default":"flex-start","kind":null,"name":"align_items"},{"default":"row","kind":null,"name":"flex_direction"},{"default":"wrap","kind":null,"name":"flex_wrap"},{"default":"flex-start","kind":null,"name":"justify_content"}]},{"extends":null,"module":null,"name":"GridStack1","overrides":[],"properties":[{"default":"warn","kind":null,"name":"mode"},{"default":null,"kind":null,"name":"ncols"},{"default":null,"kind":null,"name":"nrows"},{"default":true,"kind":null,"name":"allow_resize"},{"default":true,"kind":null,"name":"allow_drag"},{"default":[],"kind":null,"name":"state"}]},{"extends":null,"module":null,"name":"click1","overrides":[],"properties":[{"default":"","kind":null,"name":"terminal_output"},{"default":"","kind":null,"name":"debug_name"},{"default":0,"kind":null,"name":"clears"}]},{"extends":null,"module":null,"name":"NotificationAreaBase1","overrides":[],"properties":[{"default":"bottom-right","kind":null,"name":"position"},{"default":0,"kind":null,"name":"_clear"}]},{"extends":null,"module":null,"name":"NotificationArea1","overrides":[],"properties":[{"default":[],"kind":null,"name":"notifications"},{"default":"bottom-right","kind":null,"name":"position"},{"default":0,"kind":null,"name":"_clear"},{"default":[{"background":"#ffc107","icon":{"className":"fas fa-exclamation-triangle","color":"white","tagName":"i"},"type":"warning"},{"background":"#007bff","icon":{"className":"fas fa-info-circle","color":"white","tagName":"i"},"type":"info"}],"kind":null,"name":"types"}]},{"extends":null,"module":null,"name":"Notification","overrides":[],"properties":[{"default":null,"kind":null,"name":"background"},{"default":3000,"kind":null,"name":"duration"},{"default":null,"kind":null,"name":"icon"},{"default":"","kind":null,"name":"message"},{"default":null,"kind":null,"name":"notification_type"},{"default":false,"kind":null,"name":"_destroyed"}]},{"extends":null,"module":null,"name":"TemplateActions1","overrides":[],"properties":[{"default":0,"kind":null,"name":"open_modal"},{"default":0,"kind":null,"name":"close_modal"}]},{"extends":null,"module":null,"name":"MaterialTemplateActions1","overrides":[],"properties":[{"default":0,"kind":null,"name":"open_modal"},{"default":0,"kind":null,"name":"close_modal"}]}],"roots":{"references":[{"attributes":{},"id":"1027","type":"Selection"},{"attributes":{"data":{"X":{"__ndarray__":"98aHOevb3L/H+0XTaJfyv0uI75PtSvW/9fMS1rLh0b9xtQi98PHaP6qBxlJgHec/anMcenp9tr+nDygwOO/rv/sdtogEQt0/KFPiq9Xg4L/oL57k5hwAwE5fjikuls6/vKPa8jFCwr9FvzCYgELjv7e0WF1cavE/G0639Ku83z+11/tvzabeP6TiwC5pAfq/MHClqsXQwT+XR0ZKb7faPw==","dtype":"float64","order":"little","shape":[20]},"Y":{"__ndarray__":"4p/0ETSc+j+3je5tP77sv87ODHSR68s/dSli/7688z95XtKDp+i9P0dfQpwFBMK/bm8L+fe+1T86PJhGL+mkvyg0WSqzL+o/Q9dqNBi10j+rd5sJSnDgP1GYNTvO/ca/EIrxYqvH1L9/UPpDThHbv3uoC3a/R/u/yU8364dElj/PwtjRykrLv4zbwhw6FdI/yX77OjWr9T9XG9qt+njaPw==","dtype":"float64","order":"little","shape":[20]},"index":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]},"selected":{"id":"1027"},"selection_policy":{"id":"1026"}},"id":"1024","type":"ColumnDataSource"},{"attributes":{"columns":["index","X","Y"],"height":300,"margin":[5,5,5,5],"min_width":1000,"plugin":"datagrid","plugin_config":{"columns":{"X":{"gradient":0.7836544570728833,"neg_color":"#f07160","number_color_mode":"gradient","pos_color":"#7dc3f0"},"Y":{"gradient":1.5673089141457666,"neg_color":"#ff9485","number_color_mode":"gradient","pos_color":"#607785"}}},"schema":{"X":"float","Y":"float","index":"integer"},"selectable":true,"source":{"id":"1024"},"theme":"material","width":1000},"id":"1025","type":"panel.models.perspective.Perspective"},{"attributes":{},"id":"1026","type":"UnionRenderers"},{"attributes":{"client_comm_id":"1831bca346dd49968247eddabd5fa0ab","comm_id":"f3a3a87cc1bc4867b2771fdab5748490","plot_id":"1025"},"id":"1032","type":"panel.models.comm_manager.CommManager"}],"root_ids":["1025","1032"]},"title":"Bokeh Application","version":"2.4.3"}};
+    var render_items = [{"docid":"2af9fa39-0089-472f-b08d-137e45dab4cc","root_ids":["1025"],"roots":{"1025":"118699e2-a7a7-48c5-b797-7789d0a8e8e3"}}];
+    root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
+    for (const render_item of render_items) {
+      for (const root_id of render_item.root_ids) {
+	const id_el = document.getElementById(root_id)
+	if (id_el.children.length && (id_el.children[0].className === 'bk-root')) {
+	  const root_el = id_el.children[0]
+	  root_el.id = root_el.id + '-rendered'
+	}
+      }
+    }
+  }
+  if (root.Bokeh !== undefined && root.Bokeh.Panel !== undefined) {
+    embed_document(root);
+  } else {
+    var attempts = 0;
+    var timer = setInterval(function(root) {
+      if (root.Bokeh !== undefined && root.Bokeh.Panel !== undefined) {
+        clearInterval(timer);
+        embed_document(root);
+      } else if (document.readyState == "complete") {
+        attempts++;
+        if (attempts > 200) {
+          clearInterval(timer);
+          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+        }
+      }
+    }, 25, root)
+  }
+})(window);</script></div></div>
+</div>
+<p>We can also set the various config settings such as choosing the <code class="docutils literal notranslate"><span class="pre">columns</span></code> to display or the <code class="docutils literal notranslate"><span class="pre">theme</span></code> from Python:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">'ABCD'</span><span class="p">))</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+
+<span class="n">stream_perspective</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">pane</span><span class="o">.</span><span class="n">Perspective</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">,</span> <span class="n">plugin</span><span class="o">=</span><span class="s1">'d3_y_line'</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'A'</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">,</span> <span class="s1">'C'</span><span class="p">,</span> <span class="s1">'D'</span><span class="p">],</span> <span class="n">theme</span><span class="o">=</span><span class="s1">'material-dark'</span><span class="p">,</span>
+    <span class="n">sizing_mode</span><span class="o">=</span><span class="s1">'stretch_width'</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">margin</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">)</span>
+
+<span class="n">stream_perspective</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="1044">
+<div class="bk-root" data-root-id="1044" id="1765b3f7-f433-4144-98c8-82c6e1733825"></div>
+</div>
+<script type="application/javascript">(function(root) {
+  function embed_document(root) {
+    var docs_json = {"35c699fe-d089-47f7-819c-1151e6b0c146":{"defs":[{"extends":null,"module":null,"name":"ReactiveHTML1","overrides":[],"properties":[]},{"extends":null,"module":null,"name":"FlexBox1","overrides":[],"properties":[{"default":"flex-start","kind":null,"name":"align_content"},{"default":"flex-start","kind":null,"name":"align_items"},{"default":"row","kind":null,"name":"flex_direction"},{"default":"wrap","kind":null,"name":"flex_wrap"},{"default":"flex-start","kind":null,"name":"justify_content"}]},{"extends":null,"module":null,"name":"GridStack1","overrides":[],"properties":[{"default":"warn","kind":null,"name":"mode"},{"default":null,"kind":null,"name":"ncols"},{"default":null,"kind":null,"name":"nrows"},{"default":true,"kind":null,"name":"allow_resize"},{"default":true,"kind":null,"name":"allow_drag"},{"default":[],"kind":null,"name":"state"}]},{"extends":null,"module":null,"name":"click1","overrides":[],"properties":[{"default":"","kind":null,"name":"terminal_output"},{"default":"","kind":null,"name":"debug_name"},{"default":0,"kind":null,"name":"clears"}]},{"extends":null,"module":null,"name":"NotificationAreaBase1","overrides":[],"properties":[{"default":"bottom-right","kind":null,"name":"position"},{"default":0,"kind":null,"name":"_clear"}]},{"extends":null,"module":null,"name":"NotificationArea1","overrides":[],"properties":[{"default":[],"kind":null,"name":"notifications"},{"default":"bottom-right","kind":null,"name":"position"},{"default":0,"kind":null,"name":"_clear"},{"default":[{"background":"#ffc107","icon":{"className":"fas fa-exclamation-triangle","color":"white","tagName":"i"},"type":"warning"},{"background":"#007bff","icon":{"className":"fas fa-info-circle","color":"white","tagName":"i"},"type":"info"}],"kind":null,"name":"types"}]},{"extends":null,"module":null,"name":"Notification","overrides":[],"properties":[{"default":null,"kind":null,"name":"background"},{"default":3000,"kind":null,"name":"duration"},{"default":null,"kind":null,"name":"icon"},{"default":"","kind":null,"name":"message"},{"default":null,"kind":null,"name":"notification_type"},{"default":false,"kind":null,"name":"_destroyed"}]},{"extends":null,"module":null,"name":"TemplateActions1","overrides":[],"properties":[{"default":0,"kind":null,"name":"open_modal"},{"default":0,"kind":null,"name":"close_modal"}]},{"extends":null,"module":null,"name":"MaterialTemplateActions1","overrides":[],"properties":[{"default":0,"kind":null,"name":"open_modal"},{"default":0,"kind":null,"name":"close_modal"}]}],"roots":{"references":[{"attributes":{},"id":"1046","type":"Selection"},{"attributes":{"client_comm_id":"a0fcdb55cfbe437ab4beacec0918be9b","comm_id":"5ad09dd4ec714ba88f79d1831031f47c","plot_id":"1044"},"id":"1051","type":"panel.models.comm_manager.CommManager"},{"attributes":{"columns":["A","B","C","D"],"height":500,"margin":[0,0,0,0],"min_width":420,"plugin":"d3_y_line","schema":{"A":"float","B":"float","C":"float","D":"float","index":"integer"},"selectable":true,"sizing_mode":"stretch_width","source":{"id":"1043"},"theme":"material-dark"},"id":"1044","type":"panel.models.perspective.Perspective"},{"attributes":{},"id":"1045","type":"UnionRenderers"},{"attributes":{"data":{"A":{"__ndarray__":"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","dtype":"float64","order":"little","shape":[400]},"B":{"__ndarray__":"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","dtype":"float64","order":"little","shape":[400]},"C":{"__ndarray__":"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","dtype":"float64","order":"little","shape":[400]},"D":{"__ndarray__":"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","dtype":"float64","order":"little","shape":[400]},"index":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,288,289,290,291,292,293,294,295,296,297,298,299,300,301,302,303,304,305,306,307,308,309,310,311,312,313,314,315,316,317,318,319,320,321,322,323,324,325,326,327,328,329,330,331,332,333,334,335,336,337,338,339,340,341,342,343,344,345,346,347,348,349,350,351,352,353,354,355,356,357,358,359,360,361,362,363,364,365,366,367,368,369,370,371,372,373,374,375,376,377,378,379,380,381,382,383,384,385,386,387,388,389,390,391,392,393,394,395,396,397,398,399]},"selected":{"id":"1046"},"selection_policy":{"id":"1045"}},"id":"1043","type":"ColumnDataSource"}],"root_ids":["1044","1051"]},"title":"Bokeh Application","version":"2.4.3"}};
+    var render_items = [{"docid":"35c699fe-d089-47f7-819c-1151e6b0c146","root_ids":["1044"],"roots":{"1044":"1765b3f7-f433-4144-98c8-82c6e1733825"}}];
+    root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
+    for (const render_item of render_items) {
+      for (const root_id of render_item.root_ids) {
+	const id_el = document.getElementById(root_id)
+	if (id_el.children.length && (id_el.children[0].className === 'bk-root')) {
+	  const root_el = id_el.children[0]
+	  root_el.id = root_el.id + '-rendered'
+	}
+      }
+    }
+  }
+  if (root.Bokeh !== undefined && root.Bokeh.Panel !== undefined) {
+    embed_document(root);
+  } else {
+    var attempts = 0;
+    var timer = setInterval(function(root) {
+      if (root.Bokeh !== undefined && root.Bokeh.Panel !== undefined) {
+        clearInterval(timer);
+        embed_document(root);
+      } else if (document.readyState == "complete") {
+        attempts++;
+        if (attempts > 200) {
+          clearInterval(timer);
+          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+        }
+      }
+    }, 25, root)
+  }
+})(window);</script></div></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Perspective</span></code> pane also supports <code class="docutils literal notranslate"><span class="pre">stream</span></code> and <code class="docutils literal notranslate"><span class="pre">patch</span></code> methods allowing us to efficiently update the data. The amount of data to keep in the streaming buffer can be controlled via the <code class="docutils literal notranslate"><span class="pre">rollover</span></code> option:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rollover</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">widgets</span><span class="o">.</span><span class="n">IntInput</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'Rollover'</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">stream</span><span class="p">():</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">stream_perspective</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">rollover</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+<span class="n">cb</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">add_periodic_callback</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+
+<span class="n">pn</span><span class="o">.</span><span class="n">Row</span><span class="p">(</span><span class="n">cb</span><span class="o">.</span><span class="n">param</span><span class="o">.</span><span class="n">period</span><span class="p">,</span> <span class="n">rollover</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="1062">
+<div class="bk-root" data-root-id="1062" id="f7c14d10-4a09-43dc-9888-c55b0a9a7e74"></div>
+</div>
+<script type="application/javascript">(function(root) {
+  function embed_document(root) {
+    var docs_json = {"809468c9-0cd8-47d6-a93c-33083301f527":{"defs":[{"extends":null,"module":null,"name":"ReactiveHTML1","overrides":[],"properties":[]},{"extends":null,"module":null,"name":"FlexBox1","overrides":[],"properties":[{"default":"flex-start","kind":null,"name":"align_content"},{"default":"flex-start","kind":null,"name":"align_items"},{"default":"row","kind":null,"name":"flex_direction"},{"default":"wrap","kind":null,"name":"flex_wrap"},{"default":"flex-start","kind":null,"name":"justify_content"}]},{"extends":null,"module":null,"name":"GridStack1","overrides":[],"properties":[{"default":"warn","kind":null,"name":"mode"},{"default":null,"kind":null,"name":"ncols"},{"default":null,"kind":null,"name":"nrows"},{"default":true,"kind":null,"name":"allow_resize"},{"default":true,"kind":null,"name":"allow_drag"},{"default":[],"kind":null,"name":"state"}]},{"extends":null,"module":null,"name":"click1","overrides":[],"properties":[{"default":"","kind":null,"name":"terminal_output"},{"default":"","kind":null,"name":"debug_name"},{"default":0,"kind":null,"name":"clears"}]},{"extends":null,"module":null,"name":"NotificationAreaBase1","overrides":[],"properties":[{"default":"bottom-right","kind":null,"name":"position"},{"default":0,"kind":null,"name":"_clear"}]},{"extends":null,"module":null,"name":"NotificationArea1","overrides":[],"properties":[{"default":[],"kind":null,"name":"notifications"},{"default":"bottom-right","kind":null,"name":"position"},{"default":0,"kind":null,"name":"_clear"},{"default":[{"background":"#ffc107","icon":{"className":"fas fa-exclamation-triangle","color":"white","tagName":"i"},"type":"warning"},{"background":"#007bff","icon":{"className":"fas fa-info-circle","color":"white","tagName":"i"},"type":"info"}],"kind":null,"name":"types"}]},{"extends":null,"module":null,"name":"Notification","overrides":[],"properties":[{"default":null,"kind":null,"name":"background"},{"default":3000,"kind":null,"name":"duration"},{"default":null,"kind":null,"name":"icon"},{"default":"","kind":null,"name":"message"},{"default":null,"kind":null,"name":"notification_type"},{"default":false,"kind":null,"name":"_destroyed"}]},{"extends":null,"module":null,"name":"TemplateActions1","overrides":[],"properties":[{"default":0,"kind":null,"name":"open_modal"},{"default":0,"kind":null,"name":"close_modal"}]},{"extends":null,"module":null,"name":"MaterialTemplateActions1","overrides":[],"properties":[{"default":0,"kind":null,"name":"open_modal"},{"default":0,"kind":null,"name":"close_modal"}]}],"roots":{"references":[{"attributes":{"children":[{"id":"1063"},{"id":"1064"}],"margin":[0,0,0,0],"name":"Row01395"},"id":"1062","type":"Row"},{"attributes":{"client_comm_id":"fa62ebba1fdd42b598fc1a447a422354","comm_id":"97c0ab3aaa99415fb36f8100a7c39178","plot_id":"1062"},"id":"1065","type":"panel.models.comm_manager.CommManager"},{"attributes":{"margin":[5,10,5,10],"mode":"int","placeholder":"0","title":"Rollover","value":500,"value_throttled":500},"id":"1064","type":"Spinner"},{"attributes":{"margin":[5,10,5,10],"mode":"int","placeholder":"0","title":"Period","value":50,"value_throttled":50},"id":"1063","type":"Spinner"}],"root_ids":["1062","1065"]},"title":"Bokeh Application","version":"2.4.3"}};
+    var render_items = [{"docid":"809468c9-0cd8-47d6-a93c-33083301f527","root_ids":["1062"],"roots":{"1062":"f7c14d10-4a09-43dc-9888-c55b0a9a7e74"}}];
+    root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
+    for (const render_item of render_items) {
+      for (const root_id of render_item.root_ids) {
+	const id_el = document.getElementById(root_id)
+	if (id_el.children.length && (id_el.children[0].className === 'bk-root')) {
+	  const root_el = id_el.children[0]
+	  root_el.id = root_el.id + '-rendered'
+	}
+      }
+    }
+  }
+  if (root.Bokeh !== undefined && root.Bokeh.Panel !== undefined) {
+    embed_document(root);
+  } else {
+    var attempts = 0;
+    var timer = setInterval(function(root) {
+      if (root.Bokeh !== undefined && root.Bokeh.Panel !== undefined) {
+        clearInterval(timer);
+        embed_document(root);
+      } else if (document.readyState == "complete") {
+        attempts++;
+        if (attempts > 200) {
+          clearInterval(timer);
+          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+        }
+      }
+    }, 25, root)
+  }
+})(window);</script></div></div>
+</div>
+<p>Alternatively we can also <code class="docutils literal notranslate"><span class="pre">patch</span></code> the data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mixed_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'A'</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="s1">'B'</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="s1">'C'</span><span class="p">:</span> <span class="p">[</span><span class="sa">f</span><span class="s1">'foo</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">'</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]})</span>
+
+<span class="n">perspective</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">pane</span><span class="o">.</span><span class="n">Perspective</span><span class="p">(</span><span class="n">mixed_df</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="n">perspective</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="1067">
+<div class="bk-root" data-root-id="1067" id="a927619a-849b-4be4-b982-5fb04394c100"></div>
+</div>
+<script type="application/javascript">(function(root) {
+  function embed_document(root) {
+    var docs_json = {"53d68445-2cf6-4b78-aa8a-b7ce57836a24":{"defs":[{"extends":null,"module":null,"name":"ReactiveHTML1","overrides":[],"properties":[]},{"extends":null,"module":null,"name":"FlexBox1","overrides":[],"properties":[{"default":"flex-start","kind":null,"name":"align_content"},{"default":"flex-start","kind":null,"name":"align_items"},{"default":"row","kind":null,"name":"flex_direction"},{"default":"wrap","kind":null,"name":"flex_wrap"},{"default":"flex-start","kind":null,"name":"justify_content"}]},{"extends":null,"module":null,"name":"GridStack1","overrides":[],"properties":[{"default":"warn","kind":null,"name":"mode"},{"default":null,"kind":null,"name":"ncols"},{"default":null,"kind":null,"name":"nrows"},{"default":true,"kind":null,"name":"allow_resize"},{"default":true,"kind":null,"name":"allow_drag"},{"default":[],"kind":null,"name":"state"}]},{"extends":null,"module":null,"name":"click1","overrides":[],"properties":[{"default":"","kind":null,"name":"terminal_output"},{"default":"","kind":null,"name":"debug_name"},{"default":0,"kind":null,"name":"clears"}]},{"extends":null,"module":null,"name":"NotificationAreaBase1","overrides":[],"properties":[{"default":"bottom-right","kind":null,"name":"position"},{"default":0,"kind":null,"name":"_clear"}]},{"extends":null,"module":null,"name":"NotificationArea1","overrides":[],"properties":[{"default":[],"kind":null,"name":"notifications"},{"default":"bottom-right","kind":null,"name":"position"},{"default":0,"kind":null,"name":"_clear"},{"default":[{"background":"#ffc107","icon":{"className":"fas fa-exclamation-triangle","color":"white","tagName":"i"},"type":"warning"},{"background":"#007bff","icon":{"className":"fas fa-info-circle","color":"white","tagName":"i"},"type":"info"}],"kind":null,"name":"types"}]},{"extends":null,"module":null,"name":"Notification","overrides":[],"properties":[{"default":null,"kind":null,"name":"background"},{"default":3000,"kind":null,"name":"duration"},{"default":null,"kind":null,"name":"icon"},{"default":"","kind":null,"name":"message"},{"default":null,"kind":null,"name":"notification_type"},{"default":false,"kind":null,"name":"_destroyed"}]},{"extends":null,"module":null,"name":"TemplateActions1","overrides":[],"properties":[{"default":0,"kind":null,"name":"open_modal"},{"default":0,"kind":null,"name":"close_modal"}]},{"extends":null,"module":null,"name":"MaterialTemplateActions1","overrides":[],"properties":[{"default":0,"kind":null,"name":"open_modal"},{"default":0,"kind":null,"name":"close_modal"}]}],"roots":{"references":[{"attributes":{"client_comm_id":"dd8a9732e10e49f2ab29bdfb510d5f19","comm_id":"d3e0cecbc9734cf59c0925bd0c4fe24a","plot_id":"1067"},"id":"1074","type":"panel.models.comm_manager.CommManager"},{"attributes":{},"id":"1068","type":"UnionRenderers"},{"attributes":{},"id":"1069","type":"Selection"},{"attributes":{"columns":["index","A","B","C"],"height":500,"margin":[5,5,5,5],"min_height":500,"min_width":420,"plugin":"datagrid","schema":{"A":"integer","B":"float","C":"string","index":"integer"},"selectable":true,"source":{"id":"1066"},"theme":"material"},"id":"1067","type":"panel.models.perspective.Perspective"},{"attributes":{"data":{"A":[0,1,2,3,4,5,6,7,8,9],"B":{"__ndarray__":"uMTkKr9t7D/wEaVFhfazP0QFlPIWKuI/wZgbNUUu4T8Y8E3PtL3hP/dajXLbOug/jc5ufuEc7z/6lxkCtzPnP2DcSPYbs8I/ShM16cTG6z8=","dtype":"float64","order":"little","shape":[10]},"C":["foo0","foo1","foo2","foo3","foo4","foo5","foo6","foo7","foo8","foo9"],"index":[0,1,2,3,4,5,6,7,8,9]},"selected":{"id":"1069"},"selection_policy":{"id":"1068"}},"id":"1066","type":"ColumnDataSource"}],"root_ids":["1067","1074"]},"title":"Bokeh Application","version":"2.4.3"}};
+    var render_items = [{"docid":"53d68445-2cf6-4b78-aa8a-b7ce57836a24","root_ids":["1067"],"roots":{"1067":"a927619a-849b-4be4-b982-5fb04394c100"}}];
+    root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
+    for (const render_item of render_items) {
+      for (const root_id of render_item.root_ids) {
+	const id_el = document.getElementById(root_id)
+	if (id_el.children.length && (id_el.children[0].className === 'bk-root')) {
+	  const root_el = id_el.children[0]
+	  root_el.id = root_el.id + '-rendered'
+	}
+      }
+    }
+  }
+  if (root.Bokeh !== undefined && root.Bokeh.Panel !== undefined) {
+    embed_document(root);
+  } else {
+    var attempts = 0;
+    var timer = setInterval(function(root) {
+      if (root.Bokeh !== undefined && root.Bokeh.Panel !== undefined) {
+        clearInterval(timer);
+        embed_document(root);
+      } else if (document.readyState == "complete") {
+        attempts++;
+        if (attempts > 200) {
+          clearInterval(timer);
+          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+        }
+      }
+    }, 25, root)
+  }
+})(window);</script></div></div>
+</div>
+<p>The easiest way to patch the data is by supplying a dictionary as the patch value. The dictionary should have the following structure:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="n">column</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">(</span><span class="n">index</span><span class="p">:</span> <span class="nb">int</span> <span class="ow">or</span> <span class="nb">slice</span><span class="p">,</span> <span class="n">value</span><span class="p">),</span>
+        <span class="o">...</span>
+    <span class="p">],</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>As an example, below we will patch the ‘A’ and ‘C’ columns. On the <code class="docutils literal notranslate"><span class="pre">'A'</span></code> column we will replace the 0th row and on the <code class="docutils literal notranslate"><span class="pre">'C'</span></code> column we replace the first two rows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">perspective</span><span class="o">.</span><span class="n">patch</span><span class="p">({</span><span class="s1">'A'</span><span class="p">:</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)],</span> <span class="s1">'C'</span><span class="p">:</span> <span class="p">[(</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="s1">'bar'</span><span class="p">)]})</span>
+
+<span class="n">perspective</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="1088">
+<div class="bk-root" data-root-id="1088" id="760341b7-7dad-43e1-bc8d-c957529ef42e"></div>
+</div>
+<script type="application/javascript">(function(root) {
+  function embed_document(root) {
+    var docs_json = {"de9ee10b-e4ee-4426-8523-a4f1a58ba788":{"defs":[{"extends":null,"module":null,"name":"ReactiveHTML1","overrides":[],"properties":[]},{"extends":null,"module":null,"name":"FlexBox1","overrides":[],"properties":[{"default":"flex-start","kind":null,"name":"align_content"},{"default":"flex-start","kind":null,"name":"align_items"},{"default":"row","kind":null,"name":"flex_direction"},{"default":"wrap","kind":null,"name":"flex_wrap"},{"default":"flex-start","kind":null,"name":"justify_content"}]},{"extends":null,"module":null,"name":"GridStack1","overrides":[],"properties":[{"default":"warn","kind":null,"name":"mode"},{"default":null,"kind":null,"name":"ncols"},{"default":null,"kind":null,"name":"nrows"},{"default":true,"kind":null,"name":"allow_resize"},{"default":true,"kind":null,"name":"allow_drag"},{"default":[],"kind":null,"name":"state"}]},{"extends":null,"module":null,"name":"click1","overrides":[],"properties":[{"default":"","kind":null,"name":"terminal_output"},{"default":"","kind":null,"name":"debug_name"},{"default":0,"kind":null,"name":"clears"}]},{"extends":null,"module":null,"name":"NotificationAreaBase1","overrides":[],"properties":[{"default":"bottom-right","kind":null,"name":"position"},{"default":0,"kind":null,"name":"_clear"}]},{"extends":null,"module":null,"name":"NotificationArea1","overrides":[],"properties":[{"default":[],"kind":null,"name":"notifications"},{"default":"bottom-right","kind":null,"name":"position"},{"default":0,"kind":null,"name":"_clear"},{"default":[{"background":"#ffc107","icon":{"className":"fas fa-exclamation-triangle","color":"white","tagName":"i"},"type":"warning"},{"background":"#007bff","icon":{"className":"fas fa-info-circle","color":"white","tagName":"i"},"type":"info"}],"kind":null,"name":"types"}]},{"extends":null,"module":null,"name":"Notification","overrides":[],"properties":[{"default":null,"kind":null,"name":"background"},{"default":3000,"kind":null,"name":"duration"},{"default":null,"kind":null,"name":"icon"},{"default":"","kind":null,"name":"message"},{"default":null,"kind":null,"name":"notification_type"},{"default":false,"kind":null,"name":"_destroyed"}]},{"extends":null,"module":null,"name":"TemplateActions1","overrides":[],"properties":[{"default":0,"kind":null,"name":"open_modal"},{"default":0,"kind":null,"name":"close_modal"}]},{"extends":null,"module":null,"name":"MaterialTemplateActions1","overrides":[],"properties":[{"default":0,"kind":null,"name":"open_modal"},{"default":0,"kind":null,"name":"close_modal"}]}],"roots":{"references":[{"attributes":{},"id":"1090","type":"Selection"},{"attributes":{"data":{"A":[3,1,2,3,4,5,6,7,8,9],"B":{"__ndarray__":"uMTkKr9t7D/wEaVFhfazP0QFlPIWKuI/wZgbNUUu4T8Y8E3PtL3hP/dajXLbOug/jc5ufuEc7z/6lxkCtzPnP2DcSPYbs8I/ShM16cTG6z8=","dtype":"float64","order":"little","shape":[10]},"C":["bar","foo1","foo2","foo3","foo4","foo5","foo6","foo7","foo8","foo9"],"index":[0,1,2,3,4,5,6,7,8,9]},"selected":{"id":"1090"},"selection_policy":{"id":"1089"}},"id":"1087","type":"ColumnDataSource"},{"attributes":{},"id":"1089","type":"UnionRenderers"},{"attributes":{"client_comm_id":"f5ce0d94a2e74f4895f017a2ebe2910b","comm_id":"f09e3fa2b9094759b99e0173858335c6","plot_id":"1088"},"id":"1095","type":"panel.models.comm_manager.CommManager"},{"attributes":{"columns":["index","A","B","C"],"height":500,"margin":[5,5,5,5],"min_height":500,"min_width":420,"plugin":"datagrid","schema":{"A":"integer","B":"float","C":"string","index":"integer"},"selectable":true,"source":{"id":"1087"},"theme":"material"},"id":"1088","type":"panel.models.perspective.Perspective"}],"root_ids":["1088","1095"]},"title":"Bokeh Application","version":"2.4.3"}};
+    var render_items = [{"docid":"de9ee10b-e4ee-4426-8523-a4f1a58ba788","root_ids":["1088"],"roots":{"1088":"760341b7-7dad-43e1-bc8d-c957529ef42e"}}];
+    root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
+    for (const render_item of render_items) {
+      for (const root_id of render_item.root_ids) {
+	const id_el = document.getElementById(root_id)
+	if (id_el.children.length && (id_el.children[0].className === 'bk-root')) {
+	  const root_el = id_el.children[0]
+	  root_el.id = root_el.id + '-rendered'
+	}
+      }
+    }
+  }
+  if (root.Bokeh !== undefined && root.Bokeh.Panel !== undefined) {
+    embed_document(root);
+  } else {
+    var attempts = 0;
+    var timer = setInterval(function(root) {
+      if (root.Bokeh !== undefined && root.Bokeh.Panel !== undefined) {
+        clearInterval(timer);
+        embed_document(root);
+      } else if (document.readyState == "complete") {
+        attempts++;
+        if (attempts > 200) {
+          clearInterval(timer);
+          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+        }
+      }
+    }, 25, root)
+  }
+})(window);</script></div></div>
+</div>
+<p>Deleting rows can be achieved by streaming the data you want to become visible and setting rollover equal to the row count of new data. Effectively, deleting old rows. Removing specific rows by index in a similar manner as patching is currently not supported.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'A'</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)}</span>
+
+<span class="n">perspective</span> <span class="o">=</span> <span class="n">pn</span><span class="o">.</span><span class="n">pane</span><span class="o">.</span><span class="n">Perspective</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="n">perspective</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="1107">
+<div class="bk-root" data-root-id="1107" id="b54b0f5c-1e08-43b7-96bb-f19543f187f7"></div>
+</div>
+<script type="application/javascript">(function(root) {
+  function embed_document(root) {
+    var docs_json = {"6aa9be32-719d-405c-96f3-f2baef89ef09":{"defs":[{"extends":null,"module":null,"name":"ReactiveHTML1","overrides":[],"properties":[]},{"extends":null,"module":null,"name":"FlexBox1","overrides":[],"properties":[{"default":"flex-start","kind":null,"name":"align_content"},{"default":"flex-start","kind":null,"name":"align_items"},{"default":"row","kind":null,"name":"flex_direction"},{"default":"wrap","kind":null,"name":"flex_wrap"},{"default":"flex-start","kind":null,"name":"justify_content"}]},{"extends":null,"module":null,"name":"GridStack1","overrides":[],"properties":[{"default":"warn","kind":null,"name":"mode"},{"default":null,"kind":null,"name":"ncols"},{"default":null,"kind":null,"name":"nrows"},{"default":true,"kind":null,"name":"allow_resize"},{"default":true,"kind":null,"name":"allow_drag"},{"default":[],"kind":null,"name":"state"}]},{"extends":null,"module":null,"name":"click1","overrides":[],"properties":[{"default":"","kind":null,"name":"terminal_output"},{"default":"","kind":null,"name":"debug_name"},{"default":0,"kind":null,"name":"clears"}]},{"extends":null,"module":null,"name":"NotificationAreaBase1","overrides":[],"properties":[{"default":"bottom-right","kind":null,"name":"position"},{"default":0,"kind":null,"name":"_clear"}]},{"extends":null,"module":null,"name":"NotificationArea1","overrides":[],"properties":[{"default":[],"kind":null,"name":"notifications"},{"default":"bottom-right","kind":null,"name":"position"},{"default":0,"kind":null,"name":"_clear"},{"default":[{"background":"#ffc107","icon":{"className":"fas fa-exclamation-triangle","color":"white","tagName":"i"},"type":"warning"},{"background":"#007bff","icon":{"className":"fas fa-info-circle","color":"white","tagName":"i"},"type":"info"}],"kind":null,"name":"types"}]},{"extends":null,"module":null,"name":"Notification","overrides":[],"properties":[{"default":null,"kind":null,"name":"background"},{"default":3000,"kind":null,"name":"duration"},{"default":null,"kind":null,"name":"icon"},{"default":"","kind":null,"name":"message"},{"default":null,"kind":null,"name":"notification_type"},{"default":false,"kind":null,"name":"_destroyed"}]},{"extends":null,"module":null,"name":"TemplateActions1","overrides":[],"properties":[{"default":0,"kind":null,"name":"open_modal"},{"default":0,"kind":null,"name":"close_modal"}]},{"extends":null,"module":null,"name":"MaterialTemplateActions1","overrides":[],"properties":[{"default":0,"kind":null,"name":"open_modal"},{"default":0,"kind":null,"name":"close_modal"}]}],"roots":{"references":[{"attributes":{"data":{"A":[0,1,2,3,4,5,6,7,8,9]},"selected":{"id":"1109"},"selection_policy":{"id":"1108"}},"id":"1106","type":"ColumnDataSource"},{"attributes":{"client_comm_id":"63ca1f1a87124c228c2a17a76f0910e7","comm_id":"3393f074d254411a94ec62f3933b7555","plot_id":"1107"},"id":"1114","type":"panel.models.comm_manager.CommManager"},{"attributes":{},"id":"1108","type":"UnionRenderers"},{"attributes":{"height":500,"margin":[5,5,5,5],"min_height":500,"min_width":420,"plugin":"datagrid","schema":{"A":"integer"},"selectable":true,"source":{"id":"1106"},"theme":"material"},"id":"1107","type":"panel.models.perspective.Perspective"},{"attributes":{},"id":"1109","type":"Selection"}],"root_ids":["1107","1114"]},"title":"Bokeh Application","version":"2.4.3"}};
+    var render_items = [{"docid":"6aa9be32-719d-405c-96f3-f2baef89ef09","root_ids":["1107"],"roots":{"1107":"b54b0f5c-1e08-43b7-96bb-f19543f187f7"}}];
+    root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
+    for (const render_item of render_items) {
+      for (const root_id of render_item.root_ids) {
+	const id_el = document.getElementById(root_id)
+	if (id_el.children.length && (id_el.children[0].className === 'bk-root')) {
+	  const root_el = id_el.children[0]
+	  root_el.id = root_el.id + '-rendered'
+	}
+      }
+    }
+  }
+  if (root.Bokeh !== undefined && root.Bokeh.Panel !== undefined) {
+    embed_document(root);
+  } else {
+    var attempts = 0;
+    var timer = setInterval(function(root) {
+      if (root.Bokeh !== undefined && root.Bokeh.Panel !== undefined) {
+        clearInterval(timer);
+        embed_document(root);
+      } else if (document.readyState == "complete") {
+        attempts++;
+        if (attempts > 200) {
+          clearInterval(timer);
+          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+        }
+      }
+    }, 25, root)
+  }
+})(window);</script></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smaller_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'A'</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)}</span>
+
+<span class="n">perspective</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="n">smaller_data</span><span class="p">,</span> <span class="n">rollover</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="controls">
+<h2>Controls<a class="headerlink" href="#controls" title="Permalink to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Perspective</span></code> pane exposes a number of options which can be changed from both Python and Javascript try out the effect of these parameters interactively:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pn</span><span class="o">.</span><span class="n">Row</span><span class="p">(</span><span class="n">perspective</span><span class="o">.</span><span class="n">controls</span><span class="p">(</span><span class="n">jslink</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">perspective</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="1127">
+<div class="bk-root" data-root-id="1127" id="9865bcf3-6011-4fb9-b153-a13703722c44"></div>
+</div>
+<script type="application/javascript">(function(root) {
+  function embed_document(root) {
+    var docs_json = {"9b2393be-42c2-4316-bad5-6fab490945ef":{"defs":[{"extends":null,"module":null,"name":"ReactiveHTML1","overrides":[],"properties":[]},{"extends":null,"module":null,"name":"FlexBox1","overrides":[],"properties":[{"default":"flex-start","kind":null,"name":"align_content"},{"default":"flex-start","kind":null,"name":"align_items"},{"default":"row","kind":null,"name":"flex_direction"},{"default":"wrap","kind":null,"name":"flex_wrap"},{"default":"flex-start","kind":null,"name":"justify_content"}]},{"extends":null,"module":null,"name":"GridStack1","overrides":[],"properties":[{"default":"warn","kind":null,"name":"mode"},{"default":null,"kind":null,"name":"ncols"},{"default":null,"kind":null,"name":"nrows"},{"default":true,"kind":null,"name":"allow_resize"},{"default":true,"kind":null,"name":"allow_drag"},{"default":[],"kind":null,"name":"state"}]},{"extends":null,"module":null,"name":"click1","overrides":[],"properties":[{"default":"","kind":null,"name":"terminal_output"},{"default":"","kind":null,"name":"debug_name"},{"default":0,"kind":null,"name":"clears"}]},{"extends":null,"module":null,"name":"NotificationAreaBase1","overrides":[],"properties":[{"default":"bottom-right","kind":null,"name":"position"},{"default":0,"kind":null,"name":"_clear"}]},{"extends":null,"module":null,"name":"NotificationArea1","overrides":[],"properties":[{"default":[],"kind":null,"name":"notifications"},{"default":"bottom-right","kind":null,"name":"position"},{"default":0,"kind":null,"name":"_clear"},{"default":[{"background":"#ffc107","icon":{"className":"fas fa-exclamation-triangle","color":"white","tagName":"i"},"type":"warning"},{"background":"#007bff","icon":{"className":"fas fa-info-circle","color":"white","tagName":"i"},"type":"info"}],"kind":null,"name":"types"}]},{"extends":null,"module":null,"name":"Notification","overrides":[],"properties":[{"default":null,"kind":null,"name":"background"},{"default":3000,"kind":null,"name":"duration"},{"default":null,"kind":null,"name":"icon"},{"default":"","kind":null,"name":"message"},{"default":null,"kind":null,"name":"notification_type"},{"default":false,"kind":null,"name":"_destroyed"}]},{"extends":null,"module":null,"name":"TemplateActions1","overrides":[],"properties":[{"default":0,"kind":null,"name":"open_modal"},{"default":0,"kind":null,"name":"close_modal"}]},{"extends":null,"module":null,"name":"MaterialTemplateActions1","overrides":[],"properties":[{"default":0,"kind":null,"name":"open_modal"},{"default":0,"kind":null,"name":"close_modal"}]}],"roots":{"references":[{"attributes":{"args":{"bidirectional":true,"properties":{"value":"margin"},"source":{"id":"1157"},"target":{"id":"1164"}},"code":"\n    var value = source['value'];\n    value = JSON.parse(value.replace(/'/g, '\"'));\n    value = value;\n    try {\n      var property = target.properties['margin'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set margin on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['margin'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870317120,[null,"value"],[null,"margin"]]]},"id":"1213","type":"CustomJS"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"plugin"},"source":{"id":"1139"},"target":{"id":"1164"}},"code":"\n    var value = source['value'];\n    value = value;\n    value = value;\n    try {\n      var property = target.properties['plugin'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set plugin on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['plugin'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870316112,[null,"value"],[null,"plugin"]]]},"id":"1183","type":"CustomJS"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"max_width"},"source":{"id":"1155"},"target":{"id":"1164"}},"code":"\n    var value = source['value'];\n    value = value;\n    value = value;\n    try {\n      var property = target.properties['max_width'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set max_width on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['max_width'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870316832,[null,"value"],[null,"max_width"]]]},"id":"1209","type":"CustomJS"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"sort"},"source":{"id":"1138"},"target":{"id":"1164"}},"code":"\n    var value = source['value'];\n    value = JSON.parse(value.replace(/'/g, '\"'));\n    value = value;\n    try {\n      var property = target.properties['sort'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set sort on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['sort'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870316304,[null,"value"],[null,"sort"]]]},"id":"1181","type":"CustomJS"},{"attributes":{"children":[{"id":"1128"},{"id":"1164"}],"margin":[0,0,0,0],"name":"Row01503"},"id":"1127","type":"Row"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"max_width"},"source":{"id":"1164"},"target":{"id":"1155"}},"code":"\n    var value = source['max_width'];\n    value = value;\n    value = value;\n    try {\n      var property = target.properties['value'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set value on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['value'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870316832,[null,"value"],[null,"max_width"]]]},"id":"1210","type":"CustomJS"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"sort"},"source":{"id":"1164"},"target":{"id":"1138"}},"code":"\n    var value = source['sort'];\n    value = value;\n    value = JSON.stringify(value).replace(/,/g, \",\").replace(/:/g, \": \");\n    try {\n      var property = target.properties['value'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set value on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['value'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870316304,[null,"value"],[null,"sort"]]]},"id":"1182","type":"CustomJS"},{"attributes":{"margin":[0,0,0,0],"tabs":[{"id":"1143"},{"id":"1162"}]},"id":"1128","type":"panel.models.tabs.Tabs"},{"attributes":{},"id":"1165","type":"UnionRenderers"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"max_height"},"source":{"id":"1156"},"target":{"id":"1164"}},"code":"\n    var value = source['value'];\n    value = value;\n    value = value;\n    try {\n      var property = target.properties['max_height'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set max_height on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['max_height'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870317072,[null,"value"],[null,"max_height"]]]},"id":"1211","type":"CustomJS"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"toggle_config"},"source":{"id":"1141"},"target":{"id":"1164"}},"code":"\n    var value = source['active'];\n    value = value.indexOf(0) >= 0;\n    value = value;\n    try {\n      var property = target.properties['toggle_config'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set toggle_config on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['toggle_config'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870316592,[null,"active"],[null,"toggle_config"]]]},"id":"1187","type":"CustomJS"},{"attributes":{"children":[{"id":"1130"},{"id":"1131"},{"id":"1132"},{"id":"1133"},{"id":"1134"},{"id":"1135"},{"id":"1136"},{"id":"1137"},{"id":"1138"},{"id":"1139"},{"id":"1140"},{"id":"1141"},{"id":"1142"}],"css_classes":["panel-widget-box"],"margin":[5,5,5,5],"min_width":300,"name":"Controls","width":300},"id":"1129","type":"Column"},{"attributes":{},"id":"1166","type":"Selection"},{"attributes":{"js_property_callbacks":{"change:value":[{"id":"1205"}]},"low":0,"margin":[5,10,5,10],"mode":"int","placeholder":"0","title":"Min width","value":420,"value_throttled":420},"id":"1153","type":"Spinner"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"max_height"},"source":{"id":"1164"},"target":{"id":"1156"}},"code":"\n    var value = source['max_height'];\n    value = value;\n    value = value;\n    try {\n      var property = target.properties['value'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set value on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['value'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870317072,[null,"value"],[null,"max_height"]]]},"id":"1212","type":"CustomJS"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"plugin"},"source":{"id":"1164"},"target":{"id":"1139"}},"code":"\n    var value = source['plugin'];\n    value = value;\n    value = value;\n    try {\n      var property = target.properties['value'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set value on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['value'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870316112,[null,"value"],[null,"plugin"]]]},"id":"1184","type":"CustomJS"},{"attributes":{"margin":[5,10,5,10],"name":"","text":"<b>Controls</b>"},"id":"1130","type":"Div"},{"attributes":{"js_property_callbacks":{"change:value":[{"id":"1169"}]},"margin":[5,10,5,10],"title":"Columns"},"id":"1132","type":"TextInput"},{"attributes":{"js_property_callbacks":{"change:value":[{"id":"1171"}]},"margin":[5,10,5,10],"title":"Expressions"},"id":"1133","type":"TextInput"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"width_policy"},"source":{"id":"1158"},"target":{"id":"1164"}},"code":"\n    var value = source['value'];\n    value = value;\n    value = value;\n    try {\n      var property = target.properties['width_policy'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set width_policy on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['width_policy'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870317168,[null,"value"],[null,"width_policy"]]]},"id":"1215","type":"CustomJS"},{"attributes":{"js_property_callbacks":{"change:value":[{"id":"1181"}]},"margin":[5,10,5,10],"title":"Sort"},"id":"1138","type":"TextInput"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"plugin_config"},"source":{"id":"1140"},"target":{"id":"1164"}},"code":"\n    var value = source['value'];\n    value = JSON.parse(value.replace(/'/g, '\"'));\n    value = value;\n    try {\n      var property = target.properties['plugin_config'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set plugin_config on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['plugin_config'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870316208,[null,"value"],[null,"plugin_config"]]]},"id":"1185","type":"CustomJS"},{"attributes":{"js_property_callbacks":{"change:value":[{"id":"1167"}]},"margin":[5,10,5,10],"title":"Aggregates"},"id":"1131","type":"TextInput"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"margin"},"source":{"id":"1164"},"target":{"id":"1157"}},"code":"\n    var value = source['margin'];\n    value = value;\n    value = JSON.stringify(value).replace(/,/g, \",\").replace(/:/g, \": \");\n    try {\n      var property = target.properties['value'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set value on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['value'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870317120,[null,"value"],[null,"margin"]]]},"id":"1214","type":"CustomJS"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"plugin_config"},"source":{"id":"1164"},"target":{"id":"1140"}},"code":"\n    var value = source['plugin_config'];\n    value = value;\n    value = JSON.stringify(value).replace(/,/g, \",\").replace(/:/g, \": \");\n    try {\n      var property = target.properties['value'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set value on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['value'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870316208,[null,"value"],[null,"plugin_config"]]]},"id":"1186","type":"CustomJS"},{"attributes":{"active":[0],"js_property_callbacks":{"change:active":[{"id":"1179"}]},"labels":["Selectable"],"margin":[5,10,5,10]},"id":"1137","type":"CheckboxGroup"},{"attributes":{"js_property_callbacks":{"change:value":[{"id":"1173"}]},"margin":[5,10,5,10],"title":"Split by"},"id":"1134","type":"TextInput"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"height_policy"},"source":{"id":"1159"},"target":{"id":"1164"}},"code":"\n    var value = source['value'];\n    value = value;\n    value = value;\n    try {\n      var property = target.properties['height_policy'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set height_policy on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['height_policy'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870317216,[null,"value"],[null,"height_policy"]]]},"id":"1217","type":"CustomJS"},{"attributes":{"js_property_callbacks":{"change:value":[{"id":"1175"}]},"margin":[5,10,5,10],"title":"Filters"},"id":"1135","type":"TextInput"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"theme"},"source":{"id":"1142"},"target":{"id":"1164"}},"code":"\n    var value = source['value'];\n    value = value;\n    value = value;\n    try {\n      var property = target.properties['theme'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set theme on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['theme'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870316496,[null,"value"],[null,"theme"]]]},"id":"1189","type":"CustomJS"},{"attributes":{"js_property_callbacks":{"change:value":[{"id":"1177"}]},"margin":[5,10,5,10],"title":"Group by"},"id":"1136","type":"TextInput"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"width_policy"},"source":{"id":"1164"},"target":{"id":"1158"}},"code":"\n    var value = source['width_policy'];\n    value = value;\n    value = value;\n    try {\n      var property = target.properties['value'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set value on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['value'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870317168,[null,"value"],[null,"width_policy"]]]},"id":"1216","type":"CustomJS"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"toggle_config"},"source":{"id":"1164"},"target":{"id":"1141"}},"code":"\n    var value = source['toggle_config'];\n    value = value;\n    value = value ? [0] : [];\n    try {\n      var property = target.properties['active'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set active on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['active'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870316592,[null,"active"],[null,"toggle_config"]]]},"id":"1188","type":"CustomJS"},{"attributes":{"js_property_callbacks":{"change:value":[{"id":"1183"}]},"margin":[5,10,5,10],"options":[["hypergrid","hypergrid"],["datagrid","datagrid"],["d3_y_bar","d3_y_bar"],["d3_x_bar","d3_x_bar"],["d3_xy_line","d3_xy_line"],["d3_y_line","d3_y_line"],["d3_y_area","d3_y_area"],["d3_y_scatter","d3_y_scatter"],["d3_xy_scatter","d3_xy_scatter"],["d3_treemap","d3_treemap"],["d3_sunburst","d3_sunburst"],["d3_heatmap","d3_heatmap"],["d3_candlestick","d3_candlestick"],["d3_ohlc","d3_ohlc"]],"title":"Plugin","value":"datagrid"},"id":"1139","type":"panel.models.widgets.CustomSelect"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"align"},"source":{"id":"1147"},"target":{"id":"1164"}},"code":"\n    var value = source['value'];\n    value = JSON.parse(value.replace(/'/g, '\"'));\n    value = value;\n    try {\n      var property = target.properties['align'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set align on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['align'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870316640,[null,"value"],[null,"align"]]]},"id":"1193","type":"CustomJS"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"visible"},"source":{"id":"1161"},"target":{"id":"1164"}},"code":"\n    var value = source['active'];\n    value = value.indexOf(0) >= 0;\n    value = value;\n    try {\n      var property = target.properties['visible'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set visible on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['visible'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870317312,[null,"active"],[null,"visible"]]]},"id":"1221","type":"CustomJS"},{"attributes":{"active":[0],"js_property_callbacks":{"change:active":[{"id":"1187"}]},"labels":["Toggle config"],"margin":[5,10,5,10]},"id":"1141","type":"CheckboxGroup"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"name"},"source":{"id":"1146"},"target":{"id":"1164"}},"code":"\n    var value = source['value'];\n    value = value;\n    value = value;\n    try {\n      var property = target.properties['name'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set name on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['name'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870316688,[null,"value"],[null,"name"]]]},"id":"1191","type":"CustomJS"},{"attributes":{"child":{"id":"1129"},"name":"Controls","title":"Controls"},"id":"1143","type":"Panel"},{"attributes":{"js_property_callbacks":{"change:value":[{"id":"1189"}]},"margin":[5,10,5,10],"options":[["material","material"],["material-dark","material-dark"],["material-dense","material-dense"],["material-dense-dark","material-dense-dark"],["vaporwave","vaporwave"],["solarized","solarized"],["solarized-dark","solarized-dark"],["monokai","monokai"]],"title":"Theme","value":"material"},"id":"1142","type":"panel.models.widgets.CustomSelect"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"height_policy"},"source":{"id":"1164"},"target":{"id":"1159"}},"code":"\n    var value = source['height_policy'];\n    value = value;\n    value = value;\n    try {\n      var property = target.properties['value'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set value on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['value'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870317216,[null,"value"],[null,"height_policy"]]]},"id":"1218","type":"CustomJS"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"theme"},"source":{"id":"1164"},"target":{"id":"1142"}},"code":"\n    var value = source['theme'];\n    value = value;\n    value = value;\n    try {\n      var property = target.properties['value'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set value on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['value'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870316496,[null,"value"],[null,"theme"]]]},"id":"1190","type":"CustomJS"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"name"},"source":{"id":"1164"},"target":{"id":"1146"}},"code":"\n    var value = source['name'];\n    value = value;\n    value = value;\n    try {\n      var property = target.properties['value'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set value on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['value'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870316688,[null,"value"],[null,"name"]]]},"id":"1192","type":"CustomJS"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"sizing_mode"},"source":{"id":"1160"},"target":{"id":"1164"}},"code":"\n    var value = source['value'];\n    value = value;\n    value = value;\n    try {\n      var property = target.properties['sizing_mode'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set sizing_mode on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['sizing_mode'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870317360,[null,"value"],[null,"sizing_mode"]]]},"id":"1219","type":"CustomJS"},{"attributes":{"js_property_callbacks":{"change:value":[{"id":"1185"}]},"margin":[5,10,5,10],"title":"Plugin config","value":"{}"},"id":"1140","type":"TextInput"},{"attributes":{"children":[{"id":"1145"},{"id":"1146"},{"id":"1147"},{"id":"1148"},{"id":"1149"},{"id":"1150"},{"id":"1151"},{"id":"1152"},{"id":"1153"},{"id":"1154"},{"id":"1155"},{"id":"1156"},{"id":"1157"},{"id":"1158"},{"id":"1159"},{"id":"1160"},{"id":"1161"}],"css_classes":["panel-widget-box"],"margin":[5,5,5,5],"min_width":300,"name":"Layout","width":300},"id":"1144","type":"Column"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"sizing_mode"},"source":{"id":"1164"},"target":{"id":"1160"}},"code":"\n    var value = source['sizing_mode'];\n    value = value;\n    value = value;\n    try {\n      var property = target.properties['value'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set value on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['value'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870317360,[null,"value"],[null,"sizing_mode"]]]},"id":"1220","type":"CustomJS"},{"attributes":{"js_property_callbacks":{"change:value":[{"id":"1203"}]},"low":0,"margin":[5,10,5,10],"mode":"int","placeholder":"0","title":"Height","value":500,"value_throttled":500},"id":"1152","type":"Spinner"},{"attributes":{"js_property_callbacks":{"change:value":[{"id":"1193"}]},"margin":[5,10,5,10],"title":"Align","value":"'start'"},"id":"1147","type":"TextInput"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"height"},"source":{"id":"1152"},"target":{"id":"1164"}},"code":"\n    var value = source['value'];\n    value = value;\n    value = value;\n    try {\n      var property = target.properties['height'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set height on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['height'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870316976,[null,"value"],[null,"height"]]]},"id":"1203","type":"CustomJS"},{"attributes":{"margin":[5,10,5,10],"name":"","text":"<b>Layout</b>"},"id":"1145","type":"Div"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"aggregates"},"source":{"id":"1131"},"target":{"id":"1164"}},"code":"\n    var value = source['value'];\n    value = JSON.parse(value.replace(/'/g, '\"'));\n    value = value;\n    try {\n      var property = target.properties['aggregates'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set aggregates on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['aggregates'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160871024240,[null,"value"],[null,"aggregates"]]]},"id":"1167","type":"CustomJS"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"visible"},"source":{"id":"1164"},"target":{"id":"1161"}},"code":"\n    var value = source['visible'];\n    value = value;\n    value = value ? [0] : [];\n    try {\n      var property = target.properties['active'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set active on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['active'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870317312,[null,"active"],[null,"visible"]]]},"id":"1222","type":"CustomJS"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"aggregates"},"source":{"id":"1164"},"target":{"id":"1131"}},"code":"\n    var value = source['aggregates'];\n    value = value;\n    value = JSON.stringify(value).replace(/,/g, \",\").replace(/:/g, \": \");\n    try {\n      var property = target.properties['value'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set value on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['value'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160871024240,[null,"value"],[null,"aggregates"]]]},"id":"1168","type":"CustomJS"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"align"},"source":{"id":"1164"},"target":{"id":"1147"}},"code":"\n    var value = source['align'];\n    value = value;\n    value = JSON.stringify(value).replace(/,/g, \",\").replace(/:/g, \": \");\n    try {\n      var property = target.properties['value'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set value on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['value'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870316640,[null,"value"],[null,"align"]]]},"id":"1194","type":"CustomJS"},{"attributes":{"disabled":true,"js_property_callbacks":{"change:value":[{"id":"1191"}]},"margin":[5,10,5,10],"max_length":5000,"title":"Name","value":"Perspective01404"},"id":"1146","type":"TextInput"},{"attributes":{"js_property_callbacks":{"change:value":[{"id":"1197"}]},"margin":[5,10,5,10],"title":"Background"},"id":"1149","type":"TextInput"},{"attributes":{"js_property_callbacks":{"change:value":[{"id":"1195"}]},"margin":[5,10,5,10],"title":"Aspect ratio"},"id":"1148","type":"TextInput"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"aspect_ratio"},"source":{"id":"1148"},"target":{"id":"1164"}},"code":"\n    var value = source['value'];\n    value = JSON.parse(value.replace(/'/g, '\"'));\n    value = value;\n    try {\n      var property = target.properties['aspect_ratio'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set aspect_ratio on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['aspect_ratio'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870315680,[null,"value"],[null,"aspect_ratio"]]]},"id":"1195","type":"CustomJS"},{"attributes":{"js_property_callbacks":{"change:value":[{"id":"1207"}]},"low":0,"margin":[5,10,5,10],"mode":"int","placeholder":"0","title":"Min height"},"id":"1154","type":"Spinner"},{"attributes":{"js_property_callbacks":{"change:value":[{"id":"1199"}]},"margin":[5,10,5,10],"title":"Css classes"},"id":"1150","type":"TextInput"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"columns"},"source":{"id":"1164"},"target":{"id":"1132"}},"code":"\n    var value = source['columns'];\n    value = value;\n    value = JSON.stringify(value).replace(/,/g, \",\").replace(/:/g, \": \");\n    try {\n      var property = target.properties['value'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set value on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['value'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160871024288,[null,"value"],[null,"columns"]]]},"id":"1170","type":"CustomJS"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"aspect_ratio"},"source":{"id":"1164"},"target":{"id":"1148"}},"code":"\n    var value = source['aspect_ratio'];\n    value = value;\n    value = JSON.stringify(value).replace(/,/g, \",\").replace(/:/g, \": \");\n    try {\n      var property = target.properties['value'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set value on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['value'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870315680,[null,"value"],[null,"aspect_ratio"]]]},"id":"1196","type":"CustomJS"},{"attributes":{"js_property_callbacks":{"change:value":[{"id":"1201"}]},"low":0,"margin":[5,10,5,10],"mode":"int","placeholder":"0","title":"Width"},"id":"1151","type":"Spinner"},{"attributes":{"js_property_callbacks":{"change:value":[{"id":"1209"}]},"low":0,"margin":[5,10,5,10],"mode":"int","placeholder":"0","title":"Max width"},"id":"1155","type":"Spinner"},{"attributes":{"js_property_callbacks":{"change:value":[{"id":"1211"}]},"low":0,"margin":[5,10,5,10],"mode":"int","placeholder":"0","title":"Max height"},"id":"1156","type":"Spinner"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"columns"},"source":{"id":"1132"},"target":{"id":"1164"}},"code":"\n    var value = source['value'];\n    value = JSON.parse(value.replace(/'/g, '\"'));\n    value = value;\n    try {\n      var property = target.properties['columns'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set columns on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['columns'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160871024288,[null,"value"],[null,"columns"]]]},"id":"1169","type":"CustomJS"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"min_width"},"source":{"id":"1164"},"target":{"id":"1153"}},"code":"\n    var value = source['min_width'];\n    value = value;\n    value = value;\n    try {\n      var property = target.properties['value'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set value on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['value'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870317024,[null,"value"],[null,"min_width"]]]},"id":"1206","type":"CustomJS"},{"attributes":{"js_property_callbacks":{"change:value":[{"id":"1213"}]},"margin":[5,10,5,10],"title":"Margin","value":"5"},"id":"1157","type":"TextInput"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"background"},"source":{"id":"1149"},"target":{"id":"1164"}},"code":"\n    var value = source['value'];\n    value = JSON.parse(value.replace(/'/g, '\"'));\n    value = value;\n    try {\n      var property = target.properties['background'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set background on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['background'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870316736,[null,"value"],[null,"background"]]]},"id":"1197","type":"CustomJS"},{"attributes":{"js_property_callbacks":{"change:value":[{"id":"1215"}]},"margin":[5,10,5,10],"options":[["auto","auto"],["fixed","fixed"],["fit","fit"],["min","min"],["max","max"]],"title":"Width policy","value":"auto"},"id":"1158","type":"panel.models.widgets.CustomSelect"},{"attributes":{"active":[0],"js_property_callbacks":{"change:active":[{"id":"1221"}]},"labels":["Visible"],"margin":[5,10,5,10]},"id":"1161","type":"CheckboxGroup"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"background"},"source":{"id":"1164"},"target":{"id":"1149"}},"code":"\n    var value = source['background'];\n    value = value;\n    value = JSON.stringify(value).replace(/,/g, \",\").replace(/:/g, \": \");\n    try {\n      var property = target.properties['value'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set value on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['value'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870316736,[null,"value"],[null,"background"]]]},"id":"1198","type":"CustomJS"},{"attributes":{"js_property_callbacks":{"change:value":[{"id":"1217"}]},"margin":[5,10,5,10],"options":[["auto","auto"],["fixed","fixed"],["fit","fit"],["min","min"],["max","max"]],"title":"Height policy","value":"auto"},"id":"1159","type":"panel.models.widgets.CustomSelect"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"min_height"},"source":{"id":"1164"},"target":{"id":"1154"}},"code":"\n    var value = source['min_height'];\n    value = value;\n    value = value;\n    try {\n      var property = target.properties['value'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set value on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['value'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870316784,[null,"value"],[null,"min_height"]]]},"id":"1208","type":"CustomJS"},{"attributes":{"js_property_callbacks":{"change:value":[{"id":"1219"}]},"margin":[5,10,5,10],"options":[["fixed","fixed"],["stretch_width","stretch_width"],["stretch_height","stretch_height"],["stretch_both","stretch_both"],["scale_width","scale_width"],["scale_height","scale_height"],["scale_both","scale_both"],["None","None"]],"title":"Sizing mode"},"id":"1160","type":"panel.models.widgets.CustomSelect"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"expressions"},"source":{"id":"1133"},"target":{"id":"1164"}},"code":"\n    var value = source['value'];\n    value = JSON.parse(value.replace(/'/g, '\"'));\n    value = value;\n    try {\n      var property = target.properties['expressions'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set expressions on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['expressions'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160871023136,[null,"value"],[null,"expressions"]]]},"id":"1171","type":"CustomJS"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"css_classes"},"source":{"id":"1150"},"target":{"id":"1164"}},"code":"\n    var value = source['value'];\n    value = JSON.parse(value.replace(/'/g, '\"'));\n    value = value;\n    try {\n      var property = target.properties['css_classes'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set css_classes on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['css_classes'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870316880,[null,"value"],[null,"css_classes"]]]},"id":"1199","type":"CustomJS"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"expressions"},"source":{"id":"1164"},"target":{"id":"1133"}},"code":"\n    var value = source['expressions'];\n    value = value;\n    value = JSON.stringify(value).replace(/,/g, \",\").replace(/:/g, \": \");\n    try {\n      var property = target.properties['value'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set value on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['value'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160871023136,[null,"value"],[null,"expressions"]]]},"id":"1172","type":"CustomJS"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"css_classes"},"source":{"id":"1164"},"target":{"id":"1150"}},"code":"\n    var value = source['css_classes'];\n    value = value;\n    value = JSON.stringify(value).replace(/,/g, \",\").replace(/:/g, \": \");\n    try {\n      var property = target.properties['value'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set value on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['value'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870316880,[null,"value"],[null,"css_classes"]]]},"id":"1200","type":"CustomJS"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"split_by"},"source":{"id":"1134"},"target":{"id":"1164"}},"code":"\n    var value = source['value'];\n    value = JSON.parse(value.replace(/'/g, '\"'));\n    value = value;\n    try {\n      var property = target.properties['split_by'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set split_by on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['split_by'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870584224,[null,"value"],[null,"split_by"]]]},"id":"1173","type":"CustomJS"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"width"},"source":{"id":"1151"},"target":{"id":"1164"}},"code":"\n    var value = source['value'];\n    value = value;\n    value = value;\n    try {\n      var property = target.properties['width'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set width on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['width'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870316928,[null,"value"],[null,"width"]]]},"id":"1201","type":"CustomJS"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"split_by"},"source":{"id":"1164"},"target":{"id":"1134"}},"code":"\n    var value = source['split_by'];\n    value = value;\n    value = JSON.stringify(value).replace(/,/g, \",\").replace(/:/g, \": \");\n    try {\n      var property = target.properties['value'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set value on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['value'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870584224,[null,"value"],[null,"split_by"]]]},"id":"1174","type":"CustomJS"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"width"},"source":{"id":"1164"},"target":{"id":"1151"}},"code":"\n    var value = source['width'];\n    value = value;\n    value = value;\n    try {\n      var property = target.properties['value'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set value on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['value'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870316928,[null,"value"],[null,"width"]]]},"id":"1202","type":"CustomJS"},{"attributes":{"child":{"id":"1144"},"name":"Layout","title":"Layout"},"id":"1162","type":"Panel"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"filters"},"source":{"id":"1135"},"target":{"id":"1164"}},"code":"\n    var value = source['value'];\n    value = JSON.parse(value.replace(/'/g, '\"'));\n    value = value;\n    try {\n      var property = target.properties['filters'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set filters on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['filters'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870584176,[null,"value"],[null,"filters"]]]},"id":"1175","type":"CustomJS"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"min_width"},"source":{"id":"1153"},"target":{"id":"1164"}},"code":"\n    var value = source['value'];\n    value = value;\n    value = value;\n    try {\n      var property = target.properties['min_width'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set min_width on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['min_width'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870317024,[null,"value"],[null,"min_width"]]]},"id":"1205","type":"CustomJS"},{"attributes":{"data":{"A":[0,1,2,3,4,5,6,7,8,9]},"selected":{"id":"1166"},"selection_policy":{"id":"1165"}},"id":"1163","type":"ColumnDataSource"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"filters"},"source":{"id":"1164"},"target":{"id":"1135"}},"code":"\n    var value = source['filters'];\n    value = value;\n    value = JSON.stringify(value).replace(/,/g, \",\").replace(/:/g, \": \");\n    try {\n      var property = target.properties['value'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set value on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['value'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870584176,[null,"value"],[null,"filters"]]]},"id":"1176","type":"CustomJS"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"height"},"source":{"id":"1164"},"target":{"id":"1152"}},"code":"\n    var value = source['height'];\n    value = value;\n    value = value;\n    try {\n      var property = target.properties['value'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set value on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['value'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870316976,[null,"value"],[null,"height"]]]},"id":"1204","type":"CustomJS"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"selectable"},"source":{"id":"1137"},"target":{"id":"1164"}},"code":"\n    var value = source['active'];\n    value = value.indexOf(0) >= 0;\n    value = value;\n    try {\n      var property = target.properties['selectable'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set selectable on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['selectable'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870316448,[null,"active"],[null,"selectable"]]]},"id":"1179","type":"CustomJS"},{"attributes":{"height":500,"js_property_callbacks":{"change:aggregates":[{"id":"1168"}],"change:align":[{"id":"1194"}],"change:aspect_ratio":[{"id":"1196"}],"change:background":[{"id":"1198"}],"change:columns":[{"id":"1170"}],"change:css_classes":[{"id":"1200"}],"change:expressions":[{"id":"1172"}],"change:filters":[{"id":"1176"}],"change:group_by":[{"id":"1178"}],"change:height":[{"id":"1204"}],"change:height_policy":[{"id":"1218"}],"change:margin":[{"id":"1214"}],"change:max_height":[{"id":"1212"}],"change:max_width":[{"id":"1210"}],"change:min_height":[{"id":"1208"}],"change:min_width":[{"id":"1206"}],"change:name":[{"id":"1192"}],"change:plugin":[{"id":"1184"}],"change:plugin_config":[{"id":"1186"}],"change:selectable":[{"id":"1180"}],"change:sizing_mode":[{"id":"1220"}],"change:sort":[{"id":"1182"}],"change:split_by":[{"id":"1174"}],"change:theme":[{"id":"1190"}],"change:toggle_config":[{"id":"1188"}],"change:visible":[{"id":"1222"}],"change:width":[{"id":"1202"}],"change:width_policy":[{"id":"1216"}]},"margin":[5,5,5,5],"min_height":500,"min_width":420,"name":"Perspective01404","plugin":"datagrid","schema":{"A":"integer"},"selectable":true,"source":{"id":"1163"},"theme":"material"},"id":"1164","type":"panel.models.perspective.Perspective"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"group_by"},"source":{"id":"1136"},"target":{"id":"1164"}},"code":"\n    var value = source['value'];\n    value = JSON.parse(value.replace(/'/g, '\"'));\n    value = value;\n    try {\n      var property = target.properties['group_by'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set group_by on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['group_by'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870583840,[null,"value"],[null,"group_by"]]]},"id":"1177","type":"CustomJS"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"min_height"},"source":{"id":"1154"},"target":{"id":"1164"}},"code":"\n    var value = source['value'];\n    value = value;\n    value = value;\n    try {\n      var property = target.properties['min_height'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set min_height on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['min_height'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870316784,[null,"value"],[null,"min_height"]]]},"id":"1207","type":"CustomJS"},{"attributes":{"client_comm_id":"f9e3be785fc8424ca385482ac1544dd5","comm_id":"5536e37bd7af40aa874303d4c4e339a6","plot_id":"1127"},"id":"1227","type":"panel.models.comm_manager.CommManager"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"group_by"},"source":{"id":"1164"},"target":{"id":"1136"}},"code":"\n    var value = source['group_by'];\n    value = value;\n    value = JSON.stringify(value).replace(/,/g, \",\").replace(/:/g, \": \");\n    try {\n      var property = target.properties['value'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set value on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['value'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870583840,[null,"value"],[null,"group_by"]]]},"id":"1178","type":"CustomJS"},{"attributes":{"args":{"bidirectional":true,"properties":{"value":"selectable"},"source":{"id":"1164"},"target":{"id":"1137"}},"code":"\n    var value = source['selectable'];\n    value = value;\n    value = value ? [0] : [];\n    try {\n      var property = target.properties['active'];\n      if (property !== undefined) { property.validate(value); }\n    } catch(err) {\n      console.log('WARNING: Could not set active on target, raised error: ' + err);\n      return;\n    }\n    try {\n      target['active'] = value;\n    } catch(err) {\n      console.log(err)\n    }\n    ","tags":[[140160870316448,[null,"active"],[null,"selectable"]]]},"id":"1180","type":"CustomJS"}],"root_ids":["1127","1227"]},"title":"Bokeh Application","version":"2.4.3"}};
+    var render_items = [{"docid":"9b2393be-42c2-4316-bad5-6fab490945ef","root_ids":["1127"],"roots":{"1127":"9865bcf3-6011-4fb9-b153-a13703722c44"}}];
+    root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
+    for (const render_item of render_items) {
+      for (const root_id of render_item.root_ids) {
+	const id_el = document.getElementById(root_id)
+	if (id_el.children.length && (id_el.children[0].className === 'bk-root')) {
+	  const root_el = id_el.children[0]
+	  root_el.id = root_el.id + '-rendered'
+	}
+      }
+    }
+  }
+  if (root.Bokeh !== undefined && root.Bokeh.Panel !== undefined) {
+    embed_document(root);
+  } else {
+    var attempts = 0;
+    var timer = setInterval(function(root) {
+      if (root.Bokeh !== undefined && root.Bokeh.Panel !== undefined) {
+        clearInterval(timer);
+        embed_document(root);
+      } else if (document.readyState == "complete") {
+        attempts++;
+        if (attempts > 200) {
+          clearInterval(timer);
+          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+        }
+      }
+    }, 25, root)
+  }
+})(window);</script></div></div>
+</div>
+</section>
+<div id="scroller-right">This web page was generated from a Jupyter notebook and not all interactivity will work on this website. <a href="https://raw.githubusercontent.com/holoviz/panel/v0.14.2/examples/reference/panes/Perspective.ipynb">Right click to download and run locally</a> for full Python-backed interactivity.</div><hr class="docutils"/>
+<p><a class="reference external" href="https://raw.githubusercontent.com/holoviz/panel/master/examples/reference/panes/Perspective.ipynb">Download this notebook from GitHub (right-click to download).</a></p>
+</section>
+</article>
+<footer class="bd-footer-article">
+<!-- Previous / next buttons -->
+<div class="prev-next-area">
+<a class="left-prev" href="Param.html" id="prev-link" title="previous page">
+<i class="fas fa-angle-left"></i>
+<div class="prev-next-info">
+<p class="prev-next-subtitle">previous</p>
+<p class="prev-next-title">Param</p>
+</div>
+</a>
+<a class="right-next" href="Plotly.html" id="next-link" title="next page">
+<div class="prev-next-info">
+<p class="prev-next-subtitle">next</p>
+<p class="prev-next-title">Plotly</p>
+</div>
+<i class="fas fa-angle-right"></i>
+</a>
+</div>
+</footer>
+</div>
+</div>
+</div>
+<!-- Scripts loaded after <body> so the DOM is not blocked -->
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695"></script>
+<footer class="bd-footer"><div class="bd-footer__inner container">
+<div class="footer-item">
+<p class="copyright">
+    © Copyright 2019-2022 Holoviz contributors.<br/>
+</p>
+</div>
+<div class="footer-item">
+<p class="last-updated">
+Last updated on 2022-12-16.<br/>
+</p>
+</div>
+</div>
+</footer>
+</body>
+</html>
