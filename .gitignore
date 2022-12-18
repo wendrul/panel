@@ -126,3 +126,6 @@ discover/
 node_modules/*
 /tmp
 .devcontainer/*
+doc/_build/*
+doc/gallery/*
+doc/reference/*
