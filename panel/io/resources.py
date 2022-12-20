@@ -21,6 +21,7 @@ from bokeh.embed.bundle import (
     CSS_RESOURCES as BkCSS_RESOURCES, Bundle as BkBundle, _bundle_extensions,
     _use_mathjax, bundle_models, extension_dirs,
 )
+from bokeh.model import Model
 from bokeh.resources import Resources as BkResources
 from bokeh.settings import settings as _settings
 from jinja2.environment import Environment
@@ -372,6 +373,14 @@ class Resources(BkResources):
         return modules
 
     @property
+    def js_module_exports(self):
+        modules = {}
+        for model in Model.model_class_reverse_map.values():
+            if hasattr(model, '__javascript_module_exports__'):
+                modules.update(dict(zip(model.__javascript_module_exports__, model.__javascript_module__)))
+        return modules
+
+    @property
     def css_files(self):
         from ..config import config
 
@@ -395,7 +404,8 @@ class Resources(BkResources):
     def render_js(self):
         return JS_RESOURCES.render(
             js_raw=self.js_raw, js_files=self.js_files,
-            js_modules=self.js_modules, hashes=self.hashes
+            js_modules=self.js_modules, hashes=self.hashes,
+            js_module_exports=self.js_module_exports
         )
 
 
@@ -410,7 +420,19 @@ class Bundle(BkBundle):
                 for js_module in model.__javascript_modules__:
                     if js_module not in js_modules:
                         js_modules.append(js_module)
+        exports = {}
+        for model in Model.model_class_reverse_map.values():
+            if hasattr(model, '__javascript_module_exports__'):
+
+                print(model.__javascript_module_exports__, model.__javascript_modules__)
+                exports.update(dict(zip(model.__javascript_module_exports__, model.__javascript_modules__)))
+            elif hasattr(model, '__javascript_modules__'):
+                for js_module in model.__javascript_modules__:
+                    if js_module not in js_modules:
+                        js_modules.append(js_module)
+        print(exports)
         self.js_modules = kwargs.pop("js_modules", js_modules)
+        self.js_module_exports = kwargs.pop("js_module_exports", exports)
         super().__init__(**kwargs)
 
     def _adjust_paths(self, resources):
@@ -442,5 +464,7 @@ class Bundle(BkBundle):
     def _render_js(self):
         return JS_RESOURCES.render(
             js_raw=self.js_raw, js_files=self._adjust_paths(self.js_files),
-            js_modules=self._adjust_paths(self.js_modules), hashes=self.hashes
+            js_modules=self._adjust_paths(self.js_modules),
+            js_module_exports=self.js_module_exports,
+            hashes=self.hashes
         )
